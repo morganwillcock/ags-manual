@@ -1,6 +1,8 @@
 @echo off
 setlocal enabledelayedexpansion
 
+python -V
+
 if not defined SOURCEDIR set SOURCEDIR=source
 if not defined BUILDDIR set BUILDDIR=build
 if not defined SPHINXPROJ set SPHINXPROJ=AGSHelp
