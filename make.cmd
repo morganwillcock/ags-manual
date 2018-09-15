@@ -7,6 +7,7 @@ if not defined SOURCEDIR set SOURCEDIR=source
 if not defined BUILDDIR set BUILDDIR=build
 if not defined SPHINXPROJ set SPHINXPROJ=AGSHelp
 if not defined SPHINXOPTS set SPHINXOPTS=-c .
+if not defined PYTHON for /f %%i in ('where python') do set PYTHON=%%i
 
 if not defined GITURL set GITURL=https://github.com/adventuregamestudio/ags-manual.wiki.git
 if not defined GITOPTS set GITOPTS=--depth=1 --branch=master
@@ -37,7 +38,7 @@ exit /b
 
 :html
 :htmlhelp
-sphinx-build -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS%
+%PYTHON% -m sphinx -b %1 %SPHINXOPTS% %SOURCEDIR% %BUILDDIR% 
 exit /b
 
 :chm

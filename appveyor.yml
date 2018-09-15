@@ -15,7 +15,7 @@ branches:
 
 install:
   - cinst html-help-workshop
-  - pip install -r requirements.txt
+  - "%PYTHON% -m pip install -r requirements.txt"
 
 build_script:
   - make clone htmlhelp chm
