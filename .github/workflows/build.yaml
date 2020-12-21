@@ -1,0 +1,65 @@
+name: Build manual
+
+on:
+  - push
+  - pull_request
+  - workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+        pandoc:
+          - 2.9.1
+    steps:
+      - name: Checkout build system
+        uses: actions/checkout@v2
+        with:
+          path: ags-manual
+      - name: Checkout wiki
+        uses: actions/checkout@v2
+        with:
+          repository: morganwillcock/ags-manual.wiki
+          path: ags-manual.wiki
+      - name: Set path to Markdown files
+        run: |
+          cd ags-manual.wiki
+          echo "CHECKOUTDIR=$(pwd)" >> $GITHUB_ENV
+      - name: Get Markdown files
+        run: |
+          cd ags-manual
+          make source
+      - name: Download Pandoc
+        run: |
+          if [ "${{ runner.os }}" = "macOS" ]; then
+            suffix=macOS.zip
+            tar=bsdtar
+          elif [ "${{ runner.os }}" = "Linux" ]; then
+            suffix=linux-amd64.tar.gz
+            tar=tar
+          else
+            exit 1
+          fi
+          url="https://github.com/jgm/pandoc/releases/download/${{ matrix.pandoc }}/pandoc-${{ matrix.pandoc }}-$suffix"
+          pandoc="pandoc-${{ matrix.pandoc }}/bin/pandoc"
+          curl -fL "$url" | $tar -vxzC "${{ runner.temp }}" "$pandoc"
+          chmod +x "${{ runner.temp }}/$pandoc"
+          echo PANDOC="${{ runner.temp }}/$pandoc" >> $GITHUB_ENV
+      - name: Check Markdown files
+        # macOS still seems to implement pipefail with sh -e even though it shouldn't exist
+        shell: sh {0}
+        run: |
+          cd ags-manual
+          (! make -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep ^ERROR)
+      - name: Build website
+        run: |
+          cd ags-manual
+          make -j $(getconf _NPROCESSORS_ONLN) html
+      - name: Build HTML Help Project
+        run: |
+          cd ags-manual
+          make -j $(getconf _NPROCESSORS_ONLN) htmlhelp
