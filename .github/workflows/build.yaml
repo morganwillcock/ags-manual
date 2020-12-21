@@ -10,7 +10,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     defaults:
       run:
-        shell: bash
+        shell: ${{ matrix.shell }}
     strategy:
       matrix:
         os:
@@ -19,6 +19,9 @@ jobs:
           - windows-latest
         pandoc:
           - 2.9.1
+        shell:
+          - bash
+          - sh
     steps:
       - name: Checkout build system
         uses: actions/checkout@v2
