@@ -42,21 +42,26 @@ jobs:
           make source
       - name: Download Pandoc
         run: |
-          if [ "${{ runner.os }}" = "macOS" ]; then
-            suffix=macOS.zip
-            tar=bsdtar
-            pandoc="pandoc-${{ matrix.pandoc }}/bin/pandoc"
-          elif [ "${{ runner.os }}" = "Linux" ]; then
-            suffix=linux-amd64.tar.gz
-            tar=tar
-            pandoc="pandoc-${{ matrix.pandoc }}/bin/pandoc"
-          elif [ "${{ runner.os }}" = "Windows" ]; then
-            suffix=windows-x86_64.zip
-            tar=/c/Windows/System32/tar.exe
-            pandoc="pandoc.exe"
-          else
-            exit 1
-          fi
+          case "${{ runner.os }}" in
+            Linux)
+              pandoc="pandoc-${{ matrix.pandoc }}/bin/pandoc"
+              suffix=linux-amd64.tar.gz
+              tar=tar
+              ;;
+            macOS)
+              pandoc="pandoc-${{ matrix.pandoc }}/bin/pandoc"
+              suffix=macOS.zip
+              tar=bsdtar
+              ;;
+            Windows)
+              pandoc=pandoc.exe
+              suffix=windows-x86_64.zip
+              tar=/c/Windows/System32/tar.exe
+              ;;
+            *)
+              exit 1
+              ;;
+          esac
           url="https://github.com/jgm/pandoc/releases/download/${{ matrix.pandoc }}/pandoc-${{ matrix.pandoc }}-$suffix"
           curl -fL "$url" | $tar -f - -vxzC "${{ runner.temp }}" "$pandoc"
           chmod +x "${{ runner.temp }}/$pandoc"
