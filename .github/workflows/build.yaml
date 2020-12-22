@@ -39,7 +39,7 @@ jobs:
         run: echo "CHECKOUTDIR=$(pwd)" >> $GITHUB_ENV
       - name: Get Markdown files
         run: make source
-      - name: Download Pandoc
+      - name: Download and install Pandoc
         run: |
           case "${{ runner.os }}" in
             Linux)
@@ -65,6 +65,13 @@ jobs:
           curl -fL "$url" | $tar -f - -vxzC "${{ runner.temp }}" "$pandoc"
           chmod +x "${{ runner.temp }}/$pandoc"
           echo PANDOC="${{ runner.temp }}/$pandoc" >> $GITHUB_ENV
+      - name: Download and install HTML Help Workshop
+        if: startsWith(matrix.os, 'windows-')
+        shell: cmd
+        run: |
+          call scripts\install_hhw.cmd
+          set HHC=C:\Program Files (x86)\HTML Help Workshop\hhc.exe
+          if exist "%HHC%" echo HHC=/c/Program Files (x86)/HTML Help Workshop/hhc.exe>> %GITHUB_ENV%
       - name: Check Markdown files
         run: |
           set +e
