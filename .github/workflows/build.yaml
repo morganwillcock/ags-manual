@@ -72,6 +72,7 @@ jobs:
       - name: Build website
         run: make -j $(getconf _NPROCESSORS_ONLN) html
       - name: Upload website
+        if: false
         uses: actions/upload-artifact@v2
         with:
           name: html (${{ matrix.os }}-${{ matrix.shell }})
@@ -80,6 +81,7 @@ jobs:
       - name: Build HTML Help Project
         run: make -j $(getconf _NPROCESSORS_ONLN) htmlhelp
       - name: Upload HTML Help Project
+        if: false
         uses: actions/upload-artifact@v2
         with:
           name: htmlhelp (${{ matrix.os }}-${{ matrix.shell }})
@@ -108,7 +110,8 @@ jobs:
         if: env.HHC
         run: make chm
       - name: Upload CHM file
-        if: env.HHC
+        if: false
+        #if: env.HHC
         uses: actions/upload-artifact@v2
         with:
           name: ags-help.chm (${{ matrix.os }}-${{ matrix.shell }})
