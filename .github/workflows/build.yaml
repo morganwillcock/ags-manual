@@ -11,6 +11,7 @@ jobs:
     defaults:
       run:
         shell: ${{ matrix.shell }}
+        working-directory: ags-manual
     strategy:
       matrix:
         os:
@@ -33,12 +34,11 @@ jobs:
           repository: morganwillcock/ags-manual.wiki
           path: ags-manual.wiki
       - name: Set path to Markdown files
+        working-directory: ags-manual.wiki
         run: |
-          cd ags-manual.wiki
           echo "CHECKOUTDIR=$(pwd)" >> $GITHUB_ENV
       - name: Get Markdown files
         run: |
-          cd ags-manual
           make source
       - name: Download Pandoc
         run: |
@@ -70,13 +70,10 @@ jobs:
         # macOS still seems to implement pipefail with sh -e even though it shouldn't exist
         shell: sh {0}
         run: |
-          cd ags-manual
           (! make -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep ^ERROR)
       - name: Build website
         run: |
-          cd ags-manual
           make -j $(getconf _NPROCESSORS_ONLN) html
       - name: Build HTML Help Project
         run: |
-          cd ags-manual
           make -j $(getconf _NPROCESSORS_ONLN) htmlhelp
