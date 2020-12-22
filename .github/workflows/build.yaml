@@ -84,3 +84,10 @@ jobs:
       - name: Build CHM file
         if: env.HHC
         run: make chm
+      - name: Upload CHM file
+        if: env.HHC
+        uses: actions/upload-artifact@v2
+        with:
+          name: ags-help.chm (${{ matrix.os }}-${{ matrix.shell }})
+          path: ags-manual/htmlhelp/build/ags-help.chm
+          if-no-files-found: error
