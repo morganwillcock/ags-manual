@@ -35,11 +35,9 @@ jobs:
           path: ags-manual.wiki
       - name: Set path to Markdown files
         working-directory: ags-manual.wiki
-        run: |
-          echo "CHECKOUTDIR=$(pwd)" >> $GITHUB_ENV
+        run: echo "CHECKOUTDIR=$(pwd)" >> $GITHUB_ENV
       - name: Get Markdown files
-        run: |
-          make source
+        run: make source
       - name: Download Pandoc
         run: |
           case "${{ runner.os }}" in
@@ -67,11 +65,8 @@ jobs:
           chmod +x "${{ runner.temp }}/$pandoc"
           echo PANDOC="${{ runner.temp }}/$pandoc" >> $GITHUB_ENV
       - name: Check Markdown files
-        run: |
-          (! make -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep ^ERROR)
+        run: (! make -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep ^ERROR)
       - name: Build website
-        run: |
-          make -j $(getconf _NPROCESSORS_ONLN) html
+        run: make -j $(getconf _NPROCESSORS_ONLN) html
       - name: Build HTML Help Project
-        run: |
-          make -j $(getconf _NPROCESSORS_ONLN) htmlhelp
+        run: make -j $(getconf _NPROCESSORS_ONLN) htmlhelp
