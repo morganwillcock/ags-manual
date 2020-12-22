@@ -71,8 +71,20 @@ jobs:
           (! make -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep ^ERROR)
       - name: Build website
         run: make -j $(getconf _NPROCESSORS_ONLN) html
+      - name: Upload website
+        uses: actions/upload-artifact@v2
+        with:
+          name: html (${{ matrix.os }}-${{ matrix.shell }})
+          path: ags-manual/html/build
+          if-no-files-found: error
       - name: Build HTML Help Project
         run: make -j $(getconf _NPROCESSORS_ONLN) htmlhelp
+      - name: Upload HTML Help Project
+        uses: actions/upload-artifact@v2
+        with:
+          name: htmlhelp (${{ matrix.os }}-${{ matrix.shell }})
+          path: ags-manual/htmlhelp/build
+          if-no-files-found: error
       - name: Download and install HTML Help Workshop
         if: startsWith(matrix.os, 'windows-')
         shell: cmd
