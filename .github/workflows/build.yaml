@@ -21,8 +21,8 @@ jobs:
         pandoc:
           - 2.9.1
         shell:
-          - bash
-          - sh
+          - bash --noprofile --norc {0}
+          - sh {0}
     steps:
       - name: Checkout build system
         uses: actions/checkout@v2
@@ -67,8 +67,6 @@ jobs:
           chmod +x "${{ runner.temp }}/$pandoc"
           echo PANDOC="${{ runner.temp }}/$pandoc" >> $GITHUB_ENV
       - name: Check Markdown files
-        # macOS still seems to implement pipefail with sh -e even though it shouldn't exist
-        shell: sh {0}
         run: |
           (! make -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep ^ERROR)
       - name: Build website
