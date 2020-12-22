@@ -68,10 +68,11 @@ jobs:
       - name: Download and install HTML Help Workshop
         if: startsWith(matrix.os, 'windows-')
         shell: cmd
+        env:
+          HHC: C:\Program Files (x86)\HTML Help Workshop\hhc.exe
         run: |
           call scripts\install_hhw.cmd
-          set HHC=C:\Program Files (x86)\HTML Help Workshop\hhc.exe
-          if exist "%HHC%" echo HHC=/c/Program Files (x86)/HTML Help Workshop/hhc.exe>> %GITHUB_ENV%
+          if exist "%HHC%" echo HHC=%HHC%>> %GITHUB_ENV%
       - name: Check Markdown files
         run: |
           set +e
