@@ -2,9 +2,7 @@
 
 ![](ags-manual-readme.png)
 
-Travis (web): [![Build Status](https://travis-ci.com/adventuregamestudio/ags-manual.svg?branch=master)](https://travis-ci.com/adventuregamestudio/ags-manual)
-
-Appveyor (chm): [![Build status](https://ci.appveyor.com/api/projects/status/ufw6n10yg1q38yvc?svg=true)](https://ci.appveyor.com/project/ags-manual-ci/ags-manual-4hkmp)
+![Build test](https://github.com/morganwillcock/ags-manual/workflows/Build%20test/badge.svg)
 
 ## Editing the help files
 
@@ -75,7 +73,8 @@ target | function
 --- | ---
 source | update the source directory from CHECKOUTDIR
 html | build the website into 'html/build' (requires curl)
-htmlhelp | build an HTML Help Project into 'htmlhelp/build' and call HHC if set (requires HTML Help Workshop)
+htmlhelp | build an HTML Help Project into 'htmlhelp/build'
+chm | run HHC and build 'htmlhelp/build/ags-help.chm' (requires HTML Help Workshop)
 metacheck | validate generated page metadata (currently checks page links and index entries)
 clean | delete everything listed in .gitignore
 
@@ -90,7 +89,7 @@ clean | delete everything listed in .gitignore
     cd ags-manual
     make SHELL=%COMSPEC% source
     make SHELL=%COMSPEC% -j metacheck
-    make SHELL=%COMSPEC% -j html htmlhelp
+    make SHELL=%COMSPEC% -j html htmlhelp chm
 
 ### Build example (macOS/Linux/... and downloaded pandoc binary)
 
@@ -101,4 +100,4 @@ clean | delete everything listed in .gitignore
     cd ags-manual
     make source
     make -j metacheck
-    make -j html htmlhelp
+    make -j html htmlhelp chm
