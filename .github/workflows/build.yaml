@@ -29,7 +29,6 @@ jobs:
           - os: windows-latest
             pandoc: 2.9.1
             shell: cmd
-            make_vars: SHELL=%COMSPEC%
     steps:
       - name: Checkout build system
         uses: actions/checkout@v2
@@ -56,8 +55,9 @@ jobs:
             curl -fLOJ https://downloads.sourceforge.net/project/ezwinports/make-4.3-without-guile-w32-bin.zip"
           tar -f make-4.3-without-guile-w32-bin.zip -xvC "${{ runner.temp }}\make"
           echo ${{ runner.temp }}\make\bin>> %GITHUB_PATH%
+          echo MAKEVARS=SHELL=%COMSPEC%>> %GITHUB_ENV%
       - name: Get Markdown files
-        run: make ${{ matrix.make_vars }} source
+        run: make ${{ env.MAKEVARS }} source
       - name: Download and install Pandoc
         shell: bash
         run: |
@@ -91,7 +91,7 @@ jobs:
           set +e
           (! make -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep ^ERROR)
       - name: Build website
-        run: make ${{ matrix.make_vars }} html
+        run: make ${{ env.MAKEVARS }} html
       - name: Generate checksum
         id: checksum
         run: echo "::set-output name=CONTENT_CHECKSUM::${{ hashFiles('ags-manual/html/build/**') }}"
@@ -103,7 +103,7 @@ jobs:
           path: ags-manual/html/build
           if-no-files-found: error
       - name: Build HTML Help Project
-        run: make ${{ matrix.make_vars }} htmlhelp
+        run: make ${{ env.MAKEVARS }} htmlhelp
       - name: Upload HTML Help Project
         if: false
         uses: actions/upload-artifact@v2
@@ -132,7 +132,7 @@ jobs:
           echo HHC=%HHC%>> %GITHUB_ENV%
       - name: Build CHM file
         if: env.HHC
-        run: make ${{ matrix.make_vars }} chm
+        run: make ${{ env.MAKEVARS }} chm
       - name: Upload CHM file
         if: false
         #if: env.HHC
