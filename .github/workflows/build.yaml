@@ -26,6 +26,10 @@ jobs:
         shell:
           - bash
           - sh
+        include:
+          - os: windows-latest
+            shell: bash
+            use_comspec: SHELL=%ComSpec%
     steps:
       - name: Checkout build system
         uses: actions/checkout@v2
@@ -39,6 +43,19 @@ jobs:
       - name: Set path to Markdown files
         working-directory: ags-manual.wiki
         run: echo "CHECKOUTDIR=$(pwd)" >> $GITHUB_ENV
+      - name: Download and install ezwinport make
+        if: ${{ matrix.use_comspec }}
+        shell: cmd
+        run: |
+          mkdir "${{ runner.temp }}\make"
+          %COMSPEC% /c "pushd "${{ runner.temp }}" && ^
+            curl -fLOJ https://downloads.sourceforge.net/project/ezwinports/make-4.3-without-guile-w32-bin.zip"
+          tar -f make-4.3-without-guile-w32-bin.zip -xvC "${{ runner.temp }}\make"
+          echo ${{ runner.temp }}\make\bin>> %GITHUB_PATH%
+      - name: Check which make
+        if: startsWith(matrix.os, 'windows-')
+        shell: cmd
+        run: where make && make -v
       - name: Get Markdown files
         run: make source
       - name: Download and install Pandoc
