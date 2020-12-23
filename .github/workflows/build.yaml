@@ -25,9 +25,11 @@ jobs:
           - 2.9.1
         shell:
           - bash
-        include:
-          - os: windows-latest
-            pandoc: 2.9.1
+          - cmd
+        exclude:
+          - os: macos-latest
+            shell: cmd
+          - os: ubuntu-latest
             shell: cmd
     steps:
       - name: Checkout build system
