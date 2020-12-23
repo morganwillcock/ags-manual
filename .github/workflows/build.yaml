@@ -91,7 +91,10 @@ jobs:
         if: matrix.shell == 'bash'
         run: |
           set +e
-          (! make -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep ^ERROR)
+          (! make $MAKEVARS -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep ^ERROR)
+      - name: Check Markdown files (ComSpec)
+        if: matrix.shell == 'cmd'
+        run: make %MAKEVARS% -j %NUMBER_OF_PROCESSORS% metacheck 2>&1 >nul | findstr /b ERROR && exit 1 & exit 0
       - name: Build website
         run: make ${{ env.MAKEVARS }} html
       - name: Generate checksum
