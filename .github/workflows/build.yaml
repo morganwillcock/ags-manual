@@ -25,11 +25,11 @@ jobs:
           - 2.9.1
         shell:
           - bash
-          - sh
         include:
           - os: windows-latest
-            shell: bash
-            use_comspec: SHELL=%ComSpec%
+            pandoc: 2.9.1
+            shell: cmd
+            make_vars: SHELL=%COMSPEC%
     steps:
       - name: Checkout build system
         uses: actions/checkout@v2
@@ -40,25 +40,26 @@ jobs:
         with:
           repository: morganwillcock/ags-manual.wiki
           path: ags-manual.wiki
-      - name: Set path to Markdown files
+      - name: Set path to Markdown files (BASH)
+        if: ${{ matrix.shell == 'bash' }}
         working-directory: ags-manual.wiki
         run: echo "CHECKOUTDIR=$(pwd)" >> $GITHUB_ENV
-      - name: Download and install ezwinport make
-        if: ${{ matrix.use_comspec }}
-        shell: cmd
+      - name: Set path to Markdown files (ComSpec)
+        if: ${{ matrix.shell == 'cmd' }}
+        working-directory: ags-manual.wiki
+        run: echo CHECKOUTDIR=%CD%>> %GITHUB_ENV%
+      - name: Upgrade ezwinport make
+        if: ${{ matrix.shell == 'cmd' }}
         run: |
           mkdir "${{ runner.temp }}\make"
           %COMSPEC% /c "pushd "${{ runner.temp }}" && ^
             curl -fLOJ https://downloads.sourceforge.net/project/ezwinports/make-4.3-without-guile-w32-bin.zip"
           tar -f make-4.3-without-guile-w32-bin.zip -xvC "${{ runner.temp }}\make"
           echo ${{ runner.temp }}\make\bin>> %GITHUB_PATH%
-      - name: Check which make
-        if: startsWith(matrix.os, 'windows-')
-        shell: cmd
-        run: where make && make -v
       - name: Get Markdown files
-        run: make source
+        run: make ${{ matrix.make_vars }} source
       - name: Download and install Pandoc
+        shell: bash
         run: |
           case "${{ runner.os }}" in
             Linux)
@@ -84,12 +85,13 @@ jobs:
           curl -fL "$url" | $tar -f - -vxzC "${{ runner.temp }}" "$pandoc"
           chmod +x "${{ runner.temp }}/$pandoc"
           echo PANDOC="${{ runner.temp }}/$pandoc" >> $GITHUB_ENV
-      - name: Check Markdown files
+      - name: Check Markdown files (BASH)
+        if: matrix.shell == 'bash'
         run: |
           set +e
           (! make -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep ^ERROR)
       - name: Build website
-        run: make -j $(getconf _NPROCESSORS_ONLN) html
+        run: make ${{ matrix.make_vars }} html
       - name: Generate checksum
         id: checksum
         run: echo "::set-output name=CONTENT_CHECKSUM::${{ hashFiles('ags-manual/html/build/**') }}"
@@ -101,7 +103,7 @@ jobs:
           path: ags-manual/html/build
           if-no-files-found: error
       - name: Build HTML Help Project
-        run: make -j $(getconf _NPROCESSORS_ONLN) htmlhelp
+        run: make ${{ matrix.make_vars }} htmlhelp
       - name: Upload HTML Help Project
         if: false
         uses: actions/upload-artifact@v2
@@ -130,7 +132,7 @@ jobs:
           echo HHC=%HHC%>> %GITHUB_ENV%
       - name: Build CHM file
         if: env.HHC
-        run: make chm
+        run: make ${{ matrix.make_vars }} chm
       - name: Upload CHM file
         if: false
         #if: env.HHC
