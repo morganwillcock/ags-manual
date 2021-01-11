@@ -8,8 +8,6 @@ on:
 jobs:
   build:
     runs-on: ${{ matrix.os }}
-    outputs:
-      output1: ${{ steps.checksum.outputs.CONTENT_CHECKSUM }}
     defaults:
       run:
         shell: ${{ matrix.shell }}
@@ -97,9 +95,6 @@ jobs:
         run: make %MAKEVARS% -j %NUMBER_OF_PROCESSORS% metacheck 2>&1 >nul | findstr /b ERROR && exit 1 & exit 0
       - name: Build website
         run: make ${{ env.MAKEVARS }} html
-      - name: Generate checksum
-        id: checksum
-        run: echo "::set-output name=CONTENT_CHECKSUM::${{ hashFiles('ags-manual/html/build/**') }}"
       - name: Upload website
         if: false
         uses: actions/upload-artifact@v2
@@ -146,8 +141,3 @@ jobs:
           name: ags-help.chm (${{ matrix.os }}-${{ matrix.shell }})
           path: ags-manual/htmlhelp/build/ags-help.chm
           if-no-files-found: error
-  check:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - run: echo '${{ toJSON(needs.*.outputs.output1) }}'
