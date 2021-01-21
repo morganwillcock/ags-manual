@@ -87,6 +87,7 @@ ifelse(__SHELL, <{bash}>, <{dnl
         run: make ifelse(__SHELL, <{cmd}>, <{SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS%}>, <{-j $(getconf _NPROCESSORS_ONLN)}>) html
       - name: Generate HTML build checksums
         id: checksum
+        shell: bash
         run: echo "::set-output name=CONTENT_CHECKSUM::${{ hashFiles('ags-manual/html/build/**') }}"
 #      - name: Upload website
 #        uses: actions/upload-artifact@v2
