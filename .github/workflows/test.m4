@@ -34,4 +34,5 @@ include(<{job.m4}>)dnl
       - build-ubuntu-bash-2-9-1
       - build-macos-bash-2-9-1
     steps:
-      - run: echo '${{ toJSON(needs.*.outputs.sha256) }}'
+      - run: |
+          [ "$(echo '${{ toJSON(needs.*.outputs.sha256) }}' | egrep --count '[A-Fa-f0-9]{64}')" -eq "1" ]
