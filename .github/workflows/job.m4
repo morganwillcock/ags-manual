@@ -17,26 +17,26 @@
       - name: Download and install Pandoc
         shell: bash
         run : |
-# if linux ifelse(__OS, <{linux}>, <{
+ifelse(__OS, <{linux}>, <{dnl
           pandoc="pandoc-__PANDOC/bin/pandoc"
           suffix=linux-amd64.tar.gz
           tar=tar
-}>)# end if linux
-# if macos ifelse(__OS, <{macos}>, <{
+}>)dnl
+ifelse(__OS, <{macos}>, <{dnl
           pandoc="pandoc-__PANDOC/bin/pandoc"
           suffix=macOS.zip
           tar=bsdtar
-}>)# end if macos
-# if windows ifelse(__OS, <{windows}>, <{
+}>)dnl
+ifelse(__OS, <{windows}>, <{dnl
           pandoc=pandoc.exe
           suffix=windows-x86_64.zip
           tar=/c/Windows/System32/tar.exe
-}>)# end if windows
+}>)dnl
           url="https://github.com/jgm/pandoc/releases/download/__PANDOC/pandoc-__PANDOC-$suffix"
           curl -fL "$url" | $tar -f - -vxzC "${{ runner.temp }}" "$pandoc"
           chmod +x "${{ runner.temp }}/$pandoc"
           echo PANDOC="${{ runner.temp }}/$pandoc" >> $GITHUB_ENV
-# if windows ifelse(__OS, <{windows}>, <{
+ifelse(__OS, <{windows}>, <{dnl
       - name: Download and install HTML Help Workshop
         shell: cmd
         env:
@@ -55,12 +55,12 @@
           if not exist "%HHC%" exit /b 1
 
           echo HHC=%HHC%>> %GITHUB_ENV%
-}>)# end if windows
+}>)dnl
       - name: Set path to Markdown files
         working-directory: ags-manual.wiki
-# if bash ifelse(__SHELL, <{bash}>, <{
+ifelse(__SHELL, <{bash}>, <{dnl
         run: echo "CHECKOUTDIR=$(pwd)" >> $GITHUB_ENV
-# else}>, <{
+}>, <{dnl
         run: echo CHECKOUTDIR=%CD%>> %GITHUB_ENV%
       - name: Upgrade ezwinport make
         run: |
@@ -70,17 +70,17 @@
           tar -f make-4.3-without-guile-w32-bin.zip -xvC "${{ runner.temp }}\make"
           echo ${{ runner.temp }}\make\bin>> %GITHUB_PATH%
           echo MAKEVARS=SHELL=%COMSPEC%>> %GITHUB_ENV%
-}>)# end if bash
+}>)dnl
       - name: Get Markdown files
         run: make ifelse(__SHELL, <{cmd}>, <{SHELL=%COMSPEC% }>)source
       - name: Check Markdown files
-# if bash ifelse(__SHELL, <{bash}>, <{
+ifelse(__SHELL, <{bash}>, <{dnl
         run: |
           set +e
           (! make $MAKEVARS -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep ^ERROR)
-# else}>, <{
+}>, <{dnl
         run: make SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS% metacheck 2>&1 >nul | findstr /b ERROR && exit 1 & exit 0
-}>)# end if bash
+}>)dnl
       - name: Build website
         run: make ifelse(__SHELL, <{cmd}>, <{SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS%}>, <{-j $(getconf _NPROCESSORS_ONLN)}>) html
       - name: Generate HTML build checksums

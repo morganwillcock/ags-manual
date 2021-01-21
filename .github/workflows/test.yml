@@ -26,18 +26,13 @@ jobs:
       - name: Download and install Pandoc
         shell: bash
         run : |
-# if linux # end if linux
-# if macos # end if macos
-# if windows 
           pandoc=pandoc.exe
           suffix=windows-x86_64.zip
           tar=/c/Windows/System32/tar.exe
-# end if windows
           url="https://github.com/jgm/pandoc/releases/download/2.9.1/pandoc-2.9.1-$suffix"
           curl -fL "$url" | $tar -f - -vxzC "${{ runner.temp }}" "$pandoc"
           chmod +x "${{ runner.temp }}/$pandoc"
           echo PANDOC="${{ runner.temp }}/$pandoc" >> $GITHUB_ENV
-# if windows 
       - name: Download and install HTML Help Workshop
         shell: cmd
         env:
@@ -56,10 +51,8 @@ jobs:
           if not exist "%HHC%" exit /b 1
 
           echo HHC=%HHC%>> %GITHUB_ENV%
-# end if windows
       - name: Set path to Markdown files
         working-directory: ags-manual.wiki
-# if bash 
         run: echo CHECKOUTDIR=%CD%>> %GITHUB_ENV%
       - name: Upgrade ezwinport make
         run: |
@@ -69,13 +62,10 @@ jobs:
           tar -f make-4.3-without-guile-w32-bin.zip -xvC "${{ runner.temp }}\make"
           echo ${{ runner.temp }}\make\bin>> %GITHUB_PATH%
           echo MAKEVARS=SHELL=%COMSPEC%>> %GITHUB_ENV%
-# end if bash
       - name: Get Markdown files
         run: make SHELL=%COMSPEC% source
       - name: Check Markdown files
-# if bash 
         run: make SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS% metacheck 2>&1 >nul | findstr /b ERROR && exit 1 & exit 0
-# end if bash
       - name: Build website
         run: make SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS% html
       - name: Generate HTML build checksums
@@ -126,18 +116,13 @@ jobs:
       - name: Download and install Pandoc
         shell: bash
         run : |
-# if linux # end if linux
-# if macos # end if macos
-# if windows 
           pandoc=pandoc.exe
           suffix=windows-x86_64.zip
           tar=/c/Windows/System32/tar.exe
-# end if windows
           url="https://github.com/jgm/pandoc/releases/download/2.9.1/pandoc-2.9.1-$suffix"
           curl -fL "$url" | $tar -f - -vxzC "${{ runner.temp }}" "$pandoc"
           chmod +x "${{ runner.temp }}/$pandoc"
           echo PANDOC="${{ runner.temp }}/$pandoc" >> $GITHUB_ENV
-# if windows 
       - name: Download and install HTML Help Workshop
         shell: cmd
         env:
@@ -156,20 +141,15 @@ jobs:
           if not exist "%HHC%" exit /b 1
 
           echo HHC=%HHC%>> %GITHUB_ENV%
-# end if windows
       - name: Set path to Markdown files
         working-directory: ags-manual.wiki
-# if bash 
         run: echo "CHECKOUTDIR=$(pwd)" >> $GITHUB_ENV
-# else# end if bash
       - name: Get Markdown files
         run: make source
       - name: Check Markdown files
-# if bash 
         run: |
           set +e
           (! make $MAKEVARS -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep ^ERROR)
-# else# end if bash
       - name: Build website
         run: make -j $(getconf _NPROCESSORS_ONLN) html
       - name: Generate HTML build checksums
@@ -220,31 +200,22 @@ jobs:
       - name: Download and install Pandoc
         shell: bash
         run : |
-# if linux 
           pandoc="pandoc-2.9.1/bin/pandoc"
           suffix=linux-amd64.tar.gz
           tar=tar
-# end if linux
-# if macos # end if macos
-# if windows # end if windows
           url="https://github.com/jgm/pandoc/releases/download/2.9.1/pandoc-2.9.1-$suffix"
           curl -fL "$url" | $tar -f - -vxzC "${{ runner.temp }}" "$pandoc"
           chmod +x "${{ runner.temp }}/$pandoc"
           echo PANDOC="${{ runner.temp }}/$pandoc" >> $GITHUB_ENV
-# if windows # end if windows
       - name: Set path to Markdown files
         working-directory: ags-manual.wiki
-# if bash 
         run: echo "CHECKOUTDIR=$(pwd)" >> $GITHUB_ENV
-# else# end if bash
       - name: Get Markdown files
         run: make source
       - name: Check Markdown files
-# if bash 
         run: |
           set +e
           (! make $MAKEVARS -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep ^ERROR)
-# else# end if bash
       - name: Build website
         run: make -j $(getconf _NPROCESSORS_ONLN) html
       - name: Generate HTML build checksums
@@ -295,31 +266,22 @@ jobs:
       - name: Download and install Pandoc
         shell: bash
         run : |
-# if linux # end if linux
-# if macos 
           pandoc="pandoc-2.9.1/bin/pandoc"
           suffix=macOS.zip
           tar=bsdtar
-# end if macos
-# if windows # end if windows
           url="https://github.com/jgm/pandoc/releases/download/2.9.1/pandoc-2.9.1-$suffix"
           curl -fL "$url" | $tar -f - -vxzC "${{ runner.temp }}" "$pandoc"
           chmod +x "${{ runner.temp }}/$pandoc"
           echo PANDOC="${{ runner.temp }}/$pandoc" >> $GITHUB_ENV
-# if windows # end if windows
       - name: Set path to Markdown files
         working-directory: ags-manual.wiki
-# if bash 
         run: echo "CHECKOUTDIR=$(pwd)" >> $GITHUB_ENV
-# else# end if bash
       - name: Get Markdown files
         run: make source
       - name: Check Markdown files
-# if bash 
         run: |
           set +e
           (! make $MAKEVARS -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep ^ERROR)
-# else# end if bash
       - name: Build website
         run: make -j $(getconf _NPROCESSORS_ONLN) html
       - name: Generate HTML build checksums
