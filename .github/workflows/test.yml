@@ -81,12 +81,12 @@ jobs:
 #          if-no-files-found: error
       - name: Build HTML Help Project
         run: make SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS% htmlhelp
-      - name: Upload HTML Help Project
-        uses: actions/upload-artifact@v2
-        with:
-          name: htmlhelp (windows-cmd-2.9.1)
-          path: ags-manual/htmlhelp/build
-          if-no-files-found: error
+#      - name: Upload HTML Help Project
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: htmlhelp (windows-cmd-2.9.1)
+#          path: ags-manual/htmlhelp/build
+#          if-no-files-found: error
       - name: Build CHM file
         if: env.HHC
         run: make SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS% chm
@@ -166,12 +166,12 @@ jobs:
 #          if-no-files-found: error
       - name: Build HTML Help Project
         run: make -j $(getconf _NPROCESSORS_ONLN) htmlhelp
-      - name: Upload HTML Help Project
-        uses: actions/upload-artifact@v2
-        with:
-          name: htmlhelp (windows-bash-2.9.1)
-          path: ags-manual/htmlhelp/build
-          if-no-files-found: error
+#      - name: Upload HTML Help Project
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: htmlhelp (windows-bash-2.9.1)
+#          path: ags-manual/htmlhelp/build
+#          if-no-files-found: error
       - name: Build CHM file
         if: env.HHC
         run: make -j $(getconf _NPROCESSORS_ONLN) chm
@@ -233,12 +233,12 @@ jobs:
 #          if-no-files-found: error
       - name: Build HTML Help Project
         run: make -j $(getconf _NPROCESSORS_ONLN) htmlhelp
-      - name: Upload HTML Help Project
-        uses: actions/upload-artifact@v2
-        with:
-          name: htmlhelp (linux-bash-2.9.1)
-          path: ags-manual/htmlhelp/build
-          if-no-files-found: error
+#      - name: Upload HTML Help Project
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: htmlhelp (linux-bash-2.9.1)
+#          path: ags-manual/htmlhelp/build
+#          if-no-files-found: error
       - name: Build CHM file
         if: env.HHC
         run: make -j $(getconf _NPROCESSORS_ONLN) chm
@@ -300,12 +300,12 @@ jobs:
 #          if-no-files-found: error
       - name: Build HTML Help Project
         run: make -j $(getconf _NPROCESSORS_ONLN) htmlhelp
-      - name: Upload HTML Help Project
-        uses: actions/upload-artifact@v2
-        with:
-          name: htmlhelp (macos-bash-2.9.1)
-          path: ags-manual/htmlhelp/build
-          if-no-files-found: error
+#      - name: Upload HTML Help Project
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: htmlhelp (macos-bash-2.9.1)
+#          path: ags-manual/htmlhelp/build
+#          if-no-files-found: error
       - name: Build CHM file
         if: env.HHC
         run: make -j $(getconf _NPROCESSORS_ONLN) chm

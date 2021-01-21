@@ -96,12 +96,12 @@ ifelse(__SHELL, <{bash}>, <{dnl
 #          if-no-files-found: error
       - name: Build HTML Help Project
         run: make ifelse(__SHELL, <{cmd}>, <{SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS%}>, <{-j $(getconf _NPROCESSORS_ONLN)}>) htmlhelp
-      - name: Upload HTML Help Project
-        uses: actions/upload-artifact@v2
-        with:
-          name: htmlhelp (__OS-__SHELL-__PANDOC)
-          path: ags-manual/htmlhelp/build
-          if-no-files-found: error
+#      - name: Upload HTML Help Project
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: htmlhelp (__OS-__SHELL-__PANDOC)
+#          path: ags-manual/htmlhelp/build
+#          if-no-files-found: error
       - name: Build CHM file
         if: env.HHC
         run: make ifelse(__SHELL, <{cmd}>, <{SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS%}>, <{-j $(getconf _NPROCESSORS_ONLN)}>) chm
