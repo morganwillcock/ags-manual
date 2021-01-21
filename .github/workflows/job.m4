@@ -93,12 +93,12 @@ ifelse(__SHELL, <{bash}>, <{dnl
         id: checksum
         shell: bash
         run: echo "::set-output name=CONTENT_CHECKSUM::${{ hashFiles('ags-manual/html/build/**') }}"
-#      - name: Upload website
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: html (__OS-__SHELL-__PANDOC)
-#          path: ags-manual/html/build
-#          if-no-files-found: error
+      - name: Upload website
+        uses: actions/upload-artifact@v2
+        with:
+          name: html (__OS-__SHELL-__PANDOC)
+          path: ags-manual/html/build
+          if-no-files-found: error
       - name: Build HTML Help Project
         run: make ifelse(__SHELL, <{cmd}>, <{SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS%}>, <{-j $(getconf _NPROCESSORS_ONLN)}>) htmlhelp
 #      - name: Upload HTML Help Project

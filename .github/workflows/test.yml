@@ -76,12 +76,12 @@ jobs:
         id: checksum
         shell: bash
         run: echo "::set-output name=CONTENT_CHECKSUM::${{ hashFiles('ags-manual/html/build/**') }}"
-#      - name: Upload website
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: html (windows-cmd-2.9.1)
-#          path: ags-manual/html/build
-#          if-no-files-found: error
+      - name: Upload website
+        uses: actions/upload-artifact@v2
+        with:
+          name: html (windows-cmd-2.9.1)
+          path: ags-manual/html/build
+          if-no-files-found: error
       - name: Build HTML Help Project
         run: make SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS% htmlhelp
 #      - name: Upload HTML Help Project
@@ -164,12 +164,12 @@ jobs:
         id: checksum
         shell: bash
         run: echo "::set-output name=CONTENT_CHECKSUM::${{ hashFiles('ags-manual/html/build/**') }}"
-#      - name: Upload website
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: html (windows-bash-2.9.1)
-#          path: ags-manual/html/build
-#          if-no-files-found: error
+      - name: Upload website
+        uses: actions/upload-artifact@v2
+        with:
+          name: html (windows-bash-2.9.1)
+          path: ags-manual/html/build
+          if-no-files-found: error
       - name: Build HTML Help Project
         run: make -j $(getconf _NPROCESSORS_ONLN) htmlhelp
 #      - name: Upload HTML Help Project
@@ -234,12 +234,12 @@ jobs:
         id: checksum
         shell: bash
         run: echo "::set-output name=CONTENT_CHECKSUM::${{ hashFiles('ags-manual/html/build/**') }}"
-#      - name: Upload website
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: html (ubuntu-bash-2.9.1)
-#          path: ags-manual/html/build
-#          if-no-files-found: error
+      - name: Upload website
+        uses: actions/upload-artifact@v2
+        with:
+          name: html (ubuntu-bash-2.9.1)
+          path: ags-manual/html/build
+          if-no-files-found: error
       - name: Build HTML Help Project
         run: make -j $(getconf _NPROCESSORS_ONLN) htmlhelp
 #      - name: Upload HTML Help Project
@@ -304,12 +304,12 @@ jobs:
         id: checksum
         shell: bash
         run: echo "::set-output name=CONTENT_CHECKSUM::${{ hashFiles('ags-manual/html/build/**') }}"
-#      - name: Upload website
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: html (macos-bash-2.9.1)
-#          path: ags-manual/html/build
-#          if-no-files-found: error
+      - name: Upload website
+        uses: actions/upload-artifact@v2
+        with:
+          name: html (macos-bash-2.9.1)
+          path: ags-manual/html/build
+          if-no-files-found: error
       - name: Build HTML Help Project
         run: make -j $(getconf _NPROCESSORS_ONLN) htmlhelp
 #      - name: Upload HTML Help Project
