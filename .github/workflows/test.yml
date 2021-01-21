@@ -183,10 +183,10 @@ jobs:
 #          path: ags-manual/htmlhelp/build/ags-help.chm
 #          if-no-files-found: error
 
-  build-linux-bash-2-9-1:
+  build-ubuntu-bash-2-9-1:
     outputs:
       sha256: ${{ steps.checksum.outputs.CONTENT_CHECKSUM }}
-    runs-on: linux-latest
+    runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
@@ -228,7 +228,7 @@ jobs:
 #      - name: Upload website
 #        uses: actions/upload-artifact@v2
 #        with:
-#          name: html (linux-bash-2.9.1)
+#          name: html (ubuntu-bash-2.9.1)
 #          path: ags-manual/html/build
 #          if-no-files-found: error
       - name: Build HTML Help Project
@@ -236,7 +236,7 @@ jobs:
 #      - name: Upload HTML Help Project
 #        uses: actions/upload-artifact@v2
 #        with:
-#          name: htmlhelp (linux-bash-2.9.1)
+#          name: htmlhelp (ubuntu-bash-2.9.1)
 #          path: ags-manual/htmlhelp/build
 #          if-no-files-found: error
       - name: Build CHM file
@@ -246,7 +246,7 @@ jobs:
 #        if: env.HHC
 #        uses: actions/upload-artifact@v2
 #        with:
-#          name: ags-help.chm (linux-bash-2.9.1)
+#          name: ags-help.chm (ubuntu-bash-2.9.1)
 #          path: ags-manual/htmlhelp/build/ags-help.chm
 #          if-no-files-found: error
 
@@ -322,7 +322,7 @@ jobs:
     needs:
       - build-windows-cmd-2-9-1
       - build-windows-bash-2-9-1
-      - build-linux-bash-2-9-1
+      - build-ubuntu-bash-2-9-1
       - build-macos-bash-2-9-1
     steps:
       - run: echo '${{ toJSON(needs.*.outputs.sha256) }}'

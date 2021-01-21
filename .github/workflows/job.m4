@@ -19,7 +19,7 @@
       - name: Download and install Pandoc
         shell: bash
         run : |
-ifelse(__OS, <{linux}>, <{dnl
+ifelse(__OS, <{ubuntu}>, <{dnl
           pandoc="pandoc-__PANDOC/bin/pandoc"
           suffix=linux-amd64.tar.gz
           tar=tar

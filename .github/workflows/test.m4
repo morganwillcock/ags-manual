@@ -18,7 +18,7 @@ define(<{__OS}>, <{windows}>)dnl
 define(<{__SHELL}>, <{bash}>)dnl
 include(<{job.m4}>)dnl
 
-define(<{__OS}>, <{linux}>)dnl
+define(<{__OS}>, <{ubuntu}>)dnl
 define(<{__SHELL}>, <{bash}>)dnl
 include(<{job.m4}>)dnl
 
@@ -31,7 +31,7 @@ include(<{job.m4}>)dnl
     needs:
       - build-windows-cmd-2-9-1
       - build-windows-bash-2-9-1
-      - build-linux-bash-2-9-1
+      - build-ubuntu-bash-2-9-1
       - build-macos-bash-2-9-1
     steps:
       - run: echo '${{ toJSON(needs.*.outputs.sha256) }}'
