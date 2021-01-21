@@ -1,4 +1,4 @@
-  build-__OS-__SHELL-__PANDOC:
+  translit(build-__OS-__SHELL-__PANDOC, <{.}>, <{-}>):
     outputs:
       sha256: ${{ steps.checksum.outputs.CONTENT_CHECKSUM }}
     runs-on: __OS-latest

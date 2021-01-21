@@ -29,9 +29,9 @@ include(<{job.m4}>)dnl
   check:
     runs-on: ubuntu-latest
     needs:
-      - build-windows-cmd-2.9.1
-      - build-windows-bash-2.9.1
-      - build-linux-bash-2.9.1
-      - build-macos-bash-2.9.1
+      - build-windows-cmd-2-9-1
+      - build-windows-bash-2-9-1
+      - build-linux-bash-2-9-1
+      - build-macos-bash-2-9-1
     steps:
       - run: echo '${{ toJSON(needs.*.outputs.sha256) }}'
