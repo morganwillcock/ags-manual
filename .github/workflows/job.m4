@@ -2,8 +2,10 @@
     outputs:
       sha256: ${{ steps.checksum.outputs.CONTENT_CHECKSUM }}
     runs-on: __OS-latest
-    shell: __SHELL
-    working-directory: ags-manual
+    defaults:
+      run:
+        shell: __SHELL
+        working-directory: ags-manual
     steps:
       - name: Checkout build system
         uses: actions/checkout@v2

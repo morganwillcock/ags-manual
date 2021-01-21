@@ -11,8 +11,10 @@ jobs:
     outputs:
       sha256: ${{ steps.checksum.outputs.CONTENT_CHECKSUM }}
     runs-on: windows-latest
-    shell: cmd
-    working-directory: ags-manual
+    defaults:
+      run:
+        shell: cmd
+        working-directory: ags-manual
     steps:
       - name: Checkout build system
         uses: actions/checkout@v2
@@ -101,8 +103,10 @@ jobs:
     outputs:
       sha256: ${{ steps.checksum.outputs.CONTENT_CHECKSUM }}
     runs-on: windows-latest
-    shell: bash
-    working-directory: ags-manual
+    defaults:
+      run:
+        shell: bash
+        working-directory: ags-manual
     steps:
       - name: Checkout build system
         uses: actions/checkout@v2
@@ -185,8 +189,10 @@ jobs:
     outputs:
       sha256: ${{ steps.checksum.outputs.CONTENT_CHECKSUM }}
     runs-on: linux-latest
-    shell: bash
-    working-directory: ags-manual
+    defaults:
+      run:
+        shell: bash
+        working-directory: ags-manual
     steps:
       - name: Checkout build system
         uses: actions/checkout@v2
@@ -251,8 +257,10 @@ jobs:
     outputs:
       sha256: ${{ steps.checksum.outputs.CONTENT_CHECKSUM }}
     runs-on: macos-latest
-    shell: bash
-    working-directory: ags-manual
+    defaults:
+      run:
+        shell: bash
+        working-directory: ags-manual
     steps:
       - name: Checkout build system
         uses: actions/checkout@v2
