@@ -8,7 +8,9 @@ on:
   - push
   - pull_request
   - workflow_dispatch
-define(<{__PANDOC}>, <{2.9.1}>)
+
+define(<{__PANDOC}>, <{2.9.1}>)dnl
+define(<{__DATETIME}>, <{NOW}>)dnl
 jobs:
 define(<{__OS}>, <{windows}>)dnl
 define(<{__SHELL}>, <{cmd}>)dnl

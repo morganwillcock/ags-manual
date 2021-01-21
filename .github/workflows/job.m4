@@ -6,6 +6,10 @@
       run:
         shell: __SHELL
         working-directory: ags-manual
+ifdef(<{__DATETIME}>,<{dnl
+    env:
+      DATETIME: __DATETIME
+}>)dnl
     steps:
       - name: Checkout build system
         uses: actions/checkout@v2
