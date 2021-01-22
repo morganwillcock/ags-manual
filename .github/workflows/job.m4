@@ -11,11 +11,6 @@ ifdef(<{__DATETIME}>,<{dnl
       DATETIME: __DATETIME
 }>)dnl
     steps:
-ifelse(__OS, <{windows}>, <{dnl
-      - name: Disable EOL conversion for checkout
-        run: git config --global core.autocrlf false
-        working-directory: ${{ github.workspace }}
-}>)dnl
       - name: Checkout build system
         uses: actions/checkout@v2
         with:

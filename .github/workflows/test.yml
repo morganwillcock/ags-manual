@@ -18,9 +18,6 @@ jobs:
     env:
       DATETIME: NOW
     steps:
-      - name: Disable EOL conversion for checkout
-        run: git config --global core.autocrlf false
-        working-directory: ${{ github.workspace }}
       - name: Checkout build system
         uses: actions/checkout@v2
         with:
@@ -115,9 +112,6 @@ jobs:
     env:
       DATETIME: NOW
     steps:
-      - name: Disable EOL conversion for checkout
-        run: git config --global core.autocrlf false
-        working-directory: ${{ github.workspace }}
       - name: Checkout build system
         uses: actions/checkout@v2
         with:
