@@ -90,14 +90,16 @@ ifelse(__SHELL, <{bash}>, <{dnl
       - name: Build website
         run: make ifelse(__SHELL, <{cmd}>, <{SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS%}>, <{-j $(getconf _NPROCESSORS_ONLN)}>) html
       - name: Generate HTML build checksums
-        id: checksum
         shell: bash
         run: |
           find html/build -type f -print0 | LC_ALL=C sort -z | xargs -0 openssl sha256 | tee '${{ github.workspace }}/checksums'
 ifelse(__OS, <{windows}>, <{dnl
           dos2unix '${{ github.workspace }}/checksums'
 }>)dnl
-          echo "::set-output name=CONTENT_CHECKSUM::${{ hashFiles('checksums') }}"
+      - name: Output checksum
+        id: checksum
+        shell: bash
+        run: echo "::set-output name=CONTENT_CHECKSUM::${{ hashFiles('checksums') }}"
       - name: Upload website
         uses: actions/upload-artifact@v2
         with:
