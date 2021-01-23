@@ -37,4 +37,4 @@ include(<{job.m4}>)dnl
       - build-macos-bash-2-9-1
     steps:
       - run: |
-          [ "$(echo '${{ toJSON(needs.*.outputs.sha256) }}' | egrep --count '[A-Fa-f0-9]{64}')" -eq "1" ]
+          echo '${{ toJSON(needs.*.outputs.sha256) }}' | jq -e '.|unique|length == 1 and (.[0]|test("^[A-Fa-f0-9]{64}$"))'
