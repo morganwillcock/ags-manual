@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>VerbCoin template</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#verbcoin-template"><span>VerbCoin template</span></a>
+<ul>
+<li><a href="#verbcoinradius"><span><code>VerbCoin.Radius</code></span></a></li>
+<li><a href="#verbcoinbackgroundtransparency"><span><code>VerbCoin.BackgroundTransparency</code></span></a></li>
+<li><a href="#verbcoinbackgroundcolor"><span><code>VerbCoin.BackgroundColor</code></span></a></li>
+<li><a href="#verbcoinbordercolor"><span><code>VerbCoin.BorderColor</code></span></a></li>
+<li><a href="#verbcoinborderwidth"><span><code>VerbCoin.BorderWidth</code></span></a></li>
+<li><a href="#verbcoinonclick"><span><code>VerbCoin.OnClick</code></span></a></li>
+<li><a href="#verbcoinregisterbutton"><span><code>VerbCoin.RegisterButton</code></span></a></li>
+<li><a href="#verbcoininterfacegui"><span><code>VerbCoin.InterfaceGui</code></span></a></li>
+<li><a href="#verbcoininventorygui"><span><code>VerbCoin.InventoryGui</code></span></a></li>
+<li><a href="#verbcoinactionlabel"><span><code>VerbCoin.ActionLabel</code></span></a></li>
+<li><a href="#verbcoinenable"><span><code>VerbCoin.Enable</code></span></a></li>
+<li><a href="#verbcoindisable"><span><code>VerbCoin.Disable</code></span></a></li>
+<li><a href="#verbcoinisenabled"><span><code>VerbCoin.IsEnabled</code></span></a></li>
+<li><a href="#verbcoinopen"><span><code>VerbCoin.Open</code></span></a></li>
+<li><a href="#verbcoinclose"><span><code>VerbCoin.Close</code></span></a></li>
+<li><a href="#verbcoinisopen"><span><code>VerbCoin.IsOpen</code></span></a></li>
+<li><a href="#verbcoincleanup"><span><code>VerbCoin.CleanUp</code></span></a></li>
+<li><a href="#verbcoinbuttonautodisable"><span><code>VerbCoin.ButtonAutoDisable</code></span></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="verbcoin-template" class="level2">
+<h2><a href="#verbcoin-template">VerbCoin template</a></h2>
+<p>This template is a replacement for the previous VerbCoin template, with the aim of dropping legacy features and offering a simpler base to build upon.</p>
+<p>The main changes are:</p>
+<ul>
+<li>There is no built-in mechanism for using timed clicks, so no press and hold of a mouse button is required anywhere</li>
+<li>Inventory is still right-click to open, but now <a href="TemplateBASS.html">BASS</a> style controls are used within the inventory window</li>
+<li>No additional VerbCoin interfaces will be opened over the top of inventory items</li>
+<li>Rather than customize the action description per object/hotspot/character and allow actions to change based on context, the emphasis is on fixed actions with fallback to defaults (using <a href="Globalfunctions_Event.html">unhandled_event</a>)</li>
+</ul>
+<p>As a general guide, left click on things to open the Verbcoin, right click to open the inventory window.</p>
+<p>The script module functions are mostly to register the interface components used for displaying the VerbCoin and managing the inventory window.</p>
+<p>Example:</p>
+<pre><code>// setup VerbCoin GUI and buttons
+VerbCoin.InterfaceGui = gVerbCoin;
+VerbCoin.RegisterButton(btnLook, eVerbCoinPositionNorth, eModeLookat, &quot;Look at&quot;);
+VerbCoin.RegisterButton(btnTalk, eVerbCoinPositionEast, eModeTalkto, &quot;Talk to&quot;);
+VerbCoin.RegisterButton(btnInteract, eVerbCoinPositionSouth, eModeInteract, &quot;Use&quot;);
+VerbCoin.RegisterButton(btnPickup, eVerbCoinPositionWest, eModePickup, &quot;Pick up&quot;);
+
+// select the inventory GUI and action label
+VerbCoin.InventoryGui = gInventory;
+VerbCoin.ActionLabel = lblAction;
+
+// disable buttons where click events would be unhandled
+VerbCoin.ButtonAutoDisable = true;
+</code></pre>
+<hr />
+<section id="verbcoinradius" class="level3">
+<h3><a href="#verbcoinradius"><code>VerbCoin.Radius</code></a></h3>
+<pre><code>int VerbCoin.Radius
+</code></pre>
+<p>Sets the radius used when drawing the circle that renders the VerbCoin.</p>
+<hr />
+</section>
+<section id="verbcoinbackgroundtransparency" class="level3">
+<h3><a href="#verbcoinbackgroundtransparency"><code>VerbCoin.BackgroundTransparency</code></a></h3>
+<pre><code>int VerbCoin.BackgroundTransparency
+</code></pre>
+<p>Sets the background transparency level (from 0 to 100) for the VerbCoin</p>
+<hr />
+</section>
+<section id="verbcoinbackgroundcolor" class="level3">
+<h3><a href="#verbcoinbackgroundcolor"><code>VerbCoin.BackgroundColor</code></a></h3>
+<pre><code>int VerbCoin.BackgroundColor
+</code></pre>
+<p>Sets the background color (0 to 65535) for the VerbCoin.</p>
+<hr />
+</section>
+<section id="verbcoinbordercolor" class="level3">
+<h3><a href="#verbcoinbordercolor"><code>VerbCoin.BorderColor</code></a></h3>
+<pre><code>int VerbCoin.BorderColor
+</code></pre>
+<p>Sets the border color (0 to 65535) for the VerbCoin</p>
+<hr />
+</section>
+<section id="verbcoinborderwidth" class="level3">
+<h3><a href="#verbcoinborderwidth"><code>VerbCoin.BorderWidth</code></a></h3>
+<pre><code>int VerbCoin.BorderWidth;
+</code></pre>
+<p>Sets the border width for the VerbCoin.</p>
+<hr />
+</section>
+<section id="verbcoinonclick" class="level3">
+<h3><a href="#verbcoinonclick"><code>VerbCoin.OnClick</code></a></h3>
+<pre><code>VerbCoin.OnClick(GUIControl* control, MouseButton button);
+</code></pre>
+<p>Since click handlers can currently only be implemented in the global script, this function is used to pass the event back into the VerbCoin module.</p>
+<hr />
+</section>
+<section id="verbcoinregisterbutton" class="level3">
+<h3><a href="#verbcoinregisterbutton"><code>VerbCoin.RegisterButton</code></a></h3>
+<pre><code>VerbCoin.RegisterButton(GUIControl* control, VerbCoinPosition position, CursorMode mode, String verbtext);
+</code></pre>
+<p>Registers a button for use with the VerbCoin. The design is currently 4-point, so valid positions are:</p>
+<p><code>eVerbCoinPositionNorth</code><br> <code>eVerbCoinPositionEast</code><br> <code>eVerbCoinPositionSouth</code><br> <code>eVerbCoinPositionWest</code></p>
+<p>The cursor mode relates to the standard AGS cursor mode, which is used to determine the action performed. 'verbtext' is the text description of the action, e.g. if the mode being used is eModeInteract then a suitable description could be 'use'.</p>
+<hr />
+</section>
+<section id="verbcoininterfacegui" class="level3">
+<h3><a href="#verbcoininterfacegui"><code>VerbCoin.InterfaceGui</code></a></h3>
+<pre><code>GUI* VerbCoin.InterfaceGui
+</code></pre>
+<p>Registers the <a href="GUI.html">GUI</a> used for the VerbCoin.</p>
+<hr />
+</section>
+<section id="verbcoininventorygui" class="level3">
+<h3><a href="#verbcoininventorygui"><code>VerbCoin.InventoryGui</code></a></h3>
+<pre><code>GUI* VerbCoin.InventoryGui
+</code></pre>
+<p>Registers the <a href="GUI.html">GUI</a> used for the inventory window.</p>
+<hr />
+</section>
+<section id="verbcoinactionlabel" class="level3">
+<h3><a href="#verbcoinactionlabel"><code>VerbCoin.ActionLabel</code></a></h3>
+<pre><code>Label* VerbCoin.ActionLabel
+</code></pre>
+<p>Registers the <a href="Label.html">Label</a> used to display text descriptions.</p>
+<hr />
+</section>
+<section id="verbcoinenable" class="level3">
+<h3><a href="#verbcoinenable"><code>VerbCoin.Enable</code></a></h3>
+<pre><code>VerbCoin.Enable();
+</code></pre>
+<p>Enables the VerbCoin interface.</p>
+<hr />
+</section>
+<section id="verbcoindisable" class="level3">
+<h3><a href="#verbcoindisable"><code>VerbCoin.Disable</code></a></h3>
+<pre><code>VerbCoin.Disable();
+</code></pre>
+<p>Disables the VerbCoin interface.</p>
+<hr />
+</section>
+<section id="verbcoinisenabled" class="level3">
+<h3><a href="#verbcoinisenabled"><code>VerbCoin.IsEnabled</code></a></h3>
+<pre><code>VerbCoin.IsEnabled();
+</code></pre>
+<p>Returns true if the VerbCoin interface is currently enabled, else returns false.</p>
+<hr />
+</section>
+<section id="verbcoinopen" class="level3">
+<h3><a href="#verbcoinopen"><code>VerbCoin.Open</code></a></h3>
+<pre><code>VerbCoin.Open();
+</code></pre>
+<p>Opens the VerbCoin interface (i.e. show its GUI).</p>
+<hr />
+</section>
+<section id="verbcoinclose" class="level3">
+<h3><a href="#verbcoinclose"><code>VerbCoin.Close</code></a></h3>
+<pre><code>VerbCoin.Close();
+</code></pre>
+<p>Closes the VerbCoin interface (i.e. hide its GUI)</p>
+<hr />
+</section>
+<section id="verbcoinisopen" class="level3">
+<h3><a href="#verbcoinisopen"><code>VerbCoin.IsOpen</code></a></h3>
+<pre><code>VerbCoin.IsOpen();
+</code></pre>
+<p>Returns true if the VerbCoin interface is currently open, else returns false.</p>
+<hr />
+</section>
+<section id="verbcoincleanup" class="level3">
+<h3><a href="#verbcoincleanup"><code>VerbCoin.CleanUp</code></a></h3>
+<pre><code>VerbCoin.CleanUp();
+</code></pre>
+<p>Deletes the dynamic sprite which is used in rendering the VerbCoin user interface. This would typically only be done immediately before exiting the game, in-order to suppress warnings about dynamic sprites still being allocated.</p>
+<hr />
+</section>
+<section id="verbcoinbuttonautodisable" class="level3">
+<h3><a href="#verbcoinbuttonautodisable"><code>VerbCoin.ButtonAutoDisable</code></a></h3>
+<pre><code>bool VerbCoin.ButtonAutoDisable
+</code></pre>
+<p>Sets whether VerbCoin buttons should be disabled, if clicking them would result in an unhandled event.</p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>Build: 01/24/21 19:37:34</p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

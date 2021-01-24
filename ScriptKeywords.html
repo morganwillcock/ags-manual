@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Script language keywords</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#script-language-keywords"><span>Script language keywords</span></a>
+<ul>
+<li><a href="#data-types"><span>Data types</span></a></li>
+<li><a href="#arrays"><span>Arrays</span></a></li>
+<li><a href="#operators"><span>Operators</span></a></li>
+<li><a href="#constants"><span>Constants</span></a></li>
+<li><a href="#version-checking"><span>Version checking</span></a></li>
+<li><a href="#if-else-statements"><span>if, else statements</span></a></li>
+<li><a href="#switch-case-statements"><span>switch, case statements</span></a></li>
+<li><a href="#while"><span>while</span></a></li>
+<li><a href="#dowhile"><span>do..while</span></a></li>
+<li><a href="#for"><span>for</span></a></li>
+<li><a href="#break"><span>break</span></a></li>
+<li><a href="#continue"><span>continue</span></a></li>
+<li><a href="#function"><span>function</span></a></li>
+<li><a href="#return"><span>return</span></a></li>
+<li><a href="#struct"><span>struct</span></a></li>
+<li><a href="#managed"><span>managed</span></a></li>
+<li><a href="#new"><span>new</span></a></li>
+<li><a href="#enum"><span>enum</span></a></li>
+<li><a href="#this"><span>this</span></a></li>
+<li><a href="#import"><span>import</span></a></li>
+<li><a href="#export"><span>export</span></a></li>
+<li><a href="#readonly"><span>readonly</span></a></li>
+<li><a href="#writeprotected"><span>writeprotected</span></a></li>
+<li><a href="#protected"><span>protected</span></a></li>
+<li><a href="#noloopcheck"><span>noloopcheck</span></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="script-language-keywords" class="level2">
+<h2><a href="#script-language-keywords">Script language keywords</a></h2>
+<section id="data-types" class="level3">
+<h3><a href="#data-types">Data types</a></h3>
+<table>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>char</td>
+<td>Single byte data type, can store a single character or number 0 to 255</td>
+</tr>
+<tr class="even">
+<td>short</td>
+<td>16-bit integer, can store numbers from -32,768 to 32,767</td>
+</tr>
+<tr class="odd">
+<td>int</td>
+<td>32-bit integer, can store from -2,147,483,648 to 2,147,483,647</td>
+</tr>
+<tr class="even">
+<td>String</td>
+<td>Stores a string of characters</td>
+</tr>
+<tr class="odd">
+<td>float</td>
+<td>32-bit floating point number. Accuracy normally about 6 decimal places, but varies depending on the size of the number being stored.</td>
+</tr>
+<tr class="even">
+<td>bool</td>
+<td>a variable that stores either 'true' or 'false'</td>
+</tr>
+</tbody>
+</table>
+<p>You will normally only need to use the <strong>int</strong> and <strong>String</strong> data types. The smaller types are only useful for conserving memory if you are creating a very large number of variables.</p>
+<p>To declare a variable, write the type followed by the variable name, then a semicolon. For example:</p>
+<p><code>int my_variable;</code></p>
+<p>declares a new 32-bit integer called my_variable</p>
+<p><strong>WARNING:</strong> When using the <em>float</em> data type, you may find that the == and != operators don't seem to work properly. For example:</p>
+<pre><code>float result = 2.0 * 3.0;
+if (result == 6.0) {
+  Display(&quot;Result is 6!&quot;);
+}
+</code></pre>
+<p>may not always work. This is due to the nature of floating point variables, and the solution is to code like this:</p>
+<pre><code>float result = 2.0 * 3.0;
+if ((result &gt; 5.99) &amp;&amp; (result &lt; 6.01)) {
+  Display(&quot;Result is 6!&quot;);
+}
+</code></pre>
+<p>The way floating point numbers are stored means that 6 might actually be stored as 6.000001 or 5.999999; this is a common gotcha to all programming languages so just be aware of it if you use any floating point arithmetic.</p>
+<hr />
+</section>
+<section id="arrays" class="level3">
+<h3><a href="#arrays">Arrays</a></h3>
+<p><em>data_type</em> <em>name</em> <code>[</code> <em>size</em> <code>];</code></p>
+<p>Arrays allow you to easily create several variables of the same type. For example, suppose you wanted to store a health variable for all the different characters in the game. One way would be to declare several different variables like this:</p>
+<pre><code>int egoHealth;
+int badGuyHealth;
+int swordsmanHealth;
+</code></pre>
+<p>but that quickly gets messy and difficult to keep up to date, since you need to use different script code to update each one. So instead, you can do this at the top of your script:</p>
+<pre><code>int health[50];
+</code></pre>
+<p>This example declares 50 int variables, all called <em>health</em>.<br> You access each separate variable via its <strong>index</strong> (the number in the brackets). Indexes start from 0, so in this case the <em>health</em> array can be accessed by indexes 0 to 49. If you attempt to access an invalid index, your game will exit with an error.</p>
+<p>Here's an example of using the array:</p>
+<pre><code>health[3] = 50;
+health[4] = 100;
+health[player.ID] = 10;
+</code></pre>
+<p>this sets Health 3 to 50, Health 4 to 100, and the Health index that corresponds to the player character's ID number to 10.<br />
+You need to do this inside a function.</p>
+<p>See Also: <a href="DynamicArrays.html">Dynamic arrays</a>, <a href="ScriptKeywords.html#struct">Structs</a></p>
+<hr />
+</section>
+<section id="operators" class="level3">
+<h3><a href="#operators">Operators</a></h3>
+<p>The AGS scripting engine supports the following operators in expressions. They are listed in order of precedence, with the most tightly bound at the top of the list.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>!</code></td>
+<td>NOT</td>
+<td><code>if (!a)</code></td>
+</tr>
+<tr class="even">
+<td><code>*</code></td>
+<td>Multiply</td>
+<td><code>a = b * c;</code></td>
+</tr>
+<tr class="odd">
+<td><code>/</code></td>
+<td>Divide</td>
+<td><code>a = b / c;</code></td>
+</tr>
+<tr class="even">
+<td><code>%</code></td>
+<td>Remainder</td>
+<td><code>a = b % c;</code></td>
+</tr>
+<tr class="odd">
+<td><code>+</code></td>
+<td>Add</td>
+<td><code>a = b + c;</code></td>
+</tr>
+<tr class="even">
+<td><code>-</code></td>
+<td>Subtract</td>
+<td><code>a = b - c;</code></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;&lt;</code></td>
+<td>Bitwise Left Shift</td>
+<td><code>a = b &lt;&lt; c;</code></td>
+</tr>
+<tr class="even">
+<td><code>&gt;&gt;</code></td>
+<td>Bitwise Right Shift</td>
+<td><code>a = b &gt;&gt; c;</code></td>
+</tr>
+<tr class="odd">
+<td><code>&amp;</code></td>
+<td>Bitwise AND</td>
+<td><code>a = b &amp; c;</code></td>
+</tr>
+<tr class="even">
+<td><code>|</code></td>
+<td>Bitwise OR</td>
+<td><code>a = b | c;</code></td>
+</tr>
+<tr class="odd">
+<td><code>^</code></td>
+<td>Bitwise XOR</td>
+<td><code>a = b ^ c;</code></td>
+</tr>
+<tr class="even">
+<td><code>==</code></td>
+<td>Is equal to</td>
+<td><code>if (a == b)</code></td>
+</tr>
+<tr class="odd">
+<td><code>!=</code></td>
+<td>Is not equal to</td>
+<td><code>if (a != b)</code></td>
+</tr>
+<tr class="even">
+<td><code>&gt;</code></td>
+<td>Is greater than</td>
+<td><code>if (a &gt; b)</code></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;</code></td>
+<td>Is less than</td>
+<td><code>if (a &lt; b)</code></td>
+</tr>
+<tr class="even">
+<td><code>&gt;=</code></td>
+<td>Is greater than or equal</td>
+<td><code>if (a &gt;= b)</code></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;=</code></td>
+<td>Is less than or equal</td>
+<td><code>if (a &lt;= b)</code></td>
+</tr>
+<tr class="even">
+<td><code>&amp;&amp;</code></td>
+<td>Logical AND</td>
+<td><code>if (a &amp;&amp; b)</code></td>
+</tr>
+<tr class="odd">
+<td><code>||</code></td>
+<td>Logical OR</td>
+<td><code>if (a || b)</code></td>
+</tr>
+</tbody>
+</table>
+<p>This order of precedence allows expressions such as the following to evaluate as expected:</p>
+<p><code>if (!a &amp;&amp; b &lt; 4)</code></p>
+<p>which will execute the 'if' block if <strong>a</strong> is 0 and <strong>b</strong> is less than 4.</p>
+<p>However, it is always good practice to use parenthesis to group expressions. It's much more readable to script the above expression like this:</p>
+<p><code>if ((!a) &amp;&amp; (b &lt; 4))</code></p>
+<p><strong>NOTE:</strong> By default, when using operators of equal precedence AGS evaluates them left-to-right. For example, the expression <code>a = 5 - 4 - 2;</code> evaluates as <code>a = (5 - 4) - 2;</code>, which is what you'd commonly expect from a scripting language today.<br> For historical reasons AGS also supports right-to-left precedence mode which may be only useful if you import very old game and do not want to fix its scripts. To enable this mode find "Left-to-right operator precedence" option in "Backwards compatibility" section of the General Settings and set it to "false".</p>
+<hr />
+</section>
+<section id="constants" class="level3">
+<h3><a href="#constants">Constants</a></h3>
+<p>The following predefined macros are available in your scripts:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DEBUG</td>
+<td>Defined if the game is being compiled in debug mode, not defined otherwise</td>
+</tr>
+<tr class="even">
+<td>SCRIPT_API_vXXX</td>
+<td>Defined if corresponding version of script API is enabled (e.g. SCRIPT_API_v340)</td>
+</tr>
+<tr class="odd">
+<td>SCRIPT_COMPAT_vXXX</td>
+<td>Defined if certain compatibility level is enabled (e.g. SCRIPT_COMPAT_v321)</td>
+</tr>
+<tr class="even">
+<td>STRICT</td>
+<td>Defined if "Enforce Object Based Scripting" is enabled, not defined otherwise</td>
+</tr>
+<tr class="odd">
+<td>STRICT_STRINGS</td>
+<td>Defined if "Enforce new-style strings" is enabled, not defined otherwise</td>
+</tr>
+<tr class="even">
+<td>STRICT_AUDIO</td>
+<td>Defined if "Enforce new-style audio scripting" is enabled, not defined otherwise</td>
+</tr>
+<tr class="odd">
+<td>LRPRECEDENCE</td>
+<td>Defined if "Left-to-right operator precedence" is enabled, not defined otherwise</td>
+</tr>
+<tr class="even">
+<td>AGS_NEW_STRINGS</td>
+<td>Defined if AGS 2.71 or later (with new-String support), not defined otherwise</td>
+</tr>
+<tr class="odd">
+<td>NEW_DIALOGOPTS_API</td>
+<td>Defined if "Use old-style dialog options rendering API" is disabled</td>
+</tr>
+<tr class="even">
+<td>AGS_SUPPORTS_IFVER</td>
+<td>Defined if AGS 2.72 or later (with <code>#ifver</code> support), not defined otherwise</td>
+</tr>
+<tr class="odd">
+<td>AGS_MAX_INV_ITEMS</td>
+<td>The maximum number of inventory items</td>
+</tr>
+<tr class="even">
+<td>AGS_MAX_OBJECTS</td>
+<td>The maximum objects per room</td>
+</tr>
+<tr class="odd">
+<td>AGS_MAX_HOTSPOTS</td>
+<td>The maximum hotspots per room</td>
+</tr>
+<tr class="even">
+<td>AGS_MAX_REGIONS</td>
+<td>The maximum regions per room</td>
+</tr>
+</tbody>
+</table>
+<p>You can check for whether a macro is defined or not by using the <code>#ifdef</code> and <code>#ifndef</code> keywords:</p>
+<pre><code>#ifndef STRICT
+  // only compile the MoveCharacter command if not using object-based scripting
+  MoveCharacter(EGO, 30, 40);
+#endif
+#ifdef DEBUG
+  // only display this when the game is compiled in debug mode
+  Display(&quot;Debugging information&quot;);
+#endif
+</code></pre>
+<p>There is also an <code>#error</code> directive you can use to stop the script compiling:</p>
+<pre><code>#ifndef AGS_NEW_STRINGS
+#error This script requires at least AGS 2.71
+#endif
+</code></pre>
+<p>The other constants <code>AGS_MAX_*</code> are useful if you are writing some script code that you want to be portable to different versions of AGS, and to pick up the limits from the user's AGS version. For example, if you wanted to store some extra information on all the inventory items, you could do:</p>
+<pre><code>int invWeights[AGS_MAX_INV_ITEMS];
+</code></pre>
+<p>To get the actual number of things in the game rather than the AGS limit, use the <a href="Game.html#gamecharactercount">Game.CharacterCount</a>-style properties.</p>
+<hr />
+</section>
+<section id="version-checking" class="level3">
+<h3><a href="#version-checking">Version checking</a></h3>
+<p>If you are writing a script module, you may need to check which version of AGS the user of your module is using.</p>
+<p>For this purpose there are two directives:</p>
+<pre><code>#ifver 2.72
+// do stuff for 2.72 and above
+#endif
+#ifnver 2.72
+// do stuff for 2.71 and below
+#endif
+</code></pre>
+<p>Note that this ability was only added in 2.72, so you cannot use the <code>#ifver</code> checks if you want your module to work with earlier versions than this.</p>
+<p><em>See also</em>: <a href="Preprocessor.html#ifver-ifnver">Preprocessor</a></p>
+<hr />
+</section>
+<section id="if-else-statements" class="level3">
+<h3><a href="#if-else-statements">if, else statements</a></h3>
+<p><strong>if (</strong> <em>expression</em> <strong>)</strong> <code>{</code><br> <em>statements1</em><br> <code>}</code><br> [ <strong>else</strong> <code>{</code><br> <em>statements2</em><br> <code>}</code> ]</p>
+<p>If <em>expression</em> is true, then <em>statements1</em> are run.</p>
+<p>If <em>expression</em> is not true, and there is an <strong>else</strong> clause present, then <em>statements2</em> are run instead.</p>
+<p>For example:</p>
+<pre><code>if (GetGlobalInt(5) == 10) {
+  Display(&quot;Globalint 5 is 10.&quot;);
+}
+else {
+  Display(&quot;Globalint 5 is not 10.&quot;);
+}
+</code></pre>
+<p>In this example, the first message will be displayed if the return value from <code>GetGlobalInt(5)</code> is 10, and the second message will be displayed if it is not.</p>
+<p><strong>if</strong> statements can be nested inside <strong>else</strong> statements to produce an "else if" effect. For example:</p>
+<pre><code>if (GetGlobalInt(5) == 1) {
+  Display(&quot;Globalint 5 is 1.&quot;);
+}
+else if (GetGlobalInt(5) == 2) {
+  Display(&quot;Globalint 5 is 2.&quot;);
+}
+else {
+  Display(&quot;Globalint 5 is not 1 or 2.&quot;);
+}
+</code></pre>
+<hr />
+</section>
+<section id="switch-case-statements" class="level3">
+<h3><a href="#switch-case-statements">switch, case statements</a></h3>
+<p><strong>switch (</strong> <em>control_expression</em> <strong>)</strong> <code>{</code><br> [ <strong>case</strong> <em>match_expression</em>:<br> <em>statements</em><br> [ <strong>break</strong>; ] ]<br> [ <strong>default:</strong><br> <em>statements</em><br> [ <strong>break</strong>; ] ]<br> <code>}</code></p>
+<p>Compares the result of <em>control_expression</em> against the result of <em>match_expression</em> for each <strong>case</strong> label in order. If a match is found, statements following that label are executed. If there is no matching label and a <strong>default:</strong> label is present, statements following the <strong>default:</strong> label are executed.</p>
+<p>If a <strong>break</strong> statement is encountered, any statements following it are skipped and execution continues after the <strong>switch</strong> block.</p>
+<p>Unlike many programming languages, AGS allows expression results of any type (integer, boolean, string, pointers). It also does not require that <em>match_expression</em>s be constant or literal values.</p>
+<p>A switch statement is useful if you need to compare one value or expression against a series of values. The <em>control_expression</em> represents the value you want to compare and each <strong>case</strong> label is one value in a series to compare it against.</p>
+<p>Example:</p>
+<pre><code>switch (player)
+{
+    case cEgo:
+        Display(&quot;Hello, my name is Ego.&quot;);
+        break;
+    case cJohn:
+        Display(&quot;Greetings, I am John.&quot;);
+        break;
+    case cMary:
+        Display(&quot;Hi there, I am Mary.&quot;);
+        break;
+    default:
+        Display(&quot;This might be a bug!&quot;);
+        break;
+}
+</code></pre>
+<p>In the above example, if the player is cEgo, the game will display "Hello, my name is Ego." If the player is cJohn, the game will display "Greetings, I am John." If the player is cMary, the game will display "Hi there, I am Mary." If the player is none of these characters, the message "This might be a bug!" will be displayed.</p>
+<p>One of the features of a <strong>switch</strong> statement is fall-through. Labels are ignored once a match is found and indeed execution will continue until the end of the <strong>switch</strong> block or a <strong>break</strong> statement is encountered.</p>
+<p>A <strong>switch</strong> statement that demonstrates this:</p>
+<pre><code>switch (player)
+{
+    case cJohn:
+    case cMary:
+        player.Say(&quot;I like oranges.&quot;)
+        break;
+    case cEgo:
+        player.Say(&quot;I like apples.&quot;);
+    default:
+        player.Say(&quot;I would like some berries.&quot;);
+}
+</code></pre>
+<p>In the above example, if the player is either cJohn or cMary, s/he will say "I like oranges.". If the player is cEgo, he will say "I like apples." and then also "I would like some berries." If the player is any other character, only the default "I would like some berries." will be displayed.</p>
+<p>A <em>match_expression</em> can be any valid AGS expression, including a function call. The following construction can be useful when implementing responses to parser values:</p>
+<pre><code>switch (true)
+{
+    case Parser.Said(&quot;take ball&quot;):
+        player.AddInventory(iBall);
+        break;
+    case Parser.Said(&quot;drop ball&quot;):
+        player.LoseInventory(iBall);
+        break;
+}
+</code></pre>
+<p>In this situation, the <em>match_expression</em>s are the results of Parser.Said(). If <em>Player.Said("take ball")</em> is <em>true</em>, the ball is added to the player's inventory. If <em>Player.Said("drop ball")</em> is <em>true</em>, the ball is removed from the player's inventory.</p>
+<hr />
+</section>
+<section id="while" class="level3">
+<h3><a href="#while">while</a></h3>
+<p><strong>while (</strong> <em>expression</em> <strong>)</strong> <code>{</code><br> <em>statements</em><br> <code>}</code></p>
+<p>Runs <em>statements</em> continuously, while <em>expression</em> is true.</p>
+<p>For example:</p>
+<pre><code>while (cEgo.Moving) {
+  Wait(1);
+}
+</code></pre>
+<p>will run the script <code>Wait(1);</code> repeatedly, as long as <code>cEgo.Moving</code> is not zero. Once it is zero, the <strong>while</strong> statement will exit at the end of the loop.</p>
+<hr />
+</section>
+<section id="dowhile" class="level3">
+<h3><a href="#dowhile">do..while</a></h3>
+<p><strong>do</strong> <code>{</code><br> <em>statements</em><br> <code>}</code> <strong>while (</strong> <em>expression</em> <strong>);</strong></p>
+<p>Similarly to <a href="ScriptKeywords.html#while">while</a> runs <em>statements</em> continuously, so long as <em>expression</em> is true, but unlike <strong>while</strong> it checks the expression AFTER executing statements, not before. This also means that the statements will be executed at least once.</p>
+<p>For example:</p>
+<pre><code>do
+{
+  cEgo.Move(cEgo.x + 1, cEgo.y);
+}
+while (IsKeyPressed(eKeyRightArrow));
+</code></pre>
+<p>will run the script <code>cEgo.Move(cEgo.x + 1, cEgo.y);</code> once, and then continue run it repeatedly, as long as the right arrow key is pressed by player.</p>
+<hr />
+</section>
+<section id="for" class="level3">
+<h3><a href="#for">for</a></h3>
+<p><strong>for (</strong> [<em>initialization</em>]<strong>;</strong> [<em>expression</em>]<strong>;</strong> [<em>iteration</em>] <strong>)</strong> <code>{</code><br> <em>statements</em><br> <code>}</code></p>
+<p>This loop command first performs <em>initialization</em> statements, then runs <em>statements</em> inside curved brackets continuously. Each time before executing these statements it checks whether <em>expression</em> is true, and if not - ends the loop. Each time after statements were executed it additionally runs <em>iteration</em> statements.</p>
+<p><em>Initialization</em> is commonly used to declare variables or setting up existing variable values. If a new variable is declared in <em>initialization</em> - such variable will exist and may be used only inside the loop. <em>Iteration</em> step is usually meant to "move" to the next step, by changing some variable value. Every part of the command header - <em>initialization</em>, <em>expression</em> and <em>iteration</em> - is optional: there may be <strong>for</strong> command without initialization, or without iteration, or even without conditional expression (in which case loop should be ended with either <a href="ScriptKeywords.html#break">break</a> or <a href="ScriptKeywords.html#return">return</a>.</p>
+<p>For example:</p>
+<pre><code>for (int i = 0; i &lt; Game.CharacterCount; i++)
+{
+  Display(&quot;My name is %s&quot;, character[i].Name);
+}
+</code></pre>
+<p>will look over every character in game and display their names.</p>
+<p>Another example (note missing initialization and iteration):</p>
+<pre><code>for (; cEgo.x &lt; 100;)
+{
+  Wait(1);
+}
+</code></pre>
+<p>This will repeat <code>Wait(1);</code> until cEgo character does not move beyond coordinate x = 100.</p>
+<hr />
+</section>
+<section id="break" class="level3">
+<h3><a href="#break">break</a></h3>
+<p><strong>break</strong>;</p>
+<p><code>break</code> statement ends the execution of most inner loop or <a href="ScriptKeywords.html#switch-case-statements">switch</a> immediately. After this script continues running from the next line after loop or switch.</p>
+<p>For example:</p>
+<pre><code>while (cEgo.Moving) {
+  if (IsKeyPressed(eKeyEscape))
+    break;
+
+  Wait(1);
+}
+</code></pre>
+<p>will run the script <code>Wait(1);</code> repeatedly, as long as <code>cEgo.Moving</code> is not zero. If player presses Escape key, the loop is terminated immediately.</p>
+<hr />
+</section>
+<section id="continue" class="level3">
+<h3><a href="#continue">continue</a></h3>
+<p><strong>continue</strong>;</p>
+<p><code>continue</code> statement makes the loop skip remaining statements in current iteration and proceed to the next end-condition check, followed by the loop restart, if condition is still met, or loop end. If in <a href="ScriptKeywords.html#for">for</a> kind of loop, the <em>iteration</em> statement is executed right before that.</p>
+<p>For example:</p>
+<pre><code>for (int i = 0; i &lt; 100; i++)
+{
+  // multiple statements here
+
+  if (i &gt; 50)
+    continue;
+
+  // more statements following
+}
+</code></pre>
+<p>will run first part of the loop statements always, and second part only when <code>i &lt;= 50</code>.</p>
+<hr />
+</section>
+<section id="function" class="level3">
+<h3><a href="#function">function</a></h3>
+<p><strong>function</strong> <em>name</em> <code>(</code> [<em>type1 param1</em>, <em>type2 param2</em>, ... ] <code>)</code></p>
+<p>Declares a custom function in your script. A function is a way in which you can separate out commonly used code into its own place, and thus avoid duplicating code.</p>
+<p>For example, suppose that you quite often want to play a sound and add an inventory item at the same time. You could write both commands each time, or you could define a custom function:</p>
+<pre><code>function AddInvAndPlaySound(InventoryItem* item) {
+  player.AddInventory(item);
+  aInventorySound.Play();
+}
+</code></pre>
+<p>then, elsewhere in your code you can simply call:</p>
+<pre><code>AddInvAndPlaySound(iKey);
+</code></pre>
+<p>to add inventory item <em>iKey</em> and play the sound.</p>
+<p>Generally, you place your functions in your global script. You then need to add an <a href="ScriptKeywords.html#import">import</a> line to your script header to allow the function to be called from room scripts.</p>
+<p><strong>Optional parameters</strong></p>
+<p>You can make <em>int</em> parameters optional if there is a default value that the user doesn't need to supply. To do this, change the script header <em>import</em> declaration like this:</p>
+<pre><code>import function TestFunction(int stuff, int things = 5);
+</code></pre>
+<p>that declares a function with a mandatory <em>stuff</em> parameter, and an optional <em>things</em> parameter. If the caller does not supply the second parameter, it will default to 5.</p>
+<p><strong>NOTE:</strong> To use optional parameters, you need to have an "import" declaration for the function in the script header. The default values cannot be specified in the actual function declaration itself.</p>
+<hr />
+</section>
+<section id="return" class="level3">
+<h3><a href="#return">return</a></h3>
+<p><strong>return</strong>;</p>
+<p>Immediately quits currently run function and returns to the previous script function current one was called from, if there was any, otherwise passes execution to engine. <strong>return</strong> can be put in any place in the the function, no matter if it is inside the if/else statement group, loop or switch - it will still work as immediate function exit.</p>
+<p>If the function is declared with return type other than <strong>void</strong> (or simply like <code>function</code>), then the <strong>return</strong> statement <strong>has</strong> to specify <strong>return value</strong>.</p>
+<pre><code>int GetHowManyTradeGoodsShopkeeperHas() {
+  return 2;
+}
+</code></pre>
+<p>Alternatively, when function is not supposed to have any return value, sometimes you may want to break out of current function before it ends naturally:</p>
+<pre><code>function DoThisAndOptionallyThat(bool do_all) {
+  // multiple statements here
+
+  if (!do_all)
+    return; // quit the function prematurely
+
+  // more statements following
+}
+</code></pre>
+<hr />
+</section>
+<section id="struct" class="level3">
+<h3><a href="#struct">struct</a></h3>
+<p><strong>struct</strong> <em>name</em> <code>{</code></p>
+<p>Declares a custom struct type in your script.<br> Structs allow you to group together related variables in order to make your script more structured and readable. For example, suppose that wanted to store some information on weapons that the player could carry. You could declare the variables like this:</p>
+<pre><code>int swordDamage;
+int swordPrice;
+String swordName;
+</code></pre>
+<p>but that quickly gets out of hand and leaves you with tons of variables to keep track of. This is where structs come in:</p>
+<pre><code>struct Weapon {
+  int damage;
+  int price;
+  String name;
+};
+</code></pre>
+<p>Now, you can declare a struct in one go, like so:</p>
+<pre><code>Weapon sword;
+sword.damage = 10;
+sword.price = 50;
+sword.name = &quot;Fine sword&quot;;
+</code></pre>
+<p>Much neater and better organized. You can also combine structs with <a href="ScriptKeywords.html#arrays">arrays</a>:</p>
+<pre><code>// at top of script
+Weapon weapons[10];
+// inside script function
+weapons[0].damage = 10;
+weapons[0].price = 50;
+weapons[0].name = &quot;Fine sword&quot;;
+weapons[1].damage = 20;
+weapons[1].price = 80;
+weapons[1].name = &quot;Poison dagger&quot;;
+</code></pre>
+<p>structs are essential if you have complex data that you need to store in your scripts.</p>
+<hr />
+</section>
+<section id="managed" class="level3">
+<h3><a href="#managed">managed</a></h3>
+<p><strong>managed struct</strong> <em>name</em> <code>{</code></p>
+<p><strong>Managed</strong> is a modifier that can be applied to <strong>struct</strong> declaration to make them managed structs.</p>
+<p>Managed structs are special in the way that objects of their types are created in dynamic pool as opposed to global variables, that exist from the game start to when the game is shut down, and local variables, that exist only when their function is run. You cannot declare a variable of managed struct, but only a pointer variable.</p>
+<p>The advantage of such managed (or dynamic) objects is that they are created only when needed and disposed of when no longer needed. Also, since you work with pointer to object instead of object itself, you may assign them to another variable without copying object itself, pass them to function as parameter, or return from the function.</p>
+<p><strong>IMPORTANT:</strong> there is a big limitation for user-defined managed structs now, it is that they themselves cannot have members of pointer types (or dynamic arrays).</p>
+<p>Example:</p>
+<pre><code>managed struct Apple {
+  int color;
+  int freshness;
+};
+</code></pre>
+<p>This declares managed struct. To declare a pointer to such struct you do:</p>
+<pre><code>Apple* my_apple;
+</code></pre>
+<p>This creates a pointer variable <code>my_apple</code> of managed type <code>Apple</code>.</p>
+<p>However, this does <strong>not</strong> create an object itself yet, and <code>my_apple</code> is assigned <strong>null</strong> value now. If you try to access struct members using <code>my_apple</code> now, you will get errors. To create an actual object you need to use a <a href="ScriptKeywords.html#new">new</a> keyword:</p>
+<pre><code>my_apple = new Apple;
+</code></pre>
+<p>The object is now created in the dynamic memory pool, and variable <code>my_apple</code> <strong>points</strong> to it. This lets us access object contents:</p>
+<pre><code>my_apple.color = Game.GetColorFromRGB(255, 0, 0);
+my_apple.freshness = 100;
+</code></pre>
+<p>You may copy pointer to another variable of same type:</p>
+<pre><code>Apple* apple2 = my_apple;
+</code></pre>
+<p>This does <strong>not</strong> copy object itself, only its address in dynamic pool, meaning both variables - <code>my_apple</code> and <code>apple2</code> - point to same object!</p>
+<p>You may write a function that take such pointer as parameter:</p>
+<pre><code>function DisplayAppleDescription(Apple* apple) {
+  String s = String.Format(&quot;Apple has color %d and freshness %d&quot;, apple.color, apple.freshness);
+  Display(s);
+}
+</code></pre>
+<p>and then call it like:</p>
+<pre><code>DisplayAppleDescription(my_apple);
+</code></pre>
+<p>You may write a function that returns pointer to apple:</p>
+<pre><code>Apple* CreateYellowApple(int fresh) {
+  Apple* apple = new Apple;
+  apple.color = Game.GetColorFromRGB(255, 0, 255);
+  apple.freshness = fresh;
+  return apple;
+}
+</code></pre>
+<p>and then use such function just like:</p>
+<pre><code>Apple *my_apple = CreateYellowApple(50);
+</code></pre>
+<p><strong>When does the dynamic object gets destroyed?</strong> After you created dynamic object as described above, it will exist in memory as long as <em>there is at least one pointer variable pointing to it</em>. As soon as the last pointer gets destroyed itself (for example, if it was local function variable, and function ended), or is assigned another object, or simply assigned <code>null</code>, then the dynamic object is removed from your game forever.</p>
+<p>See Also: <a href="ScriptKeywords.html#new">new</a>, <a href="Pointers.html">Pointers in AGS</a></p>
+<hr />
+</section>
+<section id="new" class="level3">
+<h3><a href="#new">new</a></h3>
+<p><em>pointer_variable</em> = <strong>new</strong> <em>managed_type</em>;</p>
+<p>Creates a new dynamic (managed) object of <em>managed_type</em> and assigns it to <em>pointer_variable</em>.</p>
+<p>Example:</p>
+<pre><code>// Here we declare a managed struct for Apple
+managed struct Apple {
+  int color;
+  int freshness;
+};
+
+// ...and declare a global pointer to Apple
+Apple* SomeApple;
+
+// At the game start we create a new dynamic object of Apple type
+// and assign its address to the pointer variable
+function game_start()
+{
+  SomeApple = new Apple;
+}
+</code></pre>
+<p>See Also: <a href="ScriptKeywords.html#managed">managed</a>, <a href="Pointers.html">Pointers in AGS</a></p>
+<hr />
+</section>
+<section id="enum" class="level3">
+<h3><a href="#enum">enum</a></h3>
+<p><strong>enum</strong> <em>name</em> <code>{</code><br> <em>option1</em> [ = <em>value1</em> ],<br> <em>option2</em> [ = <em>value2</em> ],<br> ...<br> <code>};</code></p>
+<p>Declares an enumeration type. An enumeration allows you to group together a set of related options, where only one will be true at any one time -- a bit like the contents of a list box.</p>
+<p>For example, if you have a script function, <em>doStuff</em>, that can perform 3 different operations, you could do this:</p>
+<pre><code>function doStuff(int param) {
+  if (param == 1) {
+    // do something
+  }
+  else if (param == 2) {
+    // do something else
+  }
+  // etc
+}
+</code></pre>
+<p>but it's hard to read, and when calling the function from elsewhere in your script, it's not clear what 1 or 2 means. That's where enums come in:</p>
+<pre><code>enum DoStuffOption {
+  BakeCake,
+  DoLaundry
+};
+
+function doStuff(DoStuffOption param) {
+  if (param == BakeCake) {
+    // do something
+  }
+  else if (param == DoLaundry) {
+    // do something else
+  }
+  // etc
+}
+</code></pre>
+<p>and then the calling code looks like:<br> <code>doStuff(BakeCake);</code><br> thus making it perfectly clear what the command will do.</p>
+<p>Normally, you would put the enum definition into the script header.</p>
+<p>If you don't assign a value for the first enum item, it is assigned the value 1. Other enum items have the value of the enum before plus 1. Ex: <code>enum ABC { eA,eB, eC};</code> get's <code>eA</code>=1 <code>eB</code>=<code>eA+1</code>=2 <code>eC</code>=<code>eB+1</code>=3, by default.</p>
+<p>In summary, enums are not an essential part of scripting and you can get away perfectly well without using them, but in some specific situations they're very handy.</p>
+<hr />
+</section>
+<section id="this" class="level3">
+<h3><a href="#this">this</a></h3>
+<p>There are two uses for the <code>this</code> keyword.</p>
+<p><strong>1. Accessing members of the current struct</strong></p>
+<p>When you are creating custom <a href="ScriptKeywords.html#struct">structs</a>, you use the "this" keyword inside member functions to refer to the current struct. For example:</p>
+<p>Suppose you had this in your script header:</p>
+<pre><code>struct MyStruct {
+  int myValue;
+
+  import function MyMethod();
+};
+</code></pre>
+<p>Then, in your main script, you could put this:</p>
+<pre><code>function MyStruct::MyMethod()
+{
+  this.myValue = 5;
+}
+</code></pre>
+<p>The <code>MyStruct::MyMethod</code> tells AGS that you are defining the function <em>MyMethod</em> which belongs to the struct <em>MyStruct</em> (the <code>::</code> operator means "belongs to").</p>
+<p>The code above will mean that when the MyMethod function is called, it sets the <code>myValue</code> variable to 5.</p>
+<p><strong>2. Declaring extender functions</strong></p>
+<p>Please see the <a href="ExtenderFunctions.html">Extender functions</a> page for details.</p>
+<hr />
+</section>
+<section id="import" class="level3">
+<h3><a href="#import">import</a></h3>
+<p><strong>import</strong> [attribute] <em>declaration</em> ;</p>
+<p>Declares <em>declaration</em> as a variable or function which is external to the current script, but that the script needs access to it. You use this to provide your room scripts with access to parts of your global script.</p>
+<p>For example:</p>
+<pre><code>import int counter;
+import function add_numbers (int, int);
+</code></pre>
+<p>This imports an integer variable <code>counter</code> and the function <code>add_numbers</code> from the global script to enable the current script to call them. You normally place import statements into the script header so that all rooms can benefit from them.</p>
+<p>In order to import the variable, it must have been exported from the global script with the <a href="ScriptKeywords.html#export">export keyword</a>.</p>
+<p><strong>NOTE:</strong> You <strong>MUST</strong> import external variables with the correct type. If <code>counter</code> was declared as a <strong>short</strong> in the global script, you MUST import it as a short, otherwise your game may crash.</p>
+<p><strong>NOTE:</strong> You cannot import old-style <code>string</code> variables (this does not apply to new-style <code>String</code> variables).</p>
+<p>As a special case, specifying the optional keyword <code>attribute</code> within a struct definition will define a virtual property, which will also require matching getter and setter functions.</p>
+<p>For example:</p>
+<pre><code>struct Weapon
+{
+    protected int damage;
+    import attribute int Damage;
+};
+</code></pre>
+<p>Please see the <a href="OOProgramming.html">Object Oriented programming</a> page for more details.</p>
+<hr />
+</section>
+<section id="export" class="level3">
+<h3><a href="#export">export</a></h3>
+<p><strong>export</strong> <em>variable</em> [, <em>variable</em> ... ] ;</p>
+<p>Declares that <em>variable</em> is exported and is available to access in other scripts, if declared using the <a href="ScriptKeywords.html#import">import</a> keyword in those scripts.</p>
+<p>For example:</p>
+<pre><code>export my_variable;
+export counter, strength;
+</code></pre>
+<p>This exports three variables (<em>my_variable</em>, <em>counter</em>, and <em>strength</em>) to be available for import.</p>
+<hr />
+</section>
+<section id="readonly" class="level3">
+<h3><a href="#readonly">readonly</a></h3>
+<p><strong>readonly</strong> <em>data_type</em> <em>variable</em> [ = <em>value</em> ];</p>
+<p>The <em>readonly</em> keyword is used when declaring a variable, to indicate that its value cannot be changed.</p>
+<p>For example:</p>
+<pre><code>readonly int zero;
+readonly int months = 12;
+</code></pre>
+<hr />
+</section>
+<section id="writeprotected" class="level3">
+<h3><a href="#writeprotected">writeprotected</a></h3>
+<p><strong>writeprotected</strong> <em>data_type</em> <em>struct_member</em>;</p>
+<p>The <em>writeprotected</em> keyword is used to define a property within a struct, which can only be modified by struct members (including extender functions) using the <a href="ScriptKeywords.html#this">this</a> keyword. Reading the value is not restricted.</p>
+<p>For example:</p>
+<pre><code>struct Weapon
+{
+    writeprotected int Damage;
+    import bool SetDamage(int damage);
+};
+</code></pre>
+<hr />
+</section>
+<section id="protected" class="level3">
+<h3><a href="#protected">protected</a></h3>
+<p><strong>protected</strong> <em>data_type</em> <em>struct_member</em>;</p>
+<p>The <em>protected</em> keyword is used to define a property within a struct, which can only be accessed or modified by struct members (including extender functions) using the <a href="ScriptKeywords.html#this">this</a> keyword.</p>
+<p>For example:</p>
+<pre><code>struct Weapon
+{
+    protected int Damage;
+    import bool SetDamage(int damage);
+};
+</code></pre>
+<hr />
+</section>
+<section id="noloopcheck" class="level3">
+<h3><a href="#noloopcheck">noloopcheck</a></h3>
+<p>function <strong>noloopcheck</strong> <em>function_name</em> ( <em>parameters ...</em> ) <code>{</code></p>
+<p>The noloopcheck keyword disables the script loop checking for the current function.</p>
+<p>Normally, if a <a href="ScriptKeywords.html#dowhile">while</a> loop runs for more than 150,000 loops, AGS will assume that the script has hung and abort the game. This is to assist scripting since otherwise the game would lock up if you scripted a loop wrongly.</p>
+<p>However, there are some rare situations in which you need a loop to run several thousand times (for example, when initializing a very large array). In this case, the <em>noloopcheck</em> keyword can be used to stop AGS aborting your script.</p>
+<p><strong>NOTE:</strong> The <em>noloopcheck</em> keyword must be placed between "function" and the function's name.<br> If you import the function into the script header, you <strong>do not</strong> include the "noloopcheck" keyword in the import declaration -- it is only included in the actual function body.</p>
+<p><strong>NOTE:</strong> If AGS gives you a script iterations error, <strong>DO NOT</strong> just automatically add this keyword as a way to fix the problem -- more often than not, it is a fault in your scripting and using this keyword will mean that the game will hang rather than abort.</p>
+<p>For example:</p>
+<pre><code>function noloopcheck initialize_array() {
+  char bigarray[200000];
+  int a = 0;
+  while (a &lt; 200000) {
+    bigarray[a] = 1;
+    a++;
+  }
+}
+</code></pre>
+<p>without the "noloopcheck" keyword here, AGS would abort that script.</p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>Build: 01/24/21 19:37:29</p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

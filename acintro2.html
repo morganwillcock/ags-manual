@@ -1,448 +1,156 @@
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Getting Started with AGS - Part 2 &#8212; AGSHelp 3.4.1 documentation</title>
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Getting Started with AGS - Part 3" href="acintro3.html" />
-    <link rel="prev" title="Getting Started with AGS" href="acintro1.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
-
-  </head><body>
-
-  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">
-          AGS Manual</a>
-        <span class="navbar-text navbar-version pull-left"><b></b></span>
-      </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="http://adventuregamestudio.co.uk/forums/index.php">AGS Forums</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="index.html">AGS Manual <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="SystemRequirements.html">System Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="Tutorial.html">Tutorial</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="StartingOff.html">Starting off</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Settingupthegame.html">Setting up the game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AdvancedRoomFeatures.html">Advanced room features</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="MusAndSound.html">Music and sound</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DistGame.html">Distributing your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BackingUpYourGame.html">Backing up your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextParser.html">The text parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Translations.html">Translations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GlobalVariables.html">Global variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomProperties.html">Custom Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Plugins.html">Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lipsync.html">Lip sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Templates.html">New Game templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Debuggingfeatures.html">Debugging features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AutonumberSpeechFiles.html">Auto-number speech files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IntegrationWithWindows.html">Integration with Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SourceControl.html">Source Control integration</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TheDemoGame.html">The demo game</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart1.html">Scripting tutorial part 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart2.html">Scripting tutorial part 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Pointers.html">Pointers in AGS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CallingGlobalFunctions.html">Calling global functions from local scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TheScriptHeader.html">The script header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="StringFormats.html">String formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptModules.html">Multiple Scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BlockingScripts.html">Understanding blocking scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicArrays.html">Dynamic Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ExtenderFunctions.html">Extender functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Gamevariables.html">Game variables</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Scripting Api</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TextScriptEvents.html">Predefined global script functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RepExec.html">repeatedly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomDialogOptions.html">Custom dialog options rendering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BuiltInEnums.html">Built-in enumerated types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="managedmodifier.html">Script language keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioChannel.html">AudioChannel functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioClip.html">AudioClip functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Character.html">Character functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DateTime.html">DateTime functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Dialog.html">Dialog functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DrawingSurfaceFunctions.html">DrawingSurface functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicSprite.html">DynamicSprite functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="File.html">File functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Game.html">Game / Global functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUIControl.html">GUI control functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Button.html">GUI Button functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI InvWindow functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Label.html">GUI Label functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ListBox.html">GUI List Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Slider.html">GUI Slider properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextBox.html">GUI Text Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Hotspot.html">Hotspot functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InventoryItem.html">Inventory item functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Maths.html">Maths functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Mouse.html">Mouse functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Multimedia.html">Multimedia functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Object.html">Object functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Overlay.html">Overlay functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CyclePalette.html">Palette functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Parser.html">Parser functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Region.html">Region functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Room.html">Room functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ShakeScreen.html">Screen functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Speech.html">Speech functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="String.html">String functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="System.html">System functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DisplayAt.html">Text display / Speech functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ViewFrame.html">ViewFrame functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SCUMM_VERBCOIN_GUI.html">SCUMM</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EventTypes.html">Event Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SystemLimits.html">System limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ASCIIcodes.html">ASCII code table</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo27.html">Upgrading to AGS 2.7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo271.html">Upgrading to AGS 2.71</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo30.html">Upgrading to AGS 3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo31.html">Upgrading to AGS 3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo32.html">Upgrading to AGS 3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo33.html">Upgrading to AGS 3.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo335.html">Upgrading to AGS 3.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo34.html">Upgrading to AGS 3.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo341.html">Upgrading to AGS 3.4.1</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
-</ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#"><strong>Getting Started with AGS - Part 2</strong></a><ul>
-<li><a class="reference internal" href="#creating-your-first-room">Creating your first room</a></li>
-</ul>
-</li>
-</ul>
-</ul>
-</li>
-              
-            
-            
-              
-                
-  <li>
-    <a href="acintro1.html" title="Previous Chapter: Getting Started with AGS"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Getting Start...</span>
-    </a>
-  </li>
-  <li>
-    <a href="acintro3.html" title="Next Chapter: Getting Started with AGS - Part 3"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Getting Start... &raquo;</span>
-    </a>
-  </li>
-              
-            
-            
-            
-            
-              <li class="hidden-sm">
-<div id="sourcelink">
-  <a href="_sources/acintro2.md.txt"
-     rel="nofollow">Source</a>
-</div></li>
-            
-          </ul>
-
-          
-            
-<form class="navbar-form navbar-right" action="search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-          
-        </div>
-    </div>
-  </div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 content">
-      
-  <div class="section" id="getting-started-with-ags-part-2">
-<span id="getting-started-with-ags-part-2"></span><h1><strong>Getting Started with AGS - Part 2</strong><a class="headerlink" href="#getting-started-with-ags-part-2" title="Permalink to this headline">¶</a></h1>
-<p>In AGS, games are made up of several <em>rooms</em>, which the player moves
-between in order to play the game. Each room is one screen that has its
-own background, hotspots and objects.</p>
-<div class="section" id="creating-your-first-room">
-<span id="creating-your-first-room"></span><h2>Creating your first room<a class="headerlink" href="#creating-your-first-room" title="Permalink to this headline">¶</a></h2>
-<p>Scroll down to the bottom of the project tree, and you’ll see a node
-called “Rooms”. Right-click it, and choose “New room”. You’ll see a “1:”
-node appear underneath. This shows us that we’ve created room number 1,
-and we can give it a name in a moment.</p>
-<p><img alt="" src="_images/intro2_1.jpg" /><br>
-<em>The Rooms list in the project tree</em></p>
-<p>Expand the “1:” node, and double-click the “Edit room” node underneath
-to open the room. You’ll see a new window open up, with a big black area
-in it. This is the room background, which is currently blank. The room
-editor looks like this:</p>
-<p><img alt="" src="_images/intro2_2.jpg" /><br>
-<em>The Rooms list in the project tree</em></p>
-<p>There are four main parts to this window:</p>
-<ul class="simple">
-<li>The <em>Background Selection</em> area allows you to import and manage the
-room’s backgrounds.</li>
-<li>The <em>Room Parts</em> drop-down list is the way that you switch between
-seeing different aspects of the room.</li>
-<li>The <em>Room Background Preview</em> area is where you see the room’s
-background image, along with various things on top of it, depending
-on what’s selected in the Room Parts option.</li>
-<li>The <em>Properties</em> window allows you to set up various properties and
-events for the room.</li>
-</ul>
-<p><strong>Naming the Room</strong></p>
-<p>As a first step, let’s give the room a description. This is just to help
-us easily remember which room it is, and this description isn’t used at
-all by the game engine. Click in the “Description” property in the
-property grid, and type in something appropriate. You’ll notice that the
-project tree updates to include this description.</p>
-<p><strong>The Background</strong></p>
-<p>Now, the first thing you need to do is draw the background for the room.
-This needs to be an image of at least the same size as your game
-resolution (that we set earlier on the General Settings pane); if it’s
-bigger than the game resolution then it’ll become a scrolling room.</p>
-<p>Draw the image in your favourite paint package, and once done, save it
-as a BMP or PNG file. Then, return to the AGS Editor, and press the
-“Change” button. Find the file you just created, and click Open.</p>
-<p>You should see the black area in the editor replaced by your image. For
-this tutorial, I’m going to shamelessly steal a background from Space
-Quest 4. Obviously, you should draw your own!</p>
-<p><img alt="" src="_images/intro2_3.jpg" /><br>
-<em>I’ve imported my background</em></p>
-<p><strong>Edges</strong></p>
-<p>Open up the combobox that says “Nothing” in it, and select “Edges”.
-You’ll see four yellow lines drawn across your image in various places.
-These are the room <em>edges,</em> and they define how far the character needs
-to walk to be considered to have left the room. Click and drag them to
-position them appropriately. Bear in mind that it’s the character’s
-<strong>feet</strong> that are compared with these lines when positioning.</p>
-<p><img alt="" src="_images/intro2_4.jpg" /><br>
-<em>I’ve lined up the top and right edges correctly</em></p>
-<p>At the moment, walking past the edge won’t actually cause anything to
-happen, but we’ll deal with that later. In my example, the character can
-only walk off the top and right edges, so they’re the only ones that
-I’ve dragged into position. I’ve left the others as they are, since we
-won’t be needing them.</p>
-<p><strong>Walkable Areas</strong></p>
-<p>Next, we need to define the room’s <em>walkable areas</em>, which define where
-characters are allowed to walk within the room. Open up the drop-down
-list again, and select “Walkable areas”:</p>
-<p><img alt="" src="_images/intro2_5.jpg" /><br>
-<em>Walkable areas mode</em></p>
-<p>In the toolbar you’ll notice that some new buttons have appeared. These
-are the drawing tools, and work in a similar way to most paint packages.
-AGS provides Line, Freehand, Rectangle and Fill tools. Alternatively,
-you can draw your walkable area mask in a paint package and import it
-(we’ll cover that later).</p>
-<p>What we need to do is to fill in the areas of the room where the player
-is allowed to walk. In the game, the bottom middle of the character is
-checked against these areas, so it’s probably wise to make the walkable
-areas slightly smaller than they need to be, to allow the character’s
-feet to spill outside the area.</p>
-<p>The best way to start off is with the Line tool. Draw some lines to
-encompass the area that you want to be walkable. Make sure they are all
-joined up, and then choose the Fill tool and click in the middle of the
-area, and it should be filled blue. If the whole screen goes blue, click
-Undo, then use the Line tool to make sure all the edges of the area are
-properly connected up, and try again.</p>
-<p>You can use the right mouse button with the drawing tools to erase areas
-in the same way that you use the left button to add them.</p>
-<p><img alt="" src="_images/intro2_6.jpg" /><br>
-<em>I’ve drawn a walkable area where I want the player to be able to go.</em></p>
-<p><strong>Walk-behind areas</strong></p>
-<p>The next job we need to do is to define the walk-behind areas. These
-areas (called “priorities” by some other adventure game tools) tell the
-game where the character needs to be drawn behind the background. For
-example, on my screen here, the player needs to walk in from behind the
-curved wall on the right.</p>
-<p>Choose “Walk-behinds” from the combobox. Your walkable area will
-disappear and you’ll be back to just seeing the room background.</p>
-<p>Now, we draw on the walk-behind area in the same way as we did the
-walkable area - in fact, all the same drawing tools are available. My
-result looks like this:</p>
-<p><img alt="" src="_images/intro2_7.jpg" /><br>
-<em>The walk-behind area painted over the pillar</em></p>
-<p>Notice that I haven’t bothered to make the whole of the pillar a
-walk-behind from top to bottom - using my knowledge of the walkable
-areas and the height of the character, I can just draw a walk-behind in
-the places where it’s possible for the character to be.</p>
-<p>Now that we’ve done that, there’s a very important next step in order to
-make the area work - the <strong>baseline</strong>. The baseline is a horizontal
-line, which tells the game where the character has to be in order to be
-drawn behind the area. For example, if you had a table in the middle of
-the room, you’d only want him drawn behind the table if he was standing
-behind it.</p>
-<p>You normally place a baseline at the lowest point of the walk-behind
-area. Move the mouse cursor to the bottom of the walk-behind area, and
-look at the “Mouse Position” display above the room background. These
-are the X and Y co-ordinates of where the mouse cursor currently is.
-We’re only interested in the Y co-ordinate, so type it in to the
-Baseline setting in the property grid.</p>
-<p>By default, we’ve been drawing blue areas onto the screen. But what if
-we had two pillars, in different places? We wouldn’t want the same
-baseline to apply to both. Never fear, AGS allows you to have several
-different areas on each screen. Above the property grid, there’s a
-combobox that says “Walk-behind area ID 1”. You can change this to draw
-in another colour, and each area has its own baseline.</p>
-<p><img alt="" src="_images/intro2_8.jpg" /><br>
-<em>Selecting a different walk-behind area</em></p>
-<p><strong>Trying out the game</strong></p>
-<p>Ok, we’ve slogged away at making our room - now it’s about time to give
-it a go. Press F5, or click “Run” on the Build menu. This will save your
-work and launch the game! Once loaded, you should see your room with the
-character in it.</p>
-<p><img alt="" src="_images/icon_info.gif" /><br>
-When you use the Run command, the game will always run in a window. If you want to test the game full-screen, use the Ctrl+F5 (“Run without debugger”) option.</p>
-<p>Try to move the character around. If he won’t move, he probably didn’t
-start on a walkable area. If this is the case, expand the “Characters”
-node in the project tree, and double-click “cEgo”. Then, look in the
-property grid for two properties called “StartX” and “StartY”. You can
-find out what these co-ordinates should be by going back to your room
-background, positioning the mouse cursor at the place where you want the
-character to start, and reading the “Mouse co-ordinates” display.</p>
-<p>Once you’ve got that working, have a play walking the character around
-the screen, testing out the walkable and walk-behind areas.</p>
-<p><img alt="" src="_images/icon_info.gif" /><br>
-The normal way of exiting the game is to press Ctrl+Q. It’s possible that during development of your game, you may create a script that causes the game to lock up - in this case, the emergency break key Alt+X will exit the game for you.</p>
-<p>Go to part 3: <a class="reference external" href="acintro3">Adding interaction</a></p>
-</div>
-</div>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Getting Started with AGS - Part 2</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
 
 
-    </div>
-      
-  </div>
-</div>
-    
-
-<footer class="footer">
   <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-    </p>
-    <p>
-        &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 31, 2018, 2:01:52 AM.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
-    </p>
-  </div>
-</footer>
-    
+    <header>
+      <label for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
+    </header>
 
-  </body>
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#getting-started-with-ags---part-2"><span>Getting Started with AGS - Part 2</span></a>
+<ul>
+<li><a href="#creating-your-first-room"><span>Creating your first room</span></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="getting-started-with-ags---part-2" class="level2">
+<h2><a href="#getting-started-with-ags---part-2">Getting Started with AGS - Part 2</a></h2>
+<p>In AGS, games are made up of several <em>rooms</em>, which the player moves between in order to play the game. Each room is one screen that has its own background, hotspots, and objects.</p>
+<section id="creating-your-first-room" class="level3">
+<h3><a href="#creating-your-first-room">Creating your first room</a></h3>
+<p>Scroll down to the bottom of the Project Tree, and you'll see a node called <strong>"Rooms"</strong>.</p>
+<ul>
+<li>If you are following the tutorial, you should already have a room created for you. Expand the "Rooms" node and you'll see a <strong>"1:"</strong> node.</li>
+<li>If you are not following the tutorial, right-click on "Rooms" in the Project Tree, and choose "New room". You'll see a <strong>"1:"</strong> node appear underneath. This shows us that we've created room number 1, and we can give it a name in a moment.</li>
+</ul>
+<p><img src="images/acintro2_01.png" alt="The Rooms list in the project tree" /></p>
+<p>Expand the <strong>"1:"</strong> node, and double-click the <strong>"Edit room"</strong> node underneath to open the room in the workspace. You'll see a new window open up with "Room 1" as a new tab across the "Open Windows" tab bar, and your work area has changed to reflect this.</p>
+<ul>
+<li>If you are following the tutorial, you'll see a space background showing in the Room Background Preview workspace.</li>
+<li>If you are not following the tutorial, you will be shown a default black work area. This is the room background, which is currently blank.</li>
+</ul>
+<p>The Room editor is described below and arranged like this:</p>
+<p><img src="images/acintro2_02.png" alt="The Rooms window workspace" /></p>
+<p>There are four main parts to this window:</p>
+<ol>
+<li>The <strong>Background Selection</strong> area allows you to import and manage the room's backgrounds.</li>
+<li>The <strong>Room Parts</strong> drop-down list is the way that you add or modify different aspects of your room (Hotspots, Objects, Walkable areas, etc.), as well as, simply switch between making these aspects visible in the editor for your preview.</li>
+<li>The <strong>Room Background Preview</strong> area is where you see the room's background image, along with various things on top of it, depending on what's selected as visible in the Room Parts option.</li>
+<li>The <strong>Properties Grid</strong> window allows you to set up various properties and events for the room.</li>
+</ol>
+<p><strong>Naming the Room</strong></p>
+<p>As a first step, let's give the room a description. This is just to help us easily remember which room it is, and this description isn't used at all by the game engine. Click in the <strong>"Description"</strong> property in the Properties Grid, and type in something appropriate. I chose "SpaceHub" You'll notice that the Project Tree updates to include this description.</p>
+<p><strong>The Background</strong></p>
+<ul>
+<li><p>If you are following the tutorial, we're using a background created by an <a href="https://www.adventuregamestudio.co.uk/forums/index.php?topic=54703.0">AGS Forums Competition</a>, designed by Selmiak. Obviously, as you continue with AGS you should draw your own backgrounds!</p></li>
+<li><p>If you are not following the tutorial, then the first thing you need to do now is draw the background for the room. This needs to be an image of at least the same size as your game resolution (that we set earlier on the General Settings pane); if it's bigger than the game resolution then it'll become a scrolling room.</p></li>
+</ul>
+<p>If you'd like to follow the tutorial, you may import the following image:</p>
+<p><img src="images/acintro2_03.png" alt="Selmiak-made background for the updated tutorial" /></p>
+<p>Otherwise, draw the image in your favorite paint package, and once done, save it as a BMP or PNG file. Then, return to the AGS Editor, and press the <strong>"Change"</strong> button within the "Background Selection" area. Find the file you just created, and click Open.</p>
+<p>You should now see the black area in the editor replaced by your image.</p>
+<p><img src="images/acintro2_04.png" alt="I&#39;ve imported my background" /></p>
+<p><strong>Edges</strong></p>
+<p>Within the "Room Parts section" is the <strong>"Edit this room's"</strong> combobox that says <strong>"Room"</strong> in it. Select the trailing <strong>arrow</strong>, and select on the word <strong>"Edges"</strong>. Upon clicking on this you've made the "Edges" sub-section now visible and the "eye" icon within this drop-down is now <em>open</em> to designate this.</p>
+<p>Within the "Room Background Preview" area you will see four yellow lines drawn across your image in various places. These are the room <em>edges,</em> and they define how far the character needs to walk to be considered to have left the room. Click and drag them to position them appropriately.</p>
+<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: Bear in mind that it's the character's <strong>feet</strong> that are to be considered with these lines when positioning.)</p>
+<p><img src="images/acintro2_05.png" alt="I&#39;ve lined up the top and right edges correctly" /></p>
+<p>At the moment, walking past the edges won't actually cause anything to happen, but we'll deal with that later. In my example, the character can only walk off the top and right edges, so they're the only ones that I've dragged into position. I've left the others as they are, since we won't be needing them.</p>
+<p><strong>Walkable Areas</strong></p>
+<p>Next, we need to define the room's <em>walkable areas</em>, which define where characters are allowed to walk within the room. Open up the <strong>"Show this room's"</strong> Room drop-down list again, and select the <strong>"Walkable areas"</strong> text.</p>
+<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: You may still see the "Edges" of the room displaying as they were turned to "visible" when you had that section opened. Clicking on the "Show this Room's" dropdown and clicking on the "eyeball" for "Edges" will make them hidden from your Room Background Preview area.</p>
+<p><img src="images/acintro2_06.png" alt="Walkable areas mode" /></p>
+<p>In the AGS Editor top toolbar you'll notice that some new buttons have appeared. These are the drawing tools, and work in a similar way to most paint packages. AGS Editor provides Line, Freehand, Rectangle and Fill tools. Alternatively, you can draw your walkable area mask in a paint package and import it <a href="AdvancedRoomFeatures.html#importing-a-file-as-the-walkable-area-mask">we'll cover that later in Advanced Room Features</a>.</p>
+<p>What we need to do is to fill in the areas of the room where the player is allowed to walk. In the game, the bottom middle of the character is checked against these areas, so it's probably wise to make the walkable areas slightly smaller than they need to be, to allow the character's feet to spill outside the area.</p>
+<p>The best way to start off is with the Line tool. Draw some lines to encompass the area that you want to be walkable. Make sure they are all joined up, and then choose the Fill tool and click in the middle of the area, and it should be filled blue. If the whole screen goes blue, click Undo, then use the Line tool to make sure all the edges of the area are properly connected up, and try again.</p>
+<p>You can use the right mouse button with the drawing tools to erase areas in the same way that you use the left button to add them.</p>
+<p><img src="images/acintro2_07.png" alt="I&#39;ve drawn a walkable area where I want the player to be able to walk along." /></p>
+<p><strong>Walk-behind areas</strong></p>
+<p>The next job we need to do is to define the walk-behind areas. These areas (called "priorities" by some other adventure game tools) tell the game where the character needs to be drawn behind the background.</p>
+<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: If you are following along on the tutorial, unfortunately our example background does not have any walk-behinds to worry about. So, I will show you how you can work with walk-behinds as our previous tutorial did, using a background from Space Quest 4.)</p>
+<p>Open up the <strong>"Show this room's"</strong> Room drop-down list again, and select the <strong>"Walk-behinds"</strong> text. Your walkable area will disappear and you'll be back to just seeing the room background.</p>
+<p>Notice on this Space Quest 4 screen, the player needs to walk in from behind the curved wall on the right.</p>
+<p>Now, we draw on the walk-behind area in the same way as we did the walkable area - in fact, all the same drawing tools are available. My result looks like this:</p>
+<p><img src="images/intro2_7.jpg" alt="The walk-behind area painted over the pillar" /></p>
+<p>Notice that I haven't bothered to make the whole of the pillar a walk-behind from top to bottom - using my knowledge of the walkable areas and the height of the character, I can just draw a walk-behind in the places where it's possible for the character to be.</p>
+<p>Now that we've done that, there's a very important next step in order to make the area work - the <strong>baseline</strong>. The baseline is a horizontal line, which tells the game where the character has to be in order to be drawn behind the area. For example, if you had a table in the middle of the room, you'd only want him drawn behind the table if he was standing behind it.</p>
+<p>You normally place a baseline at the lowest point of the walk-behind area. Move the mouse cursor to the bottom of the walk-behind area, and look at the "Mouse Position" display above the room background. These are the X and Y co-ordinates of where the mouse cursor currently is. We're only interested in the Y co-ordinate, so type it in to the Baseline setting in the property grid.</p>
+<p>By default, we've been drawing blue areas onto the screen. But what if we had two pillars, in different places? We wouldn't want the same baseline to apply to both. Never fear, AGS allows you to have several different areas on each screen. Above the property grid, there's a combobox that says "Walk-behind area ID 1". You can change this to another ID to then draw in another color, and each area has its own baseline.</p>
+<p><img src="images/intro2_8.jpg" alt="Selecting a different walk-behind area" /></p>
+<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: Going forward this tutorial will return to the Space Hub background image.)</p>
+<p><strong>Trying out the game</strong></p>
+<p>OK, we've slogged away at making our room - now it's about time to give it a go. Press F5, or click "Run" on the Build menu. This will save your work and launch the game! Once loaded, you should see your room with the character in it.</p>
+<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: When you use the Run command, the game will always run in a window. If you want to test the game full-screen, use the Ctrl+F5 ("Run without debugger") option.)</p>
+<p>Try to move the character around. If he won't move, he probably didn't start on a walkable area. If this is the case, expand the "Characters" node in the project tree, and double-click "cEgo". Then, look in the property grid for two properties called "StartX" and "StartY". You can find out what these co-ordinates should be by going back to your room background, positioning the mouse cursor at the place where you want the character to start, and reading the "Mouse Position" display.</p>
+<p>Once you've got that working, have a play walking the character around the screen, testing out the walkable and walk-behind areas.</p>
+<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: The normal way of exiting the game is to press Ctrl+Q. It's possible that during development of your game, you may create a script that causes the game to lock up - in this case, the emergency break key Alt+X will exit the game for you.)</p>
+<p>Next Chapter: <a href="acintro3.html">Part 3 - Adding Interaction</a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>Build: 01/24/21 19:37:30</p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
 </html>

@@ -1,385 +1,168 @@
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Distributing your game &#8212; AGSHelp 3.4.1 documentation</title>
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Backing up your game" href="BackingUpYourGame.html" />
-    <link rel="prev" title="Music and sound" href="MusAndSound.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
-
-  </head><body>
-
-  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">
-          AGS Manual</a>
-        <span class="navbar-text navbar-version pull-left"><b></b></span>
-      </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="http://adventuregamestudio.co.uk/forums/index.php">AGS Forums</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="index.html">AGS Manual <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="SystemRequirements.html">System Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="StartingOff.html">Starting off</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Settingupthegame.html">Setting up the game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AdvancedRoomFeatures.html">Advanced room features</a></li>
-</ul>
-</li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="OtherFeatures.html">Other Features</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="MusAndSound.html">Music and sound</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Distributing your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BackingUpYourGame.html">Backing up your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextParser.html">The text parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Translations.html">Translations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GlobalVariables.html">Global variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomProperties.html">Custom Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Plugins.html">Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lipsync.html">Lip sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Templates.html">New Game templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Debuggingfeatures.html">Debugging features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AutonumberSpeechFiles.html">Auto-number speech files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IntegrationWithWindows.html">Integration with Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SourceControl.html">Source Control integration</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TheDemoGame.html">The demo game</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart1.html">Scripting tutorial part 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart2.html">Scripting tutorial part 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Pointers.html">Pointers in AGS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CallingGlobalFunctions.html">Calling global functions from local scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TheScriptHeader.html">The script header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="StringFormats.html">String formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptModules.html">Multiple Scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BlockingScripts.html">Understanding blocking scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicArrays.html">Dynamic Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ExtenderFunctions.html">Extender functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Gamevariables.html">Game variables</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Scripting Api</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TextScriptEvents.html">Predefined global script functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RepExec.html">repeatedly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomDialogOptions.html">Custom dialog options rendering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BuiltInEnums.html">Built-in enumerated types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="managedmodifier.html">Script language keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioChannel.html">AudioChannel functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioClip.html">AudioClip functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Character.html">Character functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DateTime.html">DateTime functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Dialog.html">Dialog functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DrawingSurfaceFunctions.html">DrawingSurface functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicSprite.html">DynamicSprite functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="File.html">File functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Game.html">Game / Global functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUIControl.html">GUI control functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Button.html">GUI Button functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI InvWindow functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Label.html">GUI Label functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ListBox.html">GUI List Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Slider.html">GUI Slider properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextBox.html">GUI Text Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Hotspot.html">Hotspot functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InventoryItem.html">Inventory item functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Maths.html">Maths functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Mouse.html">Mouse functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Multimedia.html">Multimedia functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Object.html">Object functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Overlay.html">Overlay functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CyclePalette.html">Palette functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Parser.html">Parser functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Region.html">Region functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Room.html">Room functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ShakeScreen.html">Screen functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Speech.html">Speech functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="String.html">String functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="System.html">System functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DisplayAt.html">Text display / Speech functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ViewFrame.html">ViewFrame functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SCUMM_VERBCOIN_GUI.html">SCUMM</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EventTypes.html">Event Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SystemLimits.html">System limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ASCIIcodes.html">ASCII code table</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo27.html">Upgrading to AGS 2.7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo271.html">Upgrading to AGS 2.71</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo30.html">Upgrading to AGS 3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo31.html">Upgrading to AGS 3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo32.html">Upgrading to AGS 3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo33.html">Upgrading to AGS 3.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo335.html">Upgrading to AGS 3.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo34.html">Upgrading to AGS 3.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo341.html">Upgrading to AGS 3.4.1</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
-</ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Distributing your game</a><ul>
-<li><a class="reference internal" href="#licensing">Licensing</a></li>
-<li><a class="reference internal" href="#custom-icon">Custom icon</a></li>
-<li><a class="reference internal" href="#splitting-resource-files">Splitting resource files</a></li>
-</ul>
-</li>
-</ul>
-</ul>
-</li>
-              
-            
-            
-              
-                
-  <li>
-    <a href="MusAndSound.html" title="Previous Chapter: Music and sound"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Music and sound</span>
-    </a>
-  </li>
-  <li>
-    <a href="BackingUpYourGame.html" title="Next Chapter: Backing up your game"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Backing up your game &raquo;</span>
-    </a>
-  </li>
-              
-            
-            
-            
-            
-              <li class="hidden-sm">
-<div id="sourcelink">
-  <a href="_sources/DistGame.md.txt"
-     rel="nofollow">Source</a>
-</div></li>
-            
-          </ul>
-
-          
-            
-<form class="navbar-form navbar-right" action="search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-          
-        </div>
-    </div>
-  </div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 content">
-      
-  <div class="section" id="distributing-your-game">
-<span id="distributing-your-game"></span><h1>Distributing your game<a class="headerlink" href="#distributing-your-game" title="Permalink to this headline">¶</a></h1>
-<p>When you choose the “Build EXE” option in the Editor, a “Compiled”
-sub-directory is created in your game’s folder, where more
-subdirectories are created in turn. “Compiled/Data” subfolder is made
-always. It will contain the “raw” game files that cannot be used on
-their own, but may be run by the AGS engine executable. From this folder
-these files will be then copied into other subfolders, each for one
-build target (platform) you selected in the project’s General Settings.
-For example, “Compiled/Windows” subfolder will be created if you have
-Windows build enabled, and “Compiled/Linux” subfolder if you have Linux
-build enabled. The contents of those subfolders may be now distributed
-to corresponding operating systems. So, for example, if you want to
-distribute Windows version of your game, you need to take the contents
-of “Compiled/Windows” subfolder. At its simplest this will just be your
-game executable and the setup program, but you may also have audio and
-speech libraries (AUDIO.VOX and SPEECH.VOX); and if you have selected to
-split resources files, you will also have several files named
-“game.001”, “game.002”, and so forth.</p>
-<p>It is not possible to load the exe file back into the AGS Editor.
-This means two things when only the EXE file is available: (1) other
-people can’t edit your game’s data, and (2) you can’t either. Always
-keep a backup of the other files produced (*.CRM, GAME.AGF, etc) as
-they are what the Editor needs to be able to load your game for
-editing.</p>
-<p>You can make a “Loading…” style splash screen to be displayed
-while your game starts up. To do so, simply save the image as
-PRELOAD.PCX (must be the same resolution and colour depth as the game)
-in the game folder, and build the game. It should then display while the
-game is loading.</p>
-<p>The AUDIO.VOX file contains audio clips that you have marked
-as “InSeperateVOX” in the editor. This allows you to have an optional
-audio download, if your game uses lots of sound files but you don’t want
-the player to have to download them.</p>
-<div class="section" id="licensing">
-<span id="licensing"></span><h2>Licensing<a class="headerlink" href="#licensing" title="Permalink to this headline">¶</a></h2>
-<p>Due to the licenses of code used by AGS, your documentation
-should acknowledge the following:</p>
-<ul class="simple">
-<li>TrueType font display uses ALFont by Javier Gonzalez and the Freetype
-project. Distributed under the terms of the FreeType project license.</li>
-<li>OGG player is alogg by Javier Gonzalez, using the Ogg Vorbis decoder,
-which is available from http://www.xiph.org/ Copyright (c) 2002-2008,
-Xiph.org Foundation</li>
-<li>MP3 player is almp3, by Javier Gonzalez and the FreeAmp team. It uses
-the mpg123 MP3 decoder, and is distributed under the terms of the GNU
-Lesser General Public License version 2.1.</li>
-</ul>
-<p>You must also comply with the licence for AGS:
-<a class="reference external" href="http://www.opensource.org/licenses/artistic-license-2.0.php">Artistic License 2.0</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="custom-icon">
-<span id="custom-icon"></span><h2>Custom icon<a class="headerlink" href="#custom-icon" title="Permalink to this headline">¶</a></h2>
-<p>If you wish, you can use your own custom icon when you build a Windows
-EXE file. To do this, simply place your icon in your game’s folder, and
-name it USER.ICO. Then, load the editor and save the game.</p>
-<p>AGS is only able to build your custom icon if you are running the editor
-on Windows 2000 and later. If you’re using Windows 98 then your game
-will be built with the standard AGS icon.</p>
-<p><em>NOTE: The icon <strong>must</strong> be a proper Windows .ICO file, <strong>not</strong> just a
-renamed BMP file. Icon editors, such as AX-Icons from
-http://www.axialis.com, will convert it for you.</em></p>
-<p>You can also have a custom icon for the Setup program generated. To do
-so, create your icon as above but name it <strong>setup.ico</strong> in the game
-folder.</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="splitting-resource-files">
-<span id="splitting-resource-files"></span><h2>Splitting resource files<a class="headerlink" href="#splitting-resource-files" title="Permalink to this headline">¶</a></h2>
-<p>Some people found that once their game became large, the single EXE file
-was slow to load due to anti-virus checkers scanning the whole file. AGS
-includes an option to split up the resource files into smaller chunks to
-avoid this happening. On the General Settings pane you’ll notice a
-setting “Split resource files into X Mb sized chunks”.</p>
-<p>If you tick this, then type in a number such as 1 or 2, then save the
-game, the game data will be split up into chunks that size, named
-GAME.001, GAME.002 and so on.</p>
-<p>Some resources are still combined into the EXE file but all the rooms
-will be placed into the other files. If you use this option, you need to
-distribute your game’s EXE file plus all the GAME.00? files.</p>
-</div>
-</div>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Distributing your game</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
 
 
-    </div>
-      
-  </div>
-</div>
-    
-
-<footer class="footer">
   <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-    </p>
-    <p>
-        &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 31, 2018, 2:01:52 AM.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
-    </p>
-  </div>
-</footer>
-    
+    <header>
+      <label for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
+    </header>
 
-  </body>
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#distributing-your-game"><span>Distributing your game</span></a>
+<ul>
+<li><a href="#compiled-folder-structure"><span>Compiled folder structure</span></a></li>
+<li><a href="#compiled-game-contents"><span>Compiled game contents</span></a></li>
+<li><a href="#customizing-game-data"><span>Customizing game data</span></a></li>
+<li><a href="#warning-on-de-compiling-built-game"><span>Warning on de-compiling built game</span></a></li>
+<li><a href="#licensing"><span>Licensing</span></a></li>
+<li><a href="#custom-icon"><span>Custom icon</span></a></li>
+<li><a href="#splash-screen"><span>Splash screen</span></a></li>
+<li><a href="#splitting-resource-files"><span>Splitting resource files</span></a></li>
+<li><a href="#managing-graphics-footprint"><span>Managing Graphics Footprint</span></a></li>
+<li><a href="#managing-audio-footprint"><span>Managing Audio Footprint</span></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="distributing-your-game" class="level2">
+<h2><a href="#distributing-your-game">Distributing your game</a></h2>
+<section id="compiled-folder-structure" class="level3">
+<h3><a href="#compiled-folder-structure">Compiled folder structure</a></h3>
+<p>When you choose the "Build EXE" option in the Editor, a "Compiled" directory is created in your game's folder, where more subdirectories are created in turn.</p>
+<ul>
+<li>"Compiled/Data" subfolder is made always. Here it serves as an intermediate storage, and contains the "raw" game data that cannot be used on its own, but may be run by an AGS engine executable (on any supported platform). From this folder these files will be then <em>copied into other subfolders</em>, each for one build target (platform) you selected in the project's General Settings.</li>
+<li>"Compiled/Windows" subfolder will be created if you have "Windows" target enabled. It will contain game data merged with the engine executable for Windows, as well as the "winsetup.exe" which launches an integrated setup program.</li>
+<li>"Compiled/Linux" subfolder will be created if you have "Linux" target enabled. It will contain game data merged with the engine executable and necessary third-party libraries for 32-bit and 64-bit Linux systems.</li>
+</ul>
+<p>The contents of these subfolders may be now distributed to corresponding operating systems. For example, if you want to distribute Windows version of your game, you need to take <em>only</em> the contents of "Compiled/Windows" subfolder. For Linux the "Compiled/Linux" subfolder is sufficient.</p>
+<p>"Compiled/Data" should usually be skipped. It still may come useful if you are preparing a kind of a custom distribution, but remember that it cannot be run on its own: you'd need to add one of the available engine versions to it, or warn users that they'd have to have AGS engine installed on their system.</p>
+</section>
+<section id="compiled-game-contents" class="level3">
+<h3><a href="#compiled-game-contents">Compiled game contents</a></h3>
+<p>The main game data file has <strong>game.ags</strong> naming format, where "game" is the "Game file name" property set in the General Settings. When compiled for Windows it is merged with the engine and results in <strong>game.exe</strong> instead.</p>
+<p>If you have selected to split resources files, you will also have several files named <strong>game.001</strong>, <strong>game.002</strong>, and so forth.</p>
+<p>Games with digital music will usually have <strong>audio.vox</strong>. The <strong>audio.vox</strong> contains audio clips that you have marked as "InSeperateVOX" in the editor. This allows you to have an optional audio download, if your game uses lots of sound files but you don't want the player to have to download them.</p>
+<p>Games with digital speech voice-over will have a separate <strong>speech.vox</strong> file.</p>
+<p><strong>acsetup.cfg</strong> is a text file containing default configuration for the game. It's generated by the editor from Default Setup's properties.</p>
+<p>The Windows build of your game will also include <strong>winsetup.exe</strong> which is a setup program launcher. Note that the setup program itself is integrated into your game exe, and it's also possible to launch it by executing <code>game.exe --setup</code> in command line.</p>
+</section>
+<section id="customizing-game-data" class="level3">
+<h3><a href="#customizing-game-data">Customizing game data</a></h3>
+<p>If you want to distribute custom data with your game you may simply add necessary files to where the main game data (game.ags or game.exe) is located.</p>
+<p>Note that any custom files put into "Compiled/Data" folder will also be copied to all the final build targets (Windows, Linux, etc) when the game is built. At the moment this is the most convenient method of making sure same custom data will be included everywhere. If you need it to be present only with particular distribution, like only Windows, or only Linux, then put the files into corresponding platform subfolder instead.</p>
+</section>
+<section id="warning-on-de-compiling-built-game" class="level3">
+<h3><a href="#warning-on-de-compiling-built-game">Warning on de-compiling built game</a></h3>
+<p>It is not possible to load the exe file back into the AGS Editor. This means two things when only the EXE file is available: (1) other people can't edit your game's data, and (2) you can't either. Always keep a backup of the other files produced (.CRM, GAME.AGF, etc) as they are what the Editor needs to be able to load your game for editing.</p>
+</section>
+<section id="licensing" class="level3">
+<h3><a href="#licensing">Licensing</a></h3>
+<p>Due to the licenses of code used by AGS, your documentation should acknowledge the following:</p>
+<ul>
+<li>TrueType font display uses ALFont by Javier Gonzalez and the FreeType project. Distributed under the terms of the FreeType project license.</li>
+<li>OGG player is alogg by Javier Gonzalez, using the Ogg Vorbis decoder, which is available from <a href="https://www.xiph.org/">https://www.xiph.org/</a> Copyright (c) 2002-2008, Xiph.org Foundation</li>
+<li>MP3 player is almp3, by Javier Gonzalez and the FreeAmp team. It uses the mpg123 MP3 decoder, and is distributed under the terms of the GNU Lesser General Public License version 2.1.</li>
+</ul>
+<p>You must also comply with the license for AGS: <a href="https://opensource.org/licenses/artistic-license-2.0.php">Artistic License 2.0</a></p>
+<hr />
+</section>
+<section id="custom-icon" class="level3">
+<h3><a href="#custom-icon">Custom icon</a></h3>
+<p>If you wish, you can use your own custom icon when you build a Windows EXE file. To do this, simply place your icon in your game's folder, and name it USER.ICO. Then, load the editor and save the game.</p>
+<p><em>NOTE: The icon <strong>must</strong> be a proper Windows .ICO file, <strong>not</strong> just a renamed BMP file. Icon editors, such as AX-Icons from <a href="https://www.axialis.com/">https://www.axialis.com/</a>, will convert it for you.</em></p>
+<p>You can also have a custom icon for the Setup program generated. To do so, create your icon as above but name it <strong>setup.ico</strong> in the game folder.</p>
+</section>
+<section id="splash-screen" class="level3">
+<h3><a href="#splash-screen">Splash screen</a></h3>
+<p>You can make a "Loading..." style splash screen to be displayed while your game starts up. To do so, simply save the image as <strong>preload.pcx</strong> (must be the same resolution and color depth as the game) in the game folder, and build the game. It should then display while the game is loading.</p>
+<hr />
+</section>
+<section id="splitting-resource-files" class="level3">
+<h3><a href="#splitting-resource-files">Splitting resource files</a></h3>
+<p>Some people found that once their game became large, the single EXE file was slow to load due to anti-virus checkers scanning the whole file. AGS includes an option to split up the resource files into smaller chunks to avoid this happening. On the General Settings pane you'll notice a setting "Split resource files into X Mb sized chunks".</p>
+<p>If you tick this, then type in a number such as 1 or 2, then save the game, the game data will be split up into chunks that size, named GAME.001, GAME.002 and so on.</p>
+<p>Some resources are still combined into the EXE file but all the rooms will be placed into the other files. If you use this option, you need to distribute your game's EXE file plus all the GAME.00? files.</p>
+<hr />
+</section>
+<section id="managing-graphics-footprint" class="level3">
+<h3><a href="#managing-graphics-footprint">Managing Graphics Footprint</a></h3>
+<p>Your game sprites are stored as bitmap files, and it's size will be proportional to the number of pixels stored, normally being packed along with your game executable. They are packed sequentially, so for distribution systems that supports binary patching, like Steam, when you add a new sprite and update your game, only that single sprite will be delivered through it - Steam also applies a compression when sending these patches. If your game is distributed as a single binary file, zipping will reduce it's download size, but you can also turn on RLE compression on your game settings, which can reduce their size on disk.</p>
+<p>You can generate some graphics programatically in your game using Dynamic Sprites, just remember if you don't unload and reload them between save and load, if you are using the savestate feature from AGS, this sprites will be serialized to the game savefiles, potentially making them of a significant size.</p>
+</section>
+<section id="managing-audio-footprint" class="level3">
+<h3><a href="#managing-audio-footprint">Managing Audio Footprint</a></h3>
+<p>AGS stores audio files directly from their imported files, and can be globed as an external audio.vox file or be part of the main game executable. Speech is always packed as an external speech.vox file. AGS doesn't compress the audio, but instead relies on the original compression from each individually imported audio file when generating audio packs (<code>.vox</code>) or when embedding them in the game file.</p>
+<p>Since audio files tend to be less volatile at middle to late parts of game development, and some distribution platforms don't provide binary patching, it may be wise to have them as external files so that they are not downloaded again by your player when your game has an update.</p>
+<p><strong>Speech</strong></p>
+<p>Usually the ogg format can achieve good compression with voice files. If you use Audacity, a compression of 3 (of 10) provides good quality while providing very small files.</p>
+<p><strong>Sound Effects</strong></p>
+<p>For sound effect files, usually ogg provides a good compression, you may need to test individual compression levels.</p>
+<p><strong>Music</strong></p>
+<p>Music files will compress just fine with ogg. It's a good idea to experiment with different compression levels. If you have to, you can use mp3 files too, just be aware they may produce a small audible gap when looping, so avoid mp3 on short musics. Don't use wav files for music or it will make your game size too big without perceptual quality gains.</p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>Build: 01/24/21 19:37:33</p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
 </html>

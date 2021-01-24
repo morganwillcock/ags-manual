@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Sierra-style template</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#sierra-style-template"><span>Sierra-style template</span></a>
+<ul>
+<li><a href="#keyboardmovementmode"><span><code>KeyboardMovement.Mode</code></span></a></li>
+<li><a href="#keyboardmovementkeyup"><span><code>KeyboardMovement.KeyUp</code></span></a></li>
+<li><a href="#keyboardmovementkeydown"><span><code>KeyboardMovement.KeyDown</code></span></a></li>
+<li><a href="#keyboardmovementkeyleft"><span><code>KeyboardMovement.KeyLeft</code></span></a></li>
+<li><a href="#keyboardmovementkeyright"><span><code>KeyboardMovement.KeyRight</code></span></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="sierra-style-template" class="level2">
+<h2><a href="#sierra-style-template">Sierra-style template</a></h2>
+<p>This template was previously listed as the 'default' template, with the majority of functions used being native to the engine itself. i.e. there is no separate script file to implement any additional behavior for the mouse cursor. This makes it a good choice for learning how AGS works, since it makes heavy use of the <a href="Mouse.html">mouse cursor functions</a>.</p>
+<p>As a general guide, right clicking changes your cursor mode, left clicking uses the current cursor mode.</p>
+<p>This template also contains the majority of examples for save game and option handling, and also demonstrates the default handling for an inventory window.</p>
+<p>One script module is included, which allows the main character to be controlled with the keyboard. This is switched on and configured with some default settings, but can be reconfigured or switched off entirely by using the defined functions.</p>
+<p>Example:</p>
+<pre><code>// configure the player for arcade action
+KeyboardMovement.Mode = eKeyboardMovementModePressing;
+KeyboardMovement.KeyUp = eKeyW;
+KeyboardMovement.KeyDown = eKeyS;
+KeyboardMovement.KeyLeft = eKeyA;
+KeyboardMovement.KeyRight = eKeyD;
+</code></pre>
+<hr />
+<section id="keyboardmovementmode" class="level3">
+<h3><a href="#keyboardmovementmode"><code>KeyboardMovement.Mode</code></a></h3>
+<pre><code>KeyboardMovementMode KeyboardMovement.Mode
+</code></pre>
+<p>Sets the keyboard movement mode. Possible values are:</p>
+<p><code>eKeyboardMovementModeNone</code> (disable keyboard control)<br> <code>eKeyboardMovementModeTapping</code> (tap a direction to move)<br> <code>eKeyboardMovementModePressing</code> (hold down a direction to move)</p>
+<hr />
+</section>
+<section id="keyboardmovementkeyup" class="level3">
+<h3><a href="#keyboardmovementkeyup"><code>KeyboardMovement.KeyUp</code></a></h3>
+<pre><code>eKeyCode KeyboardMovement.KeyUp
+</code></pre>
+<p>Assigns the key used to move the player upwards.</p>
+<hr />
+</section>
+<section id="keyboardmovementkeydown" class="level3">
+<h3><a href="#keyboardmovementkeydown"><code>KeyboardMovement.KeyDown</code></a></h3>
+<pre><code>eKeyCode KeyboardMovement.KeyDown
+</code></pre>
+<p>Assigns the key used to move the player downwards.</p>
+<hr />
+</section>
+<section id="keyboardmovementkeyleft" class="level3">
+<h3><a href="#keyboardmovementkeyleft"><code>KeyboardMovement.KeyLeft</code></a></h3>
+<pre><code>eKeyCode KeyboardMovement.KeyLeft
+</code></pre>
+<p>Assigns the key used to move the player to the left.</p>
+<hr />
+</section>
+<section id="keyboardmovementkeyright" class="level3">
+<h3><a href="#keyboardmovementkeyright"><code>KeyboardMovement.KeyRight</code></a></h3>
+<pre><code>eKeyCode KeyboardMovement.KeyRight
+</code></pre>
+<p>Assigns the key used to move the player to the right.</p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>Build: 01/24/21 19:37:27</p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

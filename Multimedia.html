@@ -1,608 +1,290 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Multimedia functions</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Multimedia functions &#8212; AGSHelp 3.4.1 documentation</title>
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Object functions and properties" href="Object.html" />
-    <link rel="prev" title="Mouse functions and properties" href="Mouse.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
 
-  </head><body>
+  <div class="container">
+    <header>
+      <label for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
+    </header>
 
-  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">
-          AGS Manual</a>
-        <span class="navbar-text navbar-version pull-left"><b></b></span>
-      </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="http://adventuregamestudio.co.uk/forums/index.php">AGS Forums</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="index.html">AGS Manual <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="SystemRequirements.html">System Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="StartingOff.html">Starting off</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Settingupthegame.html">Setting up the game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AdvancedRoomFeatures.html">Advanced room features</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="MusAndSound.html">Music and sound</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DistGame.html">Distributing your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BackingUpYourGame.html">Backing up your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextParser.html">The text parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Translations.html">Translations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GlobalVariables.html">Global variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomProperties.html">Custom Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Plugins.html">Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lipsync.html">Lip sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Templates.html">New Game templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Debuggingfeatures.html">Debugging features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AutonumberSpeechFiles.html">Auto-number speech files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IntegrationWithWindows.html">Integration with Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SourceControl.html">Source Control integration</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TheDemoGame.html">The demo game</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart1.html">Scripting tutorial part 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart2.html">Scripting tutorial part 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Pointers.html">Pointers in AGS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CallingGlobalFunctions.html">Calling global functions from local scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TheScriptHeader.html">The script header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="StringFormats.html">String formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptModules.html">Multiple Scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BlockingScripts.html">Understanding blocking scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicArrays.html">Dynamic Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ExtenderFunctions.html">Extender functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Gamevariables.html">Game variables</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal" href="Scripting.html">Scripting Api</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="TextScriptEvents.html">Predefined global script functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RepExec.html">repeatedly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomDialogOptions.html">Custom dialog options rendering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BuiltInEnums.html">Built-in enumerated types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="managedmodifier.html">Script language keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioChannel.html">AudioChannel functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioClip.html">AudioClip functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Character.html">Character functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DateTime.html">DateTime functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Dialog.html">Dialog functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DrawingSurfaceFunctions.html">DrawingSurface functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicSprite.html">DynamicSprite functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="File.html">File functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Game.html">Game / Global functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUIControl.html">GUI control functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Button.html">GUI Button functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI InvWindow functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Label.html">GUI Label functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ListBox.html">GUI List Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Slider.html">GUI Slider properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextBox.html">GUI Text Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Hotspot.html">Hotspot functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InventoryItem.html">Inventory item functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Maths.html">Maths functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Mouse.html">Mouse functions and properties</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Multimedia functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Object.html">Object functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Overlay.html">Overlay functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CyclePalette.html">Palette functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Parser.html">Parser functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Region.html">Region functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Room.html">Room functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ShakeScreen.html">Screen functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Speech.html">Speech functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="String.html">String functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="System.html">System functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DisplayAt.html">Text display / Speech functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ViewFrame.html">ViewFrame functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SCUMM_VERBCOIN_GUI.html">SCUMM</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EventTypes.html">Event Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SystemLimits.html">System limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ASCIIcodes.html">ASCII code table</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo27.html">Upgrading to AGS 2.7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo271.html">Upgrading to AGS 2.71</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo30.html">Upgrading to AGS 3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo31.html">Upgrading to AGS 3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo32.html">Upgrading to AGS 3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo33.html">Upgrading to AGS 3.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo335.html">Upgrading to AGS 3.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo34.html">Upgrading to AGS 3.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo341.html">Upgrading to AGS 3.4.1</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
-</ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Multimedia functions</a><ul>
-<li><a class="reference internal" href="#cdaudio">CDAudio</a></li>
-<li><a class="reference internal" href="#isaudioplaying">IsAudioPlaying</a></li>
-<li><a class="reference internal" href="#isspeechvoxavailable">IsSpeechVoxAvailable</a></li>
-<li><a class="reference internal" href="#playflic">PlayFlic</a></li>
-<li><a class="reference internal" href="#playsilentmidi">PlaySilentMIDI</a></li>
-<li><a class="reference internal" href="#playvideo">PlayVideo</a></li>
-<li><a class="reference internal" href="#setaudiotypespeechvolumedrop">SetAudioTypeSpeechVolumeDrop</a></li>
-<li><a class="reference internal" href="#setaudiotypevolume">SetAudioTypeVolume</a></li>
-<li><a class="reference internal" href="#setspeechvolume">SetSpeechVolume</a></li>
-<li><a class="reference internal" href="#stopaudio">StopAudio</a></li>
-</ul>
-</li>
-</ul>
-</ul>
-</li>
-              
-            
-            
-              
-                
-  <li>
-    <a href="Mouse.html" title="Previous Chapter: Mouse functions and properties"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Mouse functio...</span>
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
     </a>
-  </li>
-  <li>
-    <a href="Object.html" title="Next Chapter: Object functions and properties"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Object functi... &raquo;</span>
-    </a>
-  </li>
-              
-            
-            
-            
-            
-              <li class="hidden-sm">
-<div id="sourcelink">
-  <a href="_sources/Multimedia.md.txt"
-     rel="nofollow">Source</a>
-</div></li>
-            
-          </ul>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#multimedia-functions"><span>Multimedia functions</span></a>
+<ul>
+<li><a href="#cdaudio"><span><code>CDAudio</code></span></a></li>
+<li><a href="#gameisaudioplaying"><span><code>Game.IsAudioPlaying</code></span></a></li>
+<li><a href="#isspeechvoxavailable"><span><code>IsSpeechVoxAvailable</code></span></a></li>
+<li><a href="#playflic"><span><code>PlayFlic</code></span></a></li>
+<li><a href="#playsilentmidi"><span><code>PlaySilentMIDI</code></span></a></li>
+<li><a href="#playvideo"><span><code>PlayVideo</code></span></a></li>
+<li><a href="#gamesetaudiotypespeechvolumedrop"><span><code>Game.SetAudioTypeSpeechVolumeDrop</code></span></a></li>
+<li><a href="#gamesetaudiotypevolume"><span><code>Game.SetAudioTypeVolume</code></span></a></li>
+<li><a href="#setspeechvolume"><span><code>SetSpeechVolume</code></span></a></li>
+<li><a href="#gamestopaudio"><span><code>Game.StopAudio</code></span></a></li>
+</ul></li>
+</ul>
+  </nav>
 
-          
-            
-<form class="navbar-form navbar-right" action="search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-          
-        </div>
-    </div>
-  </div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 content">
-      
-  <div class="section" id="multimedia-functions">
-<span id="multimedia-functions"></span><h1>Multimedia functions<a class="headerlink" href="#multimedia-functions" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="#cdaudio">CDAudio</a><br>
-<a class="reference external" href="#isaudioplaying">IsAudioPlaying</a><br>
-<a class="reference external" href="#isspeechvoxavailable">IsSpeechVoxAvailable</a><br>
-<a class="reference external" href="#playflic">PlayFlic</a><br>
-<a class="reference external" href="#playsilentmidi">PlaySilentMIDI</a><br>
-<a class="reference external" href="#playvideo">PlayVideo</a><br>
-<a class="reference external" href="#setaudiotypespeechvolumedrop">SetAudioTypeSpeechVolumeDrop</a><br>
-<a class="reference external" href="#setaudiotypevolume">SetAudioTypeVolume</a><br>
-<a class="reference external" href="#setspeechvolume">SetSpeechVolume</a><br>
-<a class="reference external" href="#stopaudio">StopAudio</a></p>
-<hr class="docutils" />
-<div class="section" id="cdaudio">
-<span id="cdaudio"></span><h2>CDAudio<a class="headerlink" href="#cdaudio" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CDAudio</span> <span class="p">(</span><span class="n">eCDAudioFunction</span><span class="p">,</span> <span class="nb">int</span> <span class="n">param</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>This function allows you to play and control an audio CD in your game.
-Different tasks are performed, depending on the value of the
-AudioFunction parameter. If there is no CD-ROM drive on the system, the
-function does nothing.</p>
-<p>The PARAM parameter is used by some of the functions for various
-reasons; if it is not needed for the particular function you are
-calling, pass zero instead.</p>
+  <main>
+<section id="multimedia-functions" class="level2">
+<h2><a href="#multimedia-functions">Multimedia functions</a></h2>
+<section id="cdaudio" class="level3">
+<h3><a href="#cdaudio"><code>CDAudio</code></a></h3>
+<pre><code>CDAudio (eCDAudioFunction, int param)
+</code></pre>
+<p>This function allows you to play and control an audio CD in your game. Different tasks are performed, depending on the value of the AudioFunction parameter. If there is no CD-ROM drive on the system, the function does nothing.</p>
+<p>The PARAM parameter is used by some of the functions for various reasons; if it is not needed for the particular function you are calling, pass zero instead.</p>
 <p>The tasks performed are as follows depending on the COMMAND parameter:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eCDIsDriverPresent</span> <span class="o">-</span> <span class="n">checks</span> <span class="k">if</span> <span class="n">there</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">CD</span><span class="o">-</span><span class="n">ROM</span> <span class="n">driver</span> <span class="n">available</span> <span class="n">on</span>
-   <span class="n">the</span> <span class="n">system</span><span class="o">.</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">there</span> <span class="ow">is</span><span class="p">,</span> <span class="ow">and</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">there</span> <span class="ow">is</span> <span class="ow">not</span><span class="o">.</span>
-<span class="n">eCDGetPlayingStatus</span> <span class="o">-</span> <span class="n">checks</span> <span class="n">whether</span> <span class="n">the</span> <span class="n">CD</span> <span class="n">drive</span> <span class="ow">is</span> <span class="n">currently</span> <span class="n">playing</span>
-   <span class="n">an</span> <span class="n">audio</span> <span class="n">track</span><span class="o">.</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">it</span> <span class="ow">is</span><span class="p">,</span> <span class="ow">and</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span> <span class="ow">is</span> <span class="ow">not</span><span class="o">.</span>
-<span class="n">eCDPlayTrack</span> <span class="o">-</span> <span class="n">starts</span> <span class="n">playback</span> <span class="kn">from</span> <span class="nn">track</span> <span class="n">PARAM</span> <span class="n">on</span> <span class="n">the</span> <span class="n">CD</span><span class="o">.</span> <span class="n">If</span> <span class="n">the</span> <span class="n">track</span>
-   <span class="n">does</span> <span class="ow">not</span> <span class="n">exist</span><span class="p">,</span> <span class="ow">or</span> <span class="k">if</span> <span class="n">it</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">data</span> <span class="n">track</span><span class="p">,</span> <span class="n">nothing</span> <span class="n">happens</span><span class="o">.</span>
-<span class="n">eCDPausePlayback</span> <span class="o">-</span> <span class="n">pauses</span> <span class="n">the</span> <span class="n">currently</span> <span class="n">playing</span> <span class="n">audio</span> <span class="n">track</span><span class="o">.</span>
-<span class="n">eCDResumePlayback</span> <span class="o">-</span> <span class="n">continues</span> <span class="kn">from</span> <span class="nn">where</span> <span class="n">the</span> <span class="n">track</span> <span class="n">was</span> <span class="n">paused</span><span class="o">.</span>
-<span class="n">eCDGetNumTracks</span> <span class="o">-</span> <span class="n">returns</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">tracks</span> <span class="n">on</span> <span class="n">the</span> <span class="n">CD</span>
-   <span class="n">currently</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">drive</span><span class="o">.</span> <span class="n">If</span> <span class="n">the</span> <span class="n">drive</span> <span class="ow">is</span> <span class="n">empty</span><span class="p">,</span> <span class="n">returns</span> <span class="mf">0.</span>
-<span class="n">eCDEject</span> <span class="o">-</span> <span class="n">ejects</span> <span class="n">the</span> <span class="n">drive</span> <span class="n">tray</span> <span class="k">if</span> <span class="n">the</span> <span class="n">drive</span> <span class="n">has</span> <span class="n">the</span> <span class="n">ability</span><span class="o">.</span> <span class="n">This</span> <span class="ow">is</span>
-   <span class="n">a</span> <span class="n">feature</span> <span class="n">you</span><span class="s1">&#39;ll play with to start off because it&#39;</span><span class="n">s</span> <span class="n">neat</span><span class="p">,</span> <span class="ow">and</span> <span class="n">then</span>
-   <span class="n">realize</span> <span class="n">that</span> <span class="n">it</span> <span class="n">has</span> <span class="n">no</span> <span class="n">real</span> <span class="n">use</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">game</span><span class="o">.</span>
-   <span class="n">Your</span> <span class="n">script</span> <span class="n">does</span> <span class="ow">not</span> <span class="k">continue</span> <span class="n">until</span> <span class="n">the</span> <span class="n">drive</span> <span class="ow">is</span> <span class="n">fully</span> <span class="n">ejected</span><span class="o">.</span>
-<span class="n">eCDCloseTray</span> <span class="o">-</span> <span class="n">the</span> <span class="n">reverse</span> <span class="n">of</span> <span class="n">Eject</span><span class="o">.</span> <span class="n">This</span> <span class="n">will</span> <span class="n">pull</span> <span class="n">the</span> <span class="n">drive</span> <span class="n">tray</span> <span class="n">back</span>
-   <span class="ow">in</span> <span class="n">again</span><span class="o">.</span> <span class="n">Your</span> <span class="n">script</span> <span class="n">does</span> <span class="ow">not</span> <span class="k">continue</span> <span class="n">until</span> <span class="n">the</span> <span class="n">drive</span> <span class="n">has</span> <span class="n">been</span>
-   <span class="n">fully</span> <span class="n">closed</span><span class="o">.</span>
-<span class="n">eCDGetCDDriveCount</span> <span class="o">-</span> <span class="n">returns</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">CD</span> <span class="n">drives</span> <span class="ow">in</span> <span class="n">the</span>
-   <span class="n">system</span><span class="p">,</span> <span class="n">normally</span> <span class="mf">1.</span>
-<span class="n">eCDSelectActiveCDDrive</span> <span class="o">-</span> <span class="n">changes</span> <span class="n">the</span> <span class="n">current</span> <span class="n">CD</span> <span class="n">drive</span> <span class="n">to</span> <span class="n">PARAM</span><span class="p">,</span>
-   <span class="n">where</span> <span class="n">PARAM</span> <span class="n">ranges</span> <span class="kn">from</span> <span class="mi">1</span> <span class="n">to</span> <span class="p">(</span><span class="n">number</span> <span class="n">of</span> <span class="n">CD</span> <span class="n">drives</span><span class="p">)</span><span class="o">.</span> <span class="n">All</span> <span class="n">the</span> <span class="n">other</span>
-   <span class="n">CD</span> <span class="n">Audio</span> <span class="n">functions</span> <span class="n">operate</span> <span class="n">on</span> <span class="n">the</span> <span class="n">current</span> <span class="n">CD</span> <span class="n">drive</span><span class="o">.</span>
-</pre></div>
-</div>
-<p>NOTE: These CD Audio functions are slow compared to all the other script
-functions. This will not be noticeable if you call them from most
-scripts, but using CDAudio in a repeatedly_execute script will
-noticeably slow down the game.</p>
+<pre><code>eCDIsDriverPresent - checks if there is a CD-ROM driver available on
+   the system. Returns 1 if there is, and 0 if there is not.
+eCDGetPlayingStatus - checks whether the CD drive is currently playing
+   an audio track. Returns 1 if it is, and 0 if it is not.
+eCDPlayTrack - starts playback from track PARAM on the CD. If the track
+   does not exist, or if it is a data track, nothing happens.
+eCDPausePlayback - pauses the currently playing audio track.
+eCDResumePlayback - continues from where the track was paused.
+eCDGetNumTracks - returns the number of tracks on the CD
+   currently in the drive. If the drive is empty, returns 0.
+eCDEject - ejects the drive tray if the drive has the ability. This is
+   a feature you&#39;ll play with to start off because it&#39;s neat, and then
+   realize that it has no real use in your game.
+   Your script does not continue until the drive is fully ejected.
+eCDCloseTray - the reverse of Eject. This will pull the drive tray back
+   in again. Your script does not continue until the drive has been
+   fully closed.
+eCDGetCDDriveCount - returns the number of CD drives in the
+   system, normally 1.
+eCDSelectActiveCDDrive - changes the current CD drive to PARAM,
+   where PARAM ranges from 1 to (number of CD drives). All the other
+   CD Audio functions operate on the current CD drive.
+</code></pre>
+<p>NOTE: These CD Audio functions are slow compared to all the other script functions. This will not be noticeable if you call them from most scripts, but using CDAudio in a repeatedly_execute script will noticeably slow down the game.</p>
 <p><strong>Cross-Platform Support</strong></p>
-<p>Windows: <strong>Yes, but supports 1 CD-ROM drive only</strong><br>
-MS-DOS: <strong>Yes, if CD-ROM device driver loaded</strong><br>
-Linux: <strong>Yes, but supports 1 CD-ROM drive only</strong><br>
-MacOS: <strong>No</strong></p>
+<p>Windows: <strong>Yes, but supports 1 CD-ROM drive only</strong><br> Linux: <strong>Yes, but supports 1 CD-ROM drive only</strong><br> MacOS: <strong>No</strong></p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CDAudio</span><span class="p">(</span><span class="n">eCDPlayTrack</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will play track 3 of the CD that’s in the CD ROM drive.</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="isaudioplaying">
-<span id="isaudioplaying"></span><h2>IsAudioPlaying<a class="headerlink" href="#isaudioplaying" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as IsMusicPlaying, which is now obsolete)</em><br>
-<em>(Formerly known as IsSoundPlaying, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="nb">bool</span> <span class="n">Game</span><span class="o">.</span><span class="n">IsAudioPlaying</span><span class="p">(</span><span class="n">optional</span> <span class="n">AudioType</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Returns <em>true</em> if there is currently audio playing of the specified
-type. If you don’t supply an audio type, then <em>true</em> will be returned
-if there is any audio at all playing in the game.</p>
-<p>If no audio of the specified type is playing, returns <em>false</em>. You can
-use this to wait for some music to finish playing, for example.</p>
+<pre><code>CDAudio(eCDPlayTrack, 3);
+</code></pre>
+<p>will play track 3 of the CD that's in the CD ROM drive.</p>
+<hr />
+</section>
+<section id="gameisaudioplaying" class="level3">
+<h3><a href="#gameisaudioplaying"><code>Game.IsAudioPlaying</code></a></h3>
+<p><em>(Formerly known as IsMusicPlaying, which is now obsolete)</em><br> <em>(Formerly known as IsSoundPlaying, which is now obsolete)</em></p>
+<pre><code>static bool Game.IsAudioPlaying(optional AudioType)
+</code></pre>
+<p>Returns <em>true</em> if there is currently audio playing of the specified type. If you don't supply an audio type, then <em>true</em> will be returned if there is any audio at all playing in the game.</p>
+<p>If no audio of the specified type is playing, returns <em>false</em>. You can use this to wait for some music to finish playing, for example.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">Game</span><span class="o">.</span><span class="n">IsAudioPlaying</span><span class="p">(</span><span class="n">eAudioTypeMusic</span><span class="p">))</span>
-<span class="p">{</span>
-  <span class="n">Wait</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<pre><code>while (Game.IsAudioPlaying(eAudioTypeMusic))
+{
+  Wait(1);
+}
+</code></pre>
 <p>waits for any currently playing music to finish.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#stopaudio">Game.StopAudio</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="isspeechvoxavailable">
-<span id="isspeechvoxavailable"></span><h2>IsSpeechVoxAvailable<a class="headerlink" href="#isspeechvoxavailable" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IsSpeechVoxAvailable</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Returns whether the SPEECH.VOX file is being used by the game. This
-could be useful if you have an optional speech download pack, and you
-want to know whether the player has it or not.</p>
+<p><em>See Also:</em> <a href="Multimedia.html#gamestopaudio">Game.StopAudio</a></p>
+<hr />
+</section>
+<section id="isspeechvoxavailable" class="level3">
+<h3><a href="#isspeechvoxavailable"><code>IsSpeechVoxAvailable</code></a></h3>
+<pre><code>IsSpeechVoxAvailable()
+</code></pre>
+<p>Returns whether the SPEECH.VOX file is being used by the game. This could be useful if you have an optional speech download pack, and you want to know whether the player has it or not.</p>
 <p>Returns 1 if the speech files are available, 0 if not.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">IsSpeechVoxAvailable</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">Display</span> <span class="p">(</span><span class="s2">&quot;You don&#39;t have the voice pack&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
+<pre><code>if (IsSpeechVoxAvailable()==0)
+    Display (&quot;You don&#39;t have the voice pack&quot;);
+</code></pre>
 <p>will display a message if the voice pack is not available.</p>
-<p><strong>NOTE:</strong> This function used to be called IsVoxAvailable, but has now
-been renamed to avoid confusion.</p>
-<p><em>See Also:</em> <a class="reference external" href="AudioClip#isavailable">AudioClip.IsAvailable</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="playflic">
-<span id="playflic"></span><h2>PlayFlic<a class="headerlink" href="#playflic" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PlayFlic</span> <span class="p">(</span><span class="nb">int</span> <span class="n">flic_number</span><span class="p">,</span> <span class="nb">int</span> <span class="n">options</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Plays a FLI or FLC animation. The game checks for FLICx.FLC and
-FLICx.FLI (where X is FLIC_NUMBER) and if it finds one, plays it.</p>
+<p><strong>NOTE:</strong> This function used to be called IsVoxAvailable, but has now been renamed to avoid confusion.</p>
+<p><em>See Also:</em> <a href="AudioClip.html#audioclipisavailable">AudioClip.IsAvailable</a></p>
+<hr />
+</section>
+<section id="playflic" class="level3">
+<h3><a href="#playflic"><code>PlayFlic</code></a></h3>
+<pre><code>PlayFlic (int flic_number, int options)
+</code></pre>
+<p>Plays a FLI or FLC animation. The game checks for FLICx.FLC and FLICx.FLI (where X is FLIC_NUMBER) and if it finds one, plays it.</p>
 <p>OPTIONS has these meanings:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>  <span class="n">player</span> <span class="n">can</span><span class="s1">&#39;t skip animation</span>
-<span class="mi">1</span>  <span class="n">player</span> <span class="n">can</span> <span class="n">press</span> <span class="n">ESC</span> <span class="n">to</span> <span class="n">skip</span> <span class="n">animation</span>
-<span class="mi">2</span>  <span class="n">player</span> <span class="n">can</span> <span class="n">press</span> <span class="nb">any</span> <span class="n">key</span> <span class="ow">or</span> <span class="n">click</span> <span class="n">mouse</span> <span class="n">to</span> <span class="n">skip</span> <span class="n">animation</span>
-<span class="o">+</span><span class="mi">10</span> <span class="p">(</span><span class="n">ie</span><span class="o">.</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">stretch</span> <span class="n">to</span> <span class="n">full</span><span class="o">-</span><span class="n">screen</span><span class="p">,</span> <span class="n">just</span> <span class="n">play</span> <span class="n">at</span> <span class="n">flc</span> <span class="n">size</span>
-<span class="o">+</span><span class="mi">100</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">clear</span> <span class="n">the</span> <span class="n">screen</span> <span class="n">before</span> <span class="n">starting</span> <span class="n">playback</span>
-</pre></div>
-</div>
+<pre><code>0  player can&#39;t skip animation
+1  player can press ESC to skip animation
+2  player can press any key or click mouse to skip animation
++10 (i.e.10,11,12) do not stretch to full-screen, just play at flc size
++100 do not clear the screen before starting playback
+</code></pre>
 <p>The game is paused while the animation plays.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PlayFlic</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will play flic2 and the player will be able to skip the flic by pressing
-the ESC key.</p>
-<p><em>See Also:</em> <a class="reference external" href="#playvideo">PlayVideo</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="playsilentmidi">
-<span id="playsilentmidi"></span><h2>PlaySilentMIDI<a class="headerlink" href="#playsilentmidi" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PlaySilentMIDI</span> <span class="p">(</span><span class="nb">int</span> <span class="n">music_number</span><span class="p">)</span>
-</pre></div>
-</div>
+<pre><code>PlayFlic(2, 1);
+</code></pre>
+<p>will play flic2 and the player will be able to skip the flic by pressing the ESC key.</p>
+<p><em>See Also:</em> <a href="Multimedia.html#playvideo">PlayVideo</a></p>
+<hr />
+</section>
+<section id="playsilentmidi" class="level3">
+<h3><a href="#playsilentmidi"><code>PlaySilentMIDI</code></a></h3>
+<pre><code>PlaySilentMIDI (int music_number)
+</code></pre>
 <p>This command is obsolete.</p>
-<p>Use the AudioClip.Play command and set its Volume property to 0 to
-simulate this effect.</p>
-<p><em>See Also:</em> <a class="reference external" href="AudioClip#play">AudioClip.Play</a>,
-<a class="reference external" href="AudioChannel#volume">AudioChannel.Volume</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="playvideo">
-<span id="playvideo"></span><h2>PlayVideo<a class="headerlink" href="#playvideo" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PlayVideo</span> <span class="p">(</span><span class="n">string</span> <span class="n">filename</span><span class="p">,</span> <span class="n">VideoSkipStyle</span><span class="p">,</span> <span class="nb">int</span> <span class="n">flags</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Plays an AVI, MPG or OGG Theora file, or any other file type supported
-by Media Player. The game is paused while the video plays.</p>
+<p>Use the AudioClip.Play command and set its Volume property to 0 to simulate this effect.</p>
+<p><em>See Also:</em> <a href="AudioClip.html#audioclipplay">AudioClip.Play</a>, <a href="AudioChannel.html#audiochannelvolume">AudioChannel.Volume</a></p>
+<hr />
+</section>
+<section id="playvideo" class="level3">
+<h3><a href="#playvideo"><code>PlayVideo</code></a></h3>
+<pre><code>PlayVideo (string filename, VideoSkipStyle, int flags)
+</code></pre>
+<p>Plays an AVI, MPG or OGG Theora file, or any other file type supported by Media Player. The game is paused while the video plays.</p>
 <p><em>VideoSkipStyle</em> defines how the player can skip the video:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eVideoSkipNotAllowed</span>     <span class="n">player</span> <span class="n">can</span><span class="s1">&#39;t skip video</span>
-<span class="n">eVideoSkipEscKey</span>         <span class="n">player</span> <span class="n">can</span> <span class="n">press</span> <span class="n">ESC</span> <span class="n">to</span> <span class="n">skip</span> <span class="n">video</span>
-<span class="n">eVideoSkipAnyKey</span>         <span class="n">player</span> <span class="n">can</span> <span class="n">press</span> <span class="nb">any</span> <span class="n">key</span> <span class="n">to</span> <span class="n">skip</span> <span class="n">video</span>
-<span class="n">eVideoSkipAnyKeyOrMouse</span>  <span class="n">player</span> <span class="n">can</span> <span class="n">press</span> <span class="nb">any</span> <span class="n">key</span> <span class="ow">or</span> <span class="n">click</span> <span class="n">mouse</span> <span class="n">to</span> <span class="n">skip</span>
-</pre></div>
-</div>
+<pre><code>eVideoSkipNotAllowed     player can&#39;t skip video
+eVideoSkipEscKey         player can press ESC to skip video
+eVideoSkipAnyKey         player can press any key to skip video
+eVideoSkipAnyKeyOrMouse  player can press any key or click mouse to skip
+</code></pre>
 <p>FLAGS can be one of the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="p">:</span> <span class="n">the</span> <span class="n">video</span> <span class="n">will</span> <span class="n">be</span> <span class="n">played</span> <span class="n">at</span> <span class="n">original</span> <span class="n">size</span><span class="p">,</span> <span class="k">with</span> <span class="n">AVI</span> <span class="n">audio</span>
-<span class="mi">1</span><span class="p">:</span> <span class="n">the</span> <span class="n">video</span> <span class="n">will</span> <span class="n">be</span> <span class="n">stretched</span> <span class="n">to</span> <span class="n">full</span> <span class="n">screen</span><span class="p">,</span> <span class="k">with</span> <span class="n">appropriate</span>
-   <span class="n">black</span> <span class="n">borders</span> <span class="n">to</span> <span class="n">maintain</span> <span class="n">its</span> <span class="n">aspect</span> <span class="n">ratio</span> <span class="ow">and</span> <span class="n">AVI</span> <span class="n">audio</span><span class="o">.</span>
-<span class="mi">10</span><span class="p">:</span> <span class="n">original</span> <span class="n">size</span><span class="p">,</span> <span class="k">with</span> <span class="n">game</span> <span class="n">audio</span> <span class="n">continuing</span> <span class="p">(</span><span class="n">AVI</span> <span class="n">audio</span> <span class="n">muted</span><span class="p">)</span>
-<span class="mi">11</span><span class="p">:</span> <span class="n">stretched</span> <span class="n">to</span> <span class="n">full</span> <span class="n">screen</span><span class="p">,</span> <span class="k">with</span> <span class="n">game</span> <span class="n">audio</span> <span class="n">continuing</span> <span class="p">(</span><span class="n">AVI</span> <span class="n">audio</span> <span class="n">muted</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>There are two distinct type of videos that the PlayVideo function can
-play.</p>
-<p>The first is OGG Theora, which is a recently introduced video file
-format. AGS has built-in support for playing these videos, so everyone
-who plays your game will be able to see the video. OGG Theora videos are
-also built into the game EXE file when you compile the game (just make
-sure the file has a .OGV extension and is placed in your main game
-folder).</p>
-<p>The second type of files that AGS can play is anything supported by
-Windows Media Player. This includes AVI, MPG and more. However, in order
-for these to work on the player’s system, they will need to have the
-correct codecs installed. For example, if you create your video with the
-XVid codec, the player will need to have XVid installed to be able to
-view it. These types of video cannot be included into the game EXE, so
-you will have to place them separately in the Compiled folder for them
-to work.</p>
-<p><strong>NOTE:</strong> In 256-colour games, PlayVideo is not supported. Please use a
-FLC/FLI video with the <a class="reference external" href="#playflic">PlayFlic</a> command instead.</p>
+<pre><code>0: the video will be played at original size, with AVI audio
+1: the video will be stretched to full screen, with appropriate
+   black borders to maintain its aspect ratio and AVI audio.
+10: original size, with game audio continuing (AVI audio muted)
+11: stretched to full screen, with game audio continuing (AVI audio muted)
+</code></pre>
+<p>There are two distinct type of videos that the PlayVideo function can play.</p>
+<p>The first is OGG Theora, which is a recently introduced video file format. AGS has built-in support for playing these videos, so everyone who plays your game will be able to see the video. OGG Theora videos are also built into the game EXE file when you compile the game (just make sure the file has a .OGV extension and is placed in your main game folder). A good converter for theora is <a href="https://v2v.cc/~j/ffmpeg2theora/">ffmpeg2theora</a>.</p>
+<p><strong>IMPORTANT:</strong> Because of an old mistake in AGS, OGG Theora videos may be positioned on screen with a slight negative offset, cutting few rows or columns of pixels. Until this is fixed, as a workaround, make sure that your video's frame sizes are multipliers of 16 and actual image placed aligned to the center. For example, if you want 320x200 video then increase canvas to 320x208 and place image at offset (0, 4).</p>
+<p>The second type of files that AGS can play is anything supported by Windows Media Player. This includes AVI, MPG and more. However, in order for these to work on the player's system, they will need to have the correct codecs installed. For example, if you create your video with the XVid codec, the player will need to have XVid installed to be able to view it. These types of video cannot be included into the game EXE, so you will have to place them separately in the Compiled folder for them to work.</p>
+<p><strong>NOTE:</strong> In 256-color games, PlayVideo is not supported. Please use a FLC/FLI video with the <a href="Multimedia.html#playflic">PlayFlic</a> command instead.</p>
+<p>Example:</p>
+<pre><code>PlayVideo(&quot;Intro.ogv&quot;, eVideoSkipEscKey, 1);
+</code></pre>
+<p>will play the video Intro.ogv, allowing the player to skip with ESC if they've seen it before.</p>
 <p><strong>Cross-Platform Support</strong></p>
-<p>Windows: <strong>Yes</strong><br>
-MS-DOS: <strong>No</strong><br>
-Linux: <strong>No</strong><br>
-MacOS: <strong>Yes</strong></p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PlayVideo</span><span class="p">(</span><span class="s2">&quot;intro.mpg&quot;</span><span class="p">,</span> <span class="n">eVideoSkipEscKey</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will play the video Intro.mpg, allowing the player to skip with ESC if
-they’ve seen it before.</p>
-<p><em>Compatibility:</em> OGG Theora supported by <strong>AGS 3.1.1</strong> and later
-versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#playflic">PlayFlic</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="setaudiotypespeechvolumedrop">
-<span id="setaudiotypespeechvolumedrop"></span><h2>SetAudioTypeSpeechVolumeDrop<a class="headerlink" href="#setaudiotypespeechvolumedrop" title="Permalink to this headline">¶</a></h2>
+<p>OGG Theora: supported everywhere. AVI / MPG: Windows only.</p>
+<p><em>Compatibility:</em> OGG Theora supported by <strong>AGS 3.1.1</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Multimedia.html#playflic">PlayFlic</a></p>
+<hr />
+</section>
+<section id="gamesetaudiotypespeechvolumedrop" class="level3">
+<h3><a href="#gamesetaudiotypespeechvolumedrop"><code>Game.SetAudioTypeSpeechVolumeDrop</code></a></h3>
 <p><em>(Formerly known as game.speech_music_drop, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">Game</span><span class="o">.</span><span class="n">SetAudioTypeSpeechVolumeDrop</span><span class="p">(</span><span class="n">AudioType</span><span class="p">,</span> <span class="nb">int</span> <span class="n">volumeReduction</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Changes the VolumeReductionWhileSpeechPlaying of the specified
-<em>AudioType</em>. This changes the setting, initially set in the Audio Types
-part of the editor. It specifies how much the volume of clips of this
-type will be reduced by while speech is playing.</p>
-<p>Specify 0 for no volume adjustment, up to 100 which will completely
-silence these audio clips while speech is playing.</p>
+<pre><code>static Game.SetAudioTypeSpeechVolumeDrop(AudioType, int volumeReduction)
+</code></pre>
+<p>Changes the VolumeReductionWhileSpeechPlaying of the specified <em>AudioType</em>. This changes the setting, initially set in the Audio Types part of the editor. It specifies how much the volume of clips of this type will be reduced by while speech is playing.</p>
+<p>Specify 0 for no volume adjustment, up to 100 which will completely silence these audio clips while speech is playing.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Game</span><span class="o">.</span><span class="n">SetAudioTypeSpeechVolumeDrop</span><span class="p">(</span><span class="n">eAudioTypeMusic</span><span class="p">,</span> <span class="mi">25</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will reduce the volume of Music audio clips by 25 percentage points
-while speech is playing.</p>
+<pre><code>Game.SetAudioTypeSpeechVolumeDrop(eAudioTypeMusic, 25);
+</code></pre>
+<p>will reduce the volume of Music audio clips by 25 percentage points while speech is playing.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#setaudiotypevolume">Game.SetAudioTypeVolume</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="setaudiotypevolume">
-<span id="setaudiotypevolume"></span><h2>SetAudioTypeVolume<a class="headerlink" href="#setaudiotypevolume" title="Permalink to this headline">¶</a></h2>
+<p><em>See Also:</em> <a href="Multimedia.html#gamesetaudiotypevolume">Game.SetAudioTypeVolume</a></p>
+<hr />
+</section>
+<section id="gamesetaudiotypevolume" class="level3">
+<h3><a href="#gamesetaudiotypevolume"><code>Game.SetAudioTypeVolume</code></a></h3>
 <p><em>(Formerly known as SetSoundVolume, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">Game</span><span class="o">.</span><span class="n">SetAudioTypeVolume</span><span class="p">(</span><span class="n">AudioType</span><span class="p">,</span> <span class="nb">int</span> <span class="n">volume</span><span class="p">,</span> <span class="n">ChangeVolumeType</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Changes the default volume of the specified <em>AudioType</em>. This allows you
-to change the volume of all audio clips of a particular type, so that
-you can easily control sound and music volume separately, for example.</p>
-<p>VOLUME ranges from 0-100, where 100 is the loudest, and 0 will mute
-sound of that type completely.</p>
+<pre><code>static Game.SetAudioTypeVolume(AudioType, int volume, ChangeVolumeType)
+</code></pre>
+<p>Changes the default volume of the specified <em>AudioType</em>. This allows you to change the volume of all audio clips of a particular type, so that you can easily control sound and music volume separately, for example.</p>
+<p>VOLUME ranges from 0-100, where 100 is the loudest, and 0 will mute sound of that type completely.</p>
 <p>Possible values for <em>ChangeVolumeType</em> are:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eVolChangeExisting</span>      <span class="n">change</span> <span class="n">the</span> <span class="n">volume</span> <span class="n">of</span> <span class="n">currently</span> <span class="n">playing</span> <span class="n">audio</span> <span class="n">clips</span>
-<span class="n">eVolSetFutureDefault</span>    <span class="n">change</span> <span class="n">the</span> <span class="n">default</span> <span class="n">volume</span> <span class="k">for</span> <span class="n">clips</span> <span class="n">of</span> <span class="n">this</span> <span class="nb">type</span>
-<span class="n">eVolExistingAndFuture</span>   <span class="n">change</span> <span class="n">both</span> <span class="n">currently</span> <span class="n">playing</span> <span class="ow">and</span> <span class="n">future</span> <span class="n">audio</span>
-</pre></div>
-</div>
-<p>Initially general AudioType volume is not set, meaning that all future
-audio will be playing using their own custom volumes. If you use the
-<em>eVolSetFutureDefault</em> or <em>eVolExistingAndFuture</em>, then the
-DefaultVolume property for all audio clips of this type will be
-overridden. This means that any DefaultVolume set up in the editor will
-be lost.</p>
+<pre><code>eVolChangeExisting      change the volume of currently playing audio clips
+eVolSetFutureDefault    change the default volume for clips of this type
+eVolExistingAndFuture   change both currently playing and future audio
+</code></pre>
+<p>Initially general AudioType volume is not set, meaning that all future audio will be playing using their own custom volumes. If you use the <em>eVolSetFutureDefault</em> or <em>eVolExistingAndFuture</em>, then the DefaultVolume property for all audio clips of this type will be overridden. This means that any DefaultVolume set up in the editor will be lost.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Game</span><span class="o">.</span><span class="n">SetAudioTypeVolume</span><span class="p">(</span><span class="n">eAudioTypeMusic</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">eVolExistingAndFuture</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will change the volume of all currently playing and future music to
-<code class="docutils literal notranslate"><span class="pre">20%</span></code>.</p>
+<pre><code>Game.SetAudioTypeVolume(eAudioTypeMusic, 20, eVolExistingAndFuture);
+</code></pre>
+<p>will change the volume of all currently playing and future music to <code>20%</code>.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#setspeechvolume">SetSpeechVolume</a>,
-<a class="reference external" href="AudioClip#play">AudioClip.Play</a>,
-<a class="reference external" href="System#volume">System.Volume</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="setspeechvolume">
-<span id="setspeechvolume"></span><h2>SetSpeechVolume<a class="headerlink" href="#setspeechvolume" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SetSpeechVolume</span> <span class="p">(</span><span class="nb">int</span> <span class="n">volume</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Sets the volume for in-game speech. VOLUME ranges from 0-255, where 255
-is the loudest. The default speech volume is 255 so this function can
-only be used to reduce the volume.</p>
+<p><em>See Also:</em> <a href="Multimedia.html#setspeechvolume">SetSpeechVolume</a>, <a href="AudioClip.html#audioclipplay">AudioClip.Play</a>, <a href="System.html#systemvolume">System.Volume</a></p>
+<hr />
+</section>
+<section id="setspeechvolume" class="level3">
+<h3><a href="#setspeechvolume"><code>SetSpeechVolume</code></a></h3>
+<pre><code>SetSpeechVolume (int volume)
+</code></pre>
+<p>Sets the volume for in-game speech. VOLUME ranges from 0-255, where 255 is the loudest. The default speech volume is 255 so this function can only be used to reduce the volume.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SetSpeechVolume</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
-</pre></div>
-</div>
+<pre><code>SetSpeechVolume(200);
+</code></pre>
 <p>will set the speech volume to 200.</p>
-<p><em>See Also:</em> <a class="reference external" href="#setaudiotypevolume">Game.SetAudioTypeVolume</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="stopaudio">
-<span id="stopaudio"></span><h2>StopAudio<a class="headerlink" href="#stopaudio" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as Game.StopSound, which is now obsolete)</em><br>
-<em>(Formerly known as StopMusic, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">Game</span><span class="o">.</span><span class="n">StopAudio</span><span class="p">(</span><span class="n">optional</span> <span class="n">AudioType</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Stops all currently playing audio. If you pass no parameters, then all
-audio will be stopped. Alternatively, you can pass one of the AudioTypes
-which will only stop audio clips of that type.</p>
-<p>If there are any audio clips queued up with PlayQueued, they will also
-be cancelled.</p>
+<p><em>See Also:</em> <a href="Multimedia.html#gamesetaudiotypevolume">Game.SetAudioTypeVolume</a></p>
+<hr />
+</section>
+<section id="gamestopaudio" class="level3">
+<h3><a href="#gamestopaudio"><code>Game.StopAudio</code></a></h3>
+<p><em>(Formerly known as Game.StopSound, which is now obsolete)</em><br> <em>(Formerly known as StopMusic, which is now obsolete)</em></p>
+<pre><code>static Game.StopAudio(optional AudioType)
+</code></pre>
+<p>Stops all currently playing audio. If you pass no parameters, then all audio will be stopped. Alternatively, you can pass one of the AudioTypes which will only stop audio clips of that type.</p>
+<p>If there are any audio clips queued up with PlayQueued, they will also be canceled.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Game</span><span class="o">.</span><span class="n">StopAudio</span><span class="p">();</span>
-</pre></div>
-</div>
+<pre><code>Game.StopAudio();
+</code></pre>
 <p>will stop all currently playing audio.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#isaudioplaying">Game.IsAudioPlaying</a>,
-<a class="reference external" href="AudioClip#play">AudioClip.Play</a>,
-<a class="reference external" href="AudioChannel#stop">AudioChannel.Stop</a></p>
-</div>
-</div>
+<p><em>See Also:</em> <a href="Multimedia.html#gameisaudioplaying">Game.IsAudioPlaying</a>, <a href="AudioClip.html#audioclipplay">AudioClip.Play</a>, <a href="AudioChannel.html#audiochannelstop">AudioChannel.Stop</a></p>
+</section>
+</section>
+  </main>
 
 
-    </div>
-      
+  <footer>
+    <p>Build: 01/24/21 19:37:26</p>
+  </footer>
+
+  <script src="js/search.js"></script>
   </div>
-</div>
-    
-
-<footer class="footer">
-  <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-    </p>
-    <p>
-        &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 31, 2018, 2:01:52 AM.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
-    </p>
-  </div>
-</footer>
-    
-
-  </body>
+</body>
 </html>

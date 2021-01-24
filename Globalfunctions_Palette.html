@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Global functions (Palette Operations)</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#global-functions-palette-operations"><span>Global functions (Palette Operations)</span></a>
+<ul>
+<li><a href="#cyclepalette"><span><code>CyclePalette</code></span></a></li>
+<li><a href="#setpalrgb"><span><code>SetPalRGB</code></span></a></li>
+<li><a href="#updatepalette"><span><code>UpdatePalette</code></span></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="global-functions-palette-operations" class="level2">
+<h2><a href="#global-functions-palette-operations">Global functions (Palette Operations)</a></h2>
+<section id="cyclepalette" class="level3">
+<h3><a href="#cyclepalette"><code>CyclePalette</code></a></h3>
+<pre><code>CyclePalette (int start, int end)
+</code></pre>
+<p>This is used for special effects, like the flowing colors on the Space Quest 4 title screen, and the Sierra logo of the later Sierra games. The palette indexes from START to END are cycled around one slot. Using this call in a repeatedly_execute function gives the effect of animation.</p>
+<p>By default, the colors rotate leftwards through the palette. If you pass the arguments the other way round (i.e. START being larger than END) then the colors will rotate in the opposite direction.</p>
+<p><strong>NOTE:</strong> This command only works in 256-color games.</p>
+<p>Example:</p>
+<pre><code>CyclePalette(10,200);
+</code></pre>
+<p>will cause the palette indexes from 10 to 200 cycle around one slot and give a color effect.</p>
+<p><em>See Also:</em> <a href="Globalfunctions_Screen.html#fadein">FadeIn</a>, <a href="Globalfunctions_Screen.html#fadeout">FadeOut</a>, <a href="Globalfunctions_Palette.html#setpalrgb">SetPalRGB</a></p>
+<hr />
+</section>
+<section id="setpalrgb" class="level3">
+<h3><a href="#setpalrgb"><code>SetPalRGB</code></a></h3>
+<pre><code>SetPalRGB (int slot, int red, int green, int blue)
+</code></pre>
+<p>Changes the RGB components of one of the palette slots. The palette is initially set up in the Palette Editor, but you can override it during the game using this function for special effects. The RED, GREEN and BLUE parameters each range from 0 to 63 (as used in the Palette Editor).</p>
+<p>If SLOT is a background slot, then this function's effect will last until the player changes screen, when the palette is changed to the new room's palette. If SLOT is not a background slot, the effect of this function is permanent.</p>
+<p>NOTE: This function will allow you to change the colors which are "locked" in the AGS Editor. However, you should not normally do this as it can cause strange colors in the game.</p>
+<p>Example:</p>
+<pre><code>SetPalRGB(10,63,63,21);
+</code></pre>
+<p>will change palette slot number 10 from light green to yellow</p>
+<p><em>See Also:</em> <a href="Globalfunctions_Palette.html#cyclepalette">CyclePalette</a>, <a href="Globalfunctions_Screen.html#fadein">FadeIn</a>, <a href="Globalfunctions_Screen.html#fadeout">FadeOut</a>, <a href="Globalfunctions_Palette.html#updatepalette">UpdatePalette</a></p>
+<hr />
+</section>
+<section id="updatepalette" class="level3">
+<h3><a href="#updatepalette"><code>UpdatePalette</code></a></h3>
+<pre><code>UpdatePalette()
+</code></pre>
+<p>Commits the changes you made to the game palette. The script global variable palette[] stores the state of all the colors of the palette. You can access the red, green and blue components with .r, .g and .b. The values range from 0 to 63.</p>
+<p>Example:</p>
+<pre><code>palette[16].r = 60;
+UpdatePalette();
+</code></pre>
+<p>will make the black color turn bright red. When you actually change the variable, nothing happens. Call this function to update the screen.</p>
+<p><em>See Also:</em> <a href="Globalfunctions_Palette.html#setpalrgb">SetPalRGB</a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>Build: 01/24/21 19:37:23</p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

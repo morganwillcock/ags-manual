@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Global functions (Message Display)</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#global-functions-message-display"><span>Global functions (Message Display)</span></a>
+<ul>
+<li><a href="#display"><span><code>Display</code></span></a></li>
+<li><a href="#displayat"><span><code>DisplayAt</code></span></a></li>
+<li><a href="#displayaty"><span><code>DisplayAtY</code></span></a></li>
+<li><a href="#displaymessage"><span><code>DisplayMessage</code></span></a></li>
+<li><a href="#displaymessageaty"><span><code>DisplayMessageAtY</code></span></a></li>
+<li><a href="#displaytopbar"><span><code>DisplayTopBar</code></span></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="global-functions-message-display" class="level2">
+<h2><a href="#global-functions-message-display">Global functions (Message Display)</a></h2>
+<section id="display" class="level3">
+<h3><a href="#display"><code>Display</code></a></h3>
+<pre><code>Display (string message, ...)
+</code></pre>
+<p>Displays a message to the screen. It will be displayed in the standard message box, and centered in the middle of the screen.</p>
+<p>You can insert the value of variables into the message. For more information, see the <a href="StringFormats.html">string formatting</a> section.</p>
+<p>Example:</p>
+<pre><code>int my_counter;
+Display (&quot;The counter is currently set to %d.&quot;, my_counter);
+</code></pre>
+<p>will replace the '<code>%d</code>' with the value of the variable "my_counter".</p>
+<p>NOTE: Display is a blocking function - that is, control will not return to the script until the player has removed the text window (by pressing a key or clicking the mouse). While the window is displayed, all other processing, like animations and interface display, are disabled. This is usually used for responses to the player looking at things.</p>
+<p><em>See Also:</em> <a href="Globalfunctions_Message.html#displayat">DisplayAt</a>, <a href="Globalfunctions_Message.html#displaymessage">DisplayMessage</a>, <a href="Character.html#charactersay">Character.Say</a>, <a href="Globalfunctions_Message.html#displaytopbar">DisplayTopBar</a>, <a href="String.html#stringformat">String.Format</a></p>
+<hr />
+</section>
+<section id="displayat" class="level3">
+<h3><a href="#displayat"><code>DisplayAt</code></a></h3>
+<pre><code>DisplayAt(int x, int y, int width, string message, ...)
+</code></pre>
+<p>Identical to the "Display" function, only this allows you to define the position and size of the window where the text is displayed. The X and Y variables define the co-ordinates of the upper-left corner of the window.</p>
+<p>The WIDTH variable defines the maximum width of the window. The height is then automatically calculated so that the message fits into the window.</p>
+<p>You can insert the value of variables into the message. For more information, see the <a href="StringFormats.html">string formatting</a> section.</p>
+<p>Note: This is a blocking call. See the "Display" help for more information.</p>
+<p>Example:</p>
+<pre><code>DisplayAt (50,50,100, &quot;This is a message&quot;);
+</code></pre>
+<p>will display the message at coordinates 50,50 in a box 100 pixels wide.</p>
+<p><em>See Also:</em> <a href="Globalfunctions_Message.html#display">Display</a>, <a href="Globalfunctions_Message.html#displayaty">DisplayAtY</a></p>
+<hr />
+</section>
+<section id="displayaty" class="level3">
+<h3><a href="#displayaty"><code>DisplayAtY</code></a></h3>
+<pre><code>DisplayAtY (int y, string message)
+</code></pre>
+<p>Similar to the Display function, except that this will display the message box at the specified Y location on the screen. The Y defines the co-ordinate of the top of the message box. The horizontal positioning will be automatically calculated as usual.</p>
+<p>Example:</p>
+<pre><code>DisplayAt (50, &quot;This is a message&quot;);
+</code></pre>
+<p>will display the message at y coordinate 50.</p>
+<p><em>See Also:</em> <a href="Globalfunctions_Message.html#display">Display</a>, <a href="Globalfunctions_Message.html#displayat">DisplayAt</a></p>
+<hr />
+</section>
+<section id="displaymessage" class="level3">
+<h3><a href="#displaymessage"><code>DisplayMessage</code></a></h3>
+<pre><code>DisplayMessage (int message_number)
+</code></pre>
+<p>Identical to the Display function, but this uses a message text defined in the AGS Editor rather than in the script. It will either use a message from the current room, or a global message (if message_number &gt;= 500).</p>
+<p>Example:</p>
+<pre><code>DisplayMessage(220);
+</code></pre>
+<p>will display the message 220 of the Room message editor.</p>
+<p><em>See Also:</em> <a href="Globalfunctions_Message.html#display">Display</a>, <a href="Globalfunctions_Message.html#displaymessageaty">DisplayMessageAtY</a></p>
+<hr />
+</section>
+<section id="displaymessageaty" class="level3">
+<h3><a href="#displaymessageaty"><code>DisplayMessageAtY</code></a></h3>
+<pre><code>DisplayMessageAtY (int message_number, int yposition)
+</code></pre>
+<p>Identical to the DisplayMessage function, except that the text box is positioned with its top at YPOSITION, the same way as DisplayAtY works.</p>
+<p>This is useful if you have an important graphic in the middle of the screen that the text box would normally cover up - with this function you can place the message above or below it.</p>
+<p>Example:</p>
+<pre><code>DisplayMessageAtY(527, 200);
+</code></pre>
+<p>will display global message 527, in the lower half of the screen.</p>
+<p><em>See Also:</em> <a href="Globalfunctions_Message.html#displayaty">DisplayAtY</a>, <a href="Globalfunctions_Message.html#displaymessage">DisplayMessage</a></p>
+<hr />
+</section>
+<section id="displaytopbar" class="level3">
+<h3><a href="#displaytopbar"><code>DisplayTopBar</code></a></h3>
+<pre><code>DisplayTopBar(int y, int text_color, int back_color, string titleText, string message, ...)
+</code></pre>
+<p>Displays a message in a text window, with a caption bar on top of it.</p>
+<p>This displays MESSAGE in a similar way to the normal Display command, but above the text window a caption bar will be displayed with TITLETEXT in it. This method was used in some early Sierra games to indicate who was talking by having their name in the caption, and can be handy if you don't want to draw a talking view for a character.</p>
+<p>You can insert the value of variables into the message. For more information, see the <a href="StringFormats.html">string formatting</a> section.</p>
+<p>The Y parameter specifies the Y location on the screen where the message box will appear. The default is 25.</p>
+<p>The TEXT_COLOR parameter specifies the text color of the top bar, and the BACK_COLOR specifies the background color of the top bar.</p>
+<p>You can pass 0 for Y, TEXT_COLOR or BACK_COLOR - if you do, it will use the setting you used last time.</p>
+<p>There are a couple of game variables available which can further customize the look of the bar. You can change these before calling DisplayTopBar.</p>
+<p><strong>game.top_bar_bordercolor</strong> sets the color used for the bar's border (set to the same color as the backcolor if you don't want a border)<br> <strong>game.top_bar_borderwidth</strong> sets the width of the bar's border, in pixels (default 1)<br> <strong>game.top_bar_font</strong> sets the font to use for the top bar. The default is -1, which means that the current Normal font is used. Set it to a specific number to use that font instead.</p>
+<p>Example:</p>
+<pre><code>DisplayTopBar(25, 8, 7, &quot;Evil wizard&quot;, &quot;Get out of my house and never return!&quot;);
+</code></pre>
+<p>will display "Get out of my house and never return!" in the message box, with the caption bar reading "Evil wizard". The message box will have dark grey text on a light grey background.</p>
+<p><em>See Also:</em> <a href="Globalfunctions_Message.html#display">Display</a>, <a href="Globalfunctions_Message.html#displayat">DisplayAt</a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>Build: 01/24/21 19:37:24</p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

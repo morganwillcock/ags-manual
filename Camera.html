@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Camera functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#camera-functions-and-properties"><span><code>Camera</code> functions and properties</span></a>
+<ul>
+<li><a href="#cameracreate"><span><code>Camera.Create</code></span></a></li>
+<li><a href="#cameradelete"><span><code>Camera.Delete</code></span></a></li>
+<li><a href="#camerasetat"><span><code>Camera.SetAt</code></span></a></li>
+<li><a href="#camerasetsize"><span><code>Camera.SetSize</code></span></a></li>
+<li><a href="#cameraautotracking"><span><code>Camera.AutoTracking</code></span></a></li>
+<li><a href="#cameraheight"><span><code>Camera.Height</code></span></a></li>
+<li><a href="#camerawidth"><span><code>Camera.Width</code></span></a></li>
+<li><a href="#camerax"><span><code>Camera.X</code></span></a></li>
+<li><a href="#cameray"><span><code>Camera.Y</code></span></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="camera-functions-and-properties" class="level2">
+<h2><a href="#camera-functions-and-properties"><code>Camera</code> functions and properties</a></h2>
+<p>The Camera struct lets you manage room cameras. Each camera may be considered a rectangular viewer that looks into the room and captures what it sees. This captured image may then be translated somewhere else. Right now AGS only supports drawing what a camera can see within a <a href="Viewport.html">Viewport</a>, but its uses may be extended in the future.</p>
+<p>Cameras have a variable size and position within the room. The camera's size (i.e. the viewing rectangle) is linked to how much of the room they can see, the larger the size the larger the visible portion of the room. The maximum camera size is determined by the dimensions of the room background, so it may not be larger than the room. It is not possible to move the camera beyond the edges of the room background, even by a pixel.</p>
+<p>By default there is a single camera, known as the "primary camera", and you may create more. Note that, although cameras display the room, in their current implementation they are considered global persistent objects and will automatically change rooms with the player's character.</p>
+<p>Cameras are linked to a Viewport using the <a href="Viewport.html#viewportcamera">Viewport.Camera</a> property. A camera may be linked to any number of different Viewports, in which case all of the Viewports will display the same image of the room. When a camera is linked to a Viewport the camera's contents are stretched to fill Viewport's rectangle, the difference in size between the viewport and the camera determines the level of scaling that is applied:</p>
+<ul>
+<li>If the camera is larger than the viewport the displayed image will be zoomed-out (scaled down)</li>
+<li>If the camera is smaller than the viewport the displayed image will be zoomed-in (scaled up)</li>
+</ul>
+<p>By default each camera follows the player character, this is know as "auto-tracking". You may override this by disabling <a href="Camera.html#cameraautotracking">Camera.AutoTracking</a> property.</p>
+<p><strong>IMPORTANT:</strong> Cameras are initialized with an automatic sizing mode that snaps the primary Viewport and the camera to the size of the game screen or size of a room background (whichever is <em>smaller</em>), each time that a new room is loaded. This is convenient if you want to rely on a common behavior. If you prefer to manage the sizing yourself this behavior may be disabled using the <a href="Screen.html#screenautosizeviewportonroomload">Screen.AutoSizeViewportOnRoomLoad</a> property.</p>
+<p><em>Compatibility:</em> The Camera struct is supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Viewport.html">Viewport</a>, <a href="Screen.html#screenautosizeviewportonroomload">Screen.AutoSizeViewportOnRoomLoad</a>, <a href="Game.html#gamecamera">Game.Camera</a>, <a href="Game.html#gamecameras">Game.Cameras</a></p>
+<hr />
+<section id="cameracreate" class="level3">
+<h3><a href="#cameracreate"><code>Camera.Create</code></a></h3>
+<pre><code>static Camera* Camera.Create();
+</code></pre>
+<p>Creates a new camera and returns a pointer which you may use to operate it. Any camera created like this may be also accessed at <a href="Game.html#gamecameras">Game.Cameras</a> by index. The new camera will, by default, be located at the room's origin (0, 0) and be sized to fit either the game screen or the room background, whichever is <em>smaller</em>. It will also have auto-tracking enabled. You may change any of its properties later.</p>
+<p><em>See Also:</em> <a href="Camera.html#cameradelete">Camera.Delete</a>, <a href="Game.html#gamecamera">Game.Camera</a>, <a href="Game.html#gamecameras">Game.Cameras</a>, <a href="Viewport.html#viewportcamera">Viewport.Camera</a></p>
+<hr />
+</section>
+<section id="cameradelete" class="level3">
+<h3><a href="#cameradelete"><code>Camera.Delete</code></a></h3>
+<pre><code>void Camera.Delete();
+</code></pre>
+<p>Removes an existing camera.</p>
+<p><strong>IMPORTANT:</strong> The "primary camera" can be never removed and calling this function on it will have no effect.</p>
+<p><strong>IMPORTANT:</strong> In the <strong>Game.Cameras</strong> array cameras are arranged in the order they were created. If you delete one from the middle all of the cameras with a higher index will be shifted towards the beginning of array.</p>
+<p><em>See Also:</em> <a href="Camera.html#cameracreate">Camera.Create</a>, <a href="Game.html#gamecamera">Game.Camera</a>, <a href="Game.html#gamecameras">Game.Cameras</a></p>
+<hr />
+</section>
+<section id="camerasetat" class="level3">
+<h3><a href="#camerasetat"><code>Camera.SetAt</code></a></h3>
+<pre><code>void Camera.SetAt(int x, int y);
+</code></pre>
+<p>Changes the camera's position in the room and disables automatic tracking of the player character.</p>
+<p><em>See Also:</em> <a href="Camera.html#camerasetsize">Camera.SetSize</a>, <a href="Camera.html#cameraautotracking">Camera.AutoTracking</a>, <a href="Camera.html#camerax">Camera.X</a>, <a href="Camera.html#cameray">Camera.Y</a>, <a href="Camera.html#camerawidth">Camera.Width</a>, <a href="Camera.html#cameraheight">Camera.Height</a></p>
+<hr />
+</section>
+<section id="camerasetsize" class="level3">
+<h3><a href="#camerasetsize"><code>Camera.SetSize</code></a></h3>
+<pre><code>void Camera.SetSize(int width, int height);
+</code></pre>
+<p>Changes the camera's capture dimensions, in room coordinates.</p>
+<p>If the camera's size is larger than the Viewport it is drawn in, then the room will be scaled down (producing a zoomed-out effect). If the camera's size is smaller than the Viewport then the room will be scaled up (producing a zoomed-in effect).</p>
+<p><em>See Also:</em> <a href="Camera.html#camerasetat">Camera.SetAt</a>, <a href="Camera.html#camerax">Camera.X</a>, <a href="Camera.html#cameray">Camera.Y</a>, <a href="Camera.html#camerawidth">Camera.Width</a>, <a href="Camera.html#cameraheight">Camera.Height</a>, <a href="Screen.html#screenautosizeviewportonroomload">Screen.AutoSizeViewportOnRoomLoad</a></p>
+<hr />
+</section>
+<section id="cameraautotracking" class="level3">
+<h3><a href="#cameraautotracking"><code>Camera.AutoTracking</code></a></h3>
+<pre><code>bool Camera.AutoTracking;
+</code></pre>
+<p>Gets/sets whether this camera will automatically follow the player character's position in the room. When disabled, the camera retains its position until you change it using script commands or turn auto-tracking back on.</p>
+<p><em>See Also:</em> <a href="Camera.html#camerasetat">Camera.SetAt</a>, <a href="Camera.html#camerax">Camera.X</a>, <a href="Camera.html#cameray">Camera.Y</a></p>
+<hr />
+</section>
+<section id="cameraheight" class="level3">
+<h3><a href="#cameraheight"><code>Camera.Height</code></a></h3>
+<pre><code>int Camera.Height;
+</code></pre>
+<p>Gets/sets the camera's capture height in room coordinates.</p>
+<p><em>See Also:</em> <a href="Camera.html#camerasetat">Camera.SetAt</a>, <a href="Camera.html#camerasetsize">Camera.SetSize</a>, <a href="Camera.html#camerax">Camera.X</a>, <a href="Camera.html#cameray">Camera.Y</a>, <a href="Camera.html#camerawidth">Camera.Width</a>, <a href="Screen.html#screenautosizeviewportonroomload">Screen.AutoSizeViewportOnRoomLoad</a></p>
+<hr />
+</section>
+<section id="camerawidth" class="level3">
+<h3><a href="#camerawidth"><code>Camera.Width</code></a></h3>
+<pre><code>int Camera.Width;
+</code></pre>
+<p>Gets/sets the camera's capture width in room coordinates.</p>
+<p><em>See Also:</em> <a href="Camera.html#camerasetat">Camera.SetAt</a>, <a href="Camera.html#camerasetsize">Camera.SetSize</a>, <a href="Camera.html#camerax">Camera.X</a>, <a href="Camera.html#cameray">Camera.Y</a>, <a href="Camera.html#cameraheight">Camera.Height</a>, <a href="Screen.html#screenautosizeviewportonroomload">Screen.AutoSizeViewportOnRoomLoad</a></p>
+<hr />
+</section>
+<section id="camerax" class="level3">
+<h3><a href="#camerax"><code>Camera.X</code></a></h3>
+<pre><code>int Camera.X;
+</code></pre>
+<p>Gets/sets the X position of this camera in the room. Setting a value will also disable auto-tracking.</p>
+<p><em>See Also:</em> <a href="Camera.html#camerasetat">Camera.SetAt</a>, <a href="Camera.html#camerasetsize">Camera.SetSize</a>, <a href="Camera.html#cameraautotracking">Camera.AutoTracking</a>, <a href="Camera.html#cameray">Camera.Y</a>, <a href="Camera.html#camerawidth">Camera.Width</a>, <a href="Camera.html#cameraheight">Camera.Height</a></p>
+<hr />
+</section>
+<section id="cameray" class="level3">
+<h3><a href="#cameray"><code>Camera.Y</code></a></h3>
+<pre><code>int Camera.Y;
+</code></pre>
+<p>Gets/sets the Y position of this camera in the room. Setting a value will also disable auto-tracking.</p>
+<p><em>See Also:</em> <a href="Camera.html#camerasetat">Camera.SetAt</a>, <a href="Camera.html#camerasetsize">Camera.SetSize</a>, <a href="Camera.html#cameraautotracking">Camera.AutoTracking</a>, <a href="Camera.html#camerax">Camera.X</a>, <a href="Camera.html#camerawidth">Camera.Width</a>, <a href="Camera.html#cameraheight">Camera.Height</a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>Build: 01/24/21 19:37:32</p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

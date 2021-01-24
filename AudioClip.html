@@ -1,489 +1,231 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>AudioClip functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>AudioClip functions and properties &#8212; AGSHelp 3.4.1 documentation</title>
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Character functions and properties" href="Character.html" />
-    <link rel="prev" title="AudioChannel functions and properties" href="AudioChannel.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
 
-  </head><body>
+  <div class="container">
+    <header>
+      <label for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
+    </header>
 
-  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">
-          AGS Manual</a>
-        <span class="navbar-text navbar-version pull-left"><b></b></span>
-      </div>
-
-        <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="http://adventuregamestudio.co.uk/forums/index.php">AGS Forums</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="index.html">AGS Manual <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="SystemRequirements.html">System Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="StartingOff.html">Starting off</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Settingupthegame.html">Setting up the game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AdvancedRoomFeatures.html">Advanced room features</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="MusAndSound.html">Music and sound</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DistGame.html">Distributing your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BackingUpYourGame.html">Backing up your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextParser.html">The text parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Translations.html">Translations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GlobalVariables.html">Global variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomProperties.html">Custom Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Plugins.html">Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lipsync.html">Lip sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Templates.html">New Game templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Debuggingfeatures.html">Debugging features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AutonumberSpeechFiles.html">Auto-number speech files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IntegrationWithWindows.html">Integration with Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SourceControl.html">Source Control integration</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TheDemoGame.html">The demo game</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart1.html">Scripting tutorial part 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart2.html">Scripting tutorial part 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Pointers.html">Pointers in AGS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CallingGlobalFunctions.html">Calling global functions from local scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TheScriptHeader.html">The script header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="StringFormats.html">String formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptModules.html">Multiple Scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BlockingScripts.html">Understanding blocking scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicArrays.html">Dynamic Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ExtenderFunctions.html">Extender functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Gamevariables.html">Game variables</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal" href="Scripting.html">Scripting Api</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="TextScriptEvents.html">Predefined global script functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RepExec.html">repeatedly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomDialogOptions.html">Custom dialog options rendering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BuiltInEnums.html">Built-in enumerated types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="managedmodifier.html">Script language keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioChannel.html">AudioChannel functions and properties</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">AudioClip functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Character.html">Character functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DateTime.html">DateTime functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Dialog.html">Dialog functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DrawingSurfaceFunctions.html">DrawingSurface functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicSprite.html">DynamicSprite functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="File.html">File functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Game.html">Game / Global functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUIControl.html">GUI control functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Button.html">GUI Button functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI InvWindow functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Label.html">GUI Label functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ListBox.html">GUI List Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Slider.html">GUI Slider properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextBox.html">GUI Text Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Hotspot.html">Hotspot functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InventoryItem.html">Inventory item functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Maths.html">Maths functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Mouse.html">Mouse functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Multimedia.html">Multimedia functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Object.html">Object functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Overlay.html">Overlay functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CyclePalette.html">Palette functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Parser.html">Parser functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Region.html">Region functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Room.html">Room functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ShakeScreen.html">Screen functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Speech.html">Speech functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="String.html">String functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="System.html">System functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DisplayAt.html">Text display / Speech functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ViewFrame.html">ViewFrame functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SCUMM_VERBCOIN_GUI.html">SCUMM</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EventTypes.html">Event Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SystemLimits.html">System limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ASCIIcodes.html">ASCII code table</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo27.html">Upgrading to AGS 2.7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo271.html">Upgrading to AGS 2.71</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo30.html">Upgrading to AGS 3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo31.html">Upgrading to AGS 3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo32.html">Upgrading to AGS 3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo33.html">Upgrading to AGS 3.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo335.html">Upgrading to AGS 3.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo34.html">Upgrading to AGS 3.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo341.html">Upgrading to AGS 3.4.1</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
-</ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">AudioClip functions and properties</a><ul>
-<li><a class="reference internal" href="#play">Play</a></li>
-<li><a class="reference internal" href="#playfrom">PlayFrom</a></li>
-<li><a class="reference internal" href="#playqueued">PlayQueued</a></li>
-<li><a class="reference internal" href="#stop">Stop</a></li>
-<li><a class="reference internal" href="#filetype">FileType</a></li>
-<li><a class="reference internal" href="#isavailable">IsAvailable</a></li>
-<li><a class="reference internal" href="#type">Type</a></li>
-</ul>
-</li>
-</ul>
-</ul>
-</li>
-              
-            
-            
-              
-                
-  <li>
-    <a href="AudioChannel.html" title="Previous Chapter: AudioChannel functions and properties"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; AudioChannel ...</span>
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
     </a>
-  </li>
-  <li>
-    <a href="Character.html" title="Next Chapter: Character functions and properties"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Character fun... &raquo;</span>
-    </a>
-  </li>
-              
-            
-            
-            
-            
-              <li class="hidden-sm">
-<div id="sourcelink">
-  <a href="_sources/AudioClip.md.txt"
-     rel="nofollow">Source</a>
-</div></li>
-            
-          </ul>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#audioclip-functions-and-properties"><span><code>AudioClip</code> functions and properties</span></a>
+<ul>
+<li><a href="#audioclipplay"><span><code>AudioClip.Play</code></span></a></li>
+<li><a href="#audioclipplayfrom"><span><code>AudioClip.PlayFrom</code></span></a></li>
+<li><a href="#audioclipplayqueued"><span><code>AudioClip.PlayQueued</code></span></a></li>
+<li><a href="#audioclipstop"><span><code>AudioClip.Stop</code></span></a></li>
+<li><a href="#audioclipid"><span><code>AudioClip.ID</code></span></a></li>
+<li><a href="#audioclipfiletype"><span><code>AudioClip.FileType</code></span></a></li>
+<li><a href="#audioclipisavailable"><span><code>AudioClip.IsAvailable</code></span></a></li>
+<li><a href="#audiocliptype"><span><code>AudioClip.Type</code></span></a></li>
+</ul></li>
+</ul>
+  </nav>
 
-          
-            
-<form class="navbar-form navbar-right" action="search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-          
-        </div>
-    </div>
-  </div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 content">
-      
-  <div class="section" id="audioclip-functions-and-properties">
-<span id="audioclip-functions-and-properties"></span><h1>AudioClip functions and properties<a class="headerlink" href="#audioclip-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<p>AudioClips are created when you import files in the AGS Editor. The
-commands in this section allow to play them.</p>
-<p><a class="reference external" href="#play">Play</a><br>
-<a class="reference external" href="#playfrom">PlayFrom</a><br>
-<a class="reference external" href="#playqueued">PlayQueued</a><br>
-<a class="reference external" href="#stop">Stop</a><br>
-<a class="reference external" href="#filetype">FileType property</a><br>
-<a class="reference external" href="#isavailable">IsAvailable property</a><br>
-<a class="reference external" href="#type">Type property</a></p>
-<hr class="docutils" />
-<div class="section" id="play">
-<span id="play"></span><h2>Play<a class="headerlink" href="#play" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as PlayAmbientSound, which is now obsolete)</em><br>
-<em>(Formerly known as PlayMP3File, which is now obsolete)</em><br>
-<em>(Formerly known as PlayMusic, which is now obsolete)</em><br>
-<em>(Formerly known as PlaySound, which is now obsolete)</em><br>
-<em>(Formerly known as PlaySoundEx, which is now obsolete)</em><br>
-<em>(Formerly known as SetMusicRepeat, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span><span class="o">*</span> <span class="n">AudioClip</span><span class="o">.</span><span class="n">Play</span><span class="p">(</span><span class="n">optional</span> <span class="n">AudioPriority</span><span class="p">,</span> <span class="n">optional</span> <span class="n">RepeatStyle</span><span class="p">)</span>
-</pre></div>
-</div>
+  <main>
+<section id="audioclip-functions-and-properties" class="level2">
+<h2><a href="#audioclip-functions-and-properties"><code>AudioClip</code> functions and properties</a></h2>
+<p>AudioClips are created when you import files in the AGS Editor. The commands in this section allow to play them.</p>
+<hr />
+<section id="audioclipplay" class="level3">
+<h3><a href="#audioclipplay"><code>AudioClip.Play</code></a></h3>
+<p><em>(Formerly known as PlayAmbientSound, which is now obsolete)</em><br> <em>(Formerly known as PlayMP3File, which is now obsolete)</em><br> <em>(Formerly known as PlayMusic, which is now obsolete)</em><br> <em>(Formerly known as PlaySound, which is now obsolete)</em><br> <em>(Formerly known as PlaySoundEx, which is now obsolete)</em><br> <em>(Formerly known as SetMusicRepeat, which is now obsolete)</em></p>
+<pre><code>AudioChannel* AudioClip.Play(optional AudioPriority, optional RepeatStyle)
+</code></pre>
 <p>Plays the audio clip.</p>
-<p>Optionally you can supply a priority and Repeat setting; if you do not
-supply these, the defaults set for the audio clip in the editor will be
-used.</p>
-<p>This command searches through all the available audio channels to find
-one that is available for this type of audio. If no spare channels are
-found, it will try to find one that is playing a clip with a lower or
-equal priority, and interrupt it to replace it with this new sound.</p>
-<p>If all audio channels are busy playing higher priority sounds, then this
-new audio clip will not be played.</p>
-<p>This command returns the AudioChannel instance that the new sound is
-playing on, or <em>null</em> if it did not play for any reason.</p>
+<p>Optionally you can supply a priority and Repeat setting; if you do not supply these, the defaults set for the audio clip in the editor will be used.</p>
+<p>This command searches through all the available audio channels to find one that is available for this type of audio. If no spare channels are found, it will try to find one that is playing a clip with a lower or equal priority, and interrupt it to replace it with this new sound.</p>
+<p>If all audio channels are busy playing higher priority sounds, then this new audio clip will not be played.</p>
+<p>This command returns the AudioChannel instance that the new sound is playing on, or <em>null</em> if it did not play for any reason.</p>
 <p><strong>NOTE:</strong> AGS can only play one MIDI file at a time.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aExplosion</span><span class="o">.</span><span class="n">Play</span><span class="p">();</span>
-</pre></div>
-</div>
+<pre><code>aExplosion.Play();
+</code></pre>
 <p>plays the <em>aExplosion</em> audio clip.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#playfrom">AudioClip.PlayFrom</a>,
-<a class="reference external" href="#playqueued">AudioClip.PlayQueued</a>,
-<a class="reference external" href="#stop">AudioClip.Stop</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="playfrom">
-<span id="playfrom"></span><h2>PlayFrom<a class="headerlink" href="#playfrom" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span><span class="o">*</span> <span class="n">AudioClip</span><span class="o">.</span><span class="n">PlayFrom</span><span class="p">(</span><span class="nb">int</span> <span class="n">position</span><span class="p">,</span> <span class="n">optional</span> <span class="n">AudioPriority</span><span class="p">,</span>
-                                 <span class="n">optional</span> <span class="n">RepeatStyle</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Plays the audio clip, starting from <em>position</em>. For the meaning of the
-position, see the <a class="reference external" href="AudioChannel#seek">AudioChannel.Seek</a> help
-page.</p>
-<p>Otherwise, this command behaves identially to
-<a class="reference external" href="#play">AudioClip.Play</a>. Please see that help page
-for more information.</p>
+<p><em>See Also:</em> <a href="AudioClip.html#audioclipplayfrom">AudioClip.PlayFrom</a>, <a href="AudioClip.html#audioclipplayqueued">AudioClip.PlayQueued</a>, <a href="AudioClip.html#audioclipstop">AudioClip.Stop</a>, <a href="ViewFrame.html#viewframelinkedaudio">ViewFrame.LinkedAudio</a></p>
+<hr />
+</section>
+<section id="audioclipplayfrom" class="level3">
+<h3><a href="#audioclipplayfrom"><code>AudioClip.PlayFrom</code></a></h3>
+<pre><code>AudioChannel* AudioClip.PlayFrom(int position, optional AudioPriority,
+                                 optional RepeatStyle)
+</code></pre>
+<p>Plays the audio clip, starting from <em>position</em>. For the meaning of the position, see the <a href="AudioChannel.html#audiochannelseek">AudioChannel.Seek</a> help page.</p>
+<p>Otherwise, this command behaves identically to <a href="AudioClip.html#audioclipplay">AudioClip.Play</a>. Please see that help page for more information.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aExplosion</span><span class="o">.</span><span class="n">PlayFrom</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>plays the <em>aExplosion</em> audio clip, starting from a 1 second offset (if
-it is OGG/MP3).</p>
+<pre><code>aExplosion.PlayFrom(1000);
+</code></pre>
+<p>plays the <em>aExplosion</em> audio clip, starting from a 1 second offset (if it is OGG/MP3).</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#play">AudioClip.Play</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="playqueued">
-<span id="playqueued"></span><h2>PlayQueued<a class="headerlink" href="#playqueued" title="Permalink to this headline">¶</a></h2>
+<p><em>See Also:</em> <a href="AudioClip.html#audioclipplay">AudioClip.Play</a></p>
+<hr />
+</section>
+<section id="audioclipplayqueued" class="level3">
+<h3><a href="#audioclipplayqueued"><code>AudioClip.PlayQueued</code></a></h3>
 <p><em>(Formerly known as PlayMusicQueued, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span><span class="o">*</span> <span class="n">AudioClip</span><span class="o">.</span><span class="n">PlayQueued</span><span class="p">(</span><span class="n">optional</span> <span class="n">AudioPriority</span><span class="p">,</span> <span class="n">optional</span> <span class="n">RepeatStyle</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Plays the audio clip, or queues it to be played later if it cannot be
-played now.</p>
-<p>This command behaves identially to
-<a class="reference external" href="#play">AudioClip.Play</a>, except that if there are no
-available audio channels, it will queue this audio clip to be played
-when a channel becomes available.</p>
-<p>Additionally, unlike the Play command, using PlayQueued will not
-interrupt an existing audio clip with an equal priority; it will only
-interrupt clips with a lower priority.</p>
-<p>You can queue up to 10 tracks in the audio queue. Note that if you queue
-audio clips to be played after a repeating audio clip, they will never
-be played.</p>
+<pre><code>AudioChannel* AudioClip.PlayQueued(optional AudioPriority, optional RepeatStyle)
+</code></pre>
+<p>Plays the audio clip, or queues it to be played later if it cannot be played now.</p>
+<p>This command behaves identically to <a href="AudioClip.html#audioclipplay">AudioClip.Play</a>, except that if there are no available audio channels, it will queue this audio clip to be played when a channel becomes available.</p>
+<p>Additionally, unlike the Play command, using PlayQueued will not interrupt an existing audio clip with an equal priority; it will only interrupt clips with a lower priority.</p>
+<p>You can queue up to 10 tracks in the audio queue. Note that if you queue audio clips to be played after a repeating audio clip, they will never be played.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aExplosion</span><span class="o">.</span><span class="n">Play</span><span class="p">();</span>
-<span class="n">aAftermath</span><span class="o">.</span><span class="n">PlayQueued</span><span class="p">();</span>
-</pre></div>
-</div>
-<p>plays the <em>aExplosion</em> audio clip, and queues the <em>aAftermath</em> sound to
-be played afterwards.</p>
+<pre><code>aExplosion.Play();
+aAftermath.PlayQueued();
+</code></pre>
+<p>plays the <em>aExplosion</em> audio clip, and queues the <em>aAftermath</em> sound to be played afterwards.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#play">AudioClip.Play</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="stop">
-<span id="stop"></span><h2>Stop<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioClip</span><span class="o">.</span><span class="n">Stop</span><span class="p">()</span>
-</pre></div>
-</div>
+<p><em>See Also:</em> <a href="AudioClip.html#audioclipplay">AudioClip.Play</a></p>
+<hr />
+</section>
+<section id="audioclipstop" class="level3">
+<h3><a href="#audioclipstop"><code>AudioClip.Stop</code></a></h3>
+<pre><code>AudioClip.Stop()
+</code></pre>
 <p>Stops all currently playing instances of this audio clip.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aExplosion</span><span class="o">.</span><span class="n">Play</span><span class="p">();</span>
-<span class="n">Wait</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
-<span class="n">aExplosion</span><span class="o">.</span><span class="n">Stop</span><span class="p">();</span>
-</pre></div>
-</div>
-<p>plays the <em>aExplosion</em> audio clip, waits 1 second and then stops it
-again.</p>
+<pre><code>aExplosion.Play();
+Wait(40);
+aExplosion.Stop();
+</code></pre>
+<p>plays the <em>aExplosion</em> audio clip, waits 1 second and then stops it again.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#play">AudioClip.Play</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="filetype">
-<span id="filetype"></span><h2>FileType<a class="headerlink" href="#filetype" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">AudioFileType</span> <span class="n">AudioClip</span><span class="o">.</span><span class="n">FileType</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Gets the file type of this audio clip. This is useful in conjunction
-with the PlayFrom and Seek commands to determine what the position
-offset represents.</p>
+<p><em>See Also:</em> <a href="AudioClip.html#audioclipplay">AudioClip.Play</a></p>
+<hr />
+</section>
+<section id="audioclipid" class="level3">
+<h3><a href="#audioclipid"><code>AudioClip.ID</code></a></h3>
+<pre><code>readonly int AudioClip.ID
+</code></pre>
+<p>Gets the ID of this audio clip. This could be used for diagnostic purposes as well to find same clip in the Game.AudioClips[] array.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">aExplosion</span><span class="o">.</span><span class="n">FileType</span> <span class="o">==</span> <span class="n">eAudioFileMIDI</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Explosion is a MIDI file!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<pre><code>for (int i = 0; i &lt; System.AudioChannelCount; i++) {
+  AudioClip *clip = System.AudioChannels[i].PlayingClip;
+  if (clip != null)
+    Display(&quot;Channel %d has clip %d playing&quot;, i, clip.ID);
+  else
+    Display(&quot;Channel %d has no clip on it at the moment&quot;, i);
+}
+</code></pre>
+<p>will display information about clips playing on each audio channel.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Game.html#gameaudioclips">Game.AudioClips</a></p>
+<hr />
+</section>
+<section id="audioclipfiletype" class="level3">
+<h3><a href="#audioclipfiletype"><code>AudioClip.FileType</code></a></h3>
+<pre><code>readonly AudioFileType AudioClip.FileType;
+</code></pre>
+<p>Gets the file type of this audio clip. This is useful in conjunction with the PlayFrom and Seek commands to determine what the position offset represents.</p>
+<p>Example:</p>
+<pre><code>if (aExplosion.FileType == eAudioFileMIDI)
+{
+  Display(&quot;Explosion is a MIDI file!&quot;);
+}
+</code></pre>
 <p>displays a message if aExplosion is a MIDI file</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="AudioChannel#seek">AudioChannel.Seek</a>,
-<a class="reference external" href="AudioChannel#position">AudioChannel.Position</a>,
-<a class="reference external" href="#playfrom">AudioClip.PlayFrom</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="isavailable">
-<span id="isavailable"></span><h2>IsAvailable<a class="headerlink" href="#isavailable" title="Permalink to this headline">¶</a></h2>
+<p><em>See Also:</em> <a href="AudioChannel.html#audiochannelseek">AudioChannel.Seek</a>, <a href="AudioChannel.html#audiochannelposition">AudioChannel.Position</a>, <a href="AudioClip.html#audioclipplayfrom">AudioClip.PlayFrom</a></p>
+<hr />
+</section>
+<section id="audioclipisavailable" class="level3">
+<h3><a href="#audioclipisavailable"><code>AudioClip.IsAvailable</code></a></h3>
 <p><em>(Formerly known as IsMusicVoxAvailable, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">bool</span> <span class="n">AudioClip</span><span class="o">.</span><span class="n">IsAvailable</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Gets whether this audio clip is available on the player’s system.</p>
-<p>This will normally be <em>true</em>, unless the clip was bundled in the
-external AUDIO.VOX file and the player does not have the file on their
-system.</p>
-<p>You do not normally need to check this property, since the Play command
-will silently fail if it cannot find the audio clip to play.</p>
+<pre><code>readonly bool AudioClip.IsAvailable;
+</code></pre>
+<p>Gets whether this audio clip is available on the player's system.</p>
+<p>This will normally be <em>true</em>, unless the clip was bundled in the external AUDIO.VOX file and the player does not have the file on their system.</p>
+<p>You do not normally need to check this property, since the Play command will silently fail if it cannot find the audio clip to play.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">aExplosion</span><span class="o">.</span><span class="n">IsAvailable</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">aExplosion</span><span class="o">.</span><span class="n">Play</span><span class="p">();</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<pre><code>if (aExplosion.IsAvailable)
+{
+  aExplosion.Play();
+}
+</code></pre>
 <p>checks if the aExplosion audio clip is available, and if so plays it.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#play">AudioClip.Play</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="type">
-<span id="type"></span><h2>Type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">AudioType</span> <span class="n">AudioClip</span><span class="o">.</span><span class="n">Type</span><span class="p">;</span>
-</pre></div>
-</div>
+<p><em>See Also:</em> <a href="AudioClip.html#audioclipplay">AudioClip.Play</a></p>
+<hr />
+</section>
+<section id="audiocliptype" class="level3">
+<h3><a href="#audiocliptype"><code>AudioClip.Type</code></a></h3>
+<pre><code>readonly AudioType AudioClip.Type;
+</code></pre>
 <p>Gets the type of this audio clip, as initially set in the editor.</p>
-<p>The AudioType allows you to group audio clips into areas such as Sound
-and Music.</p>
+<p>The AudioType allows you to group audio clips into areas such as Sound and Music.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">aExplosion</span><span class="o">.</span><span class="n">Type</span> <span class="o">==</span> <span class="n">eAudioTypeMusic</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Explosion is music!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<pre><code>if (aExplosion.Type == eAudioTypeMusic)
+{
+  Display(&quot;Explosion is music!&quot;);
+}
+</code></pre>
 <p>displays a message if the <em>aExplosion</em> clip is music.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#play">AudioClip.Play</a>,
-<a class="reference external" href="Multimedia#isaudioplaying">Game.IsAudioPlaying</a></p>
-</div>
-</div>
+<p><em>See Also:</em> <a href="AudioClip.html#audioclipplay">AudioClip.Play</a>, <a href="Multimedia.html#gameisaudioplaying">Game.IsAudioPlaying</a></p>
+</section>
+</section>
+  </main>
 
 
-    </div>
-      
+  <footer>
+    <p>Build: 01/24/21 19:37:28</p>
+  </footer>
+
+  <script src="js/search.js"></script>
   </div>
-</div>
-    
-
-<footer class="footer">
-  <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-    </p>
-    <p>
-        &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 31, 2018, 2:01:52 AM.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
-    </p>
-  </div>
-</footer>
-    
-
-  </body>
+</body>
 </html>

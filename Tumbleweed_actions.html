@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Tumbleweed Action Functions</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#tumbleweed-action-functions"><span>Tumbleweed Action Functions</span></a>
+<ul>
+<li><a href="#verbsusedaction"><span><code>Verbs.UsedAction</code></span></a></li>
+<li><a href="#verbsisaction"><span><code>Verbs.IsAction</code></span></a></li>
+<li><a href="#verbssetactionbuttons"><span><code>Verbs.SetActionButtons</code></span></a></li>
+<li><a href="#verbssetdefaultaction"><span><code>Verbs.SetDefaultAction</code></span></a></li>
+<li><a href="#verbssetaction"><span><code>Verbs.SetAction</code></span></a></li>
+<li><a href="#verbssetalternativeaction"><span><code>Verbs.SetAlternativeAction</code></span></a></li>
+<li><a href="#verbscheckdefaultaction"><span><code>Verbs.CheckDefaultAction</code></span></a></li>
+<li><a href="#verbsupdateactionbar"><span><code>Verbs.UpdateActionBar</code></span></a></li>
+<li><a href="#verbstoogleguistyle"><span><code>Verbs.ToogleGuiStyle</code></span></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="tumbleweed-action-functions" class="level2">
+<h2><a href="#tumbleweed-action-functions">Tumbleweed Action Functions</a></h2>
+<p>These functions are mainly used to control the verb buttons.</p>
+<hr />
+<section id="verbsusedaction" class="level3">
+<h3><a href="#verbsusedaction"><code>Verbs.UsedAction</code></a></h3>
+<pre><code>void Verbs.UsedAction (Action test_action);
+</code></pre>
+<p>Used to determine, which action has been selected by the player. Instead of checking cursor modes, this function is used.</p>
+<hr />
+</section>
+<section id="verbsisaction" class="level3">
+<h3><a href="#verbsisaction"><code>Verbs.IsAction</code></a></h3>
+<pre><code>bool Verbs.IsAction(Action test_action);
+</code></pre>
+<p>Used to check, if the current action is the one, given in the parameter.</p>
+<hr />
+</section>
+<section id="verbssetactionbuttons" class="level3">
+<h3><a href="#verbssetactionbuttons"><code>Verbs.SetActionButtons</code></a></h3>
+<pre><code>void Verbs.SetActionButtons(Action action, int btn_ID, int sprite, int sprite_highlight, char key);
+</code></pre>
+<p>This functions connects the verb buttons with the action and is also used to assign / change the graphics of the verb buttons.</p>
+<p><em>See also:</em> <a href="Tumbleweed_translation.html#verbsadjustlanguage">Verbs.AdjustLanguage</a></p>
+<hr />
+</section>
+<section id="verbssetdefaultaction" class="level3">
+<h3><a href="#verbssetdefaultaction"><code>Verbs.SetDefaultAction</code></a></h3>
+<pre><code>void Verbs.SetDefaultAction(Action def_action);
+</code></pre>
+<p>Used to define, which action is being used, if no verb has been clicked. Usually this is "walk to".</p>
+<hr />
+</section>
+<section id="verbssetaction" class="level3">
+<h3><a href="#verbssetaction"><code>Verbs.SetAction</code></a></h3>
+<pre><code>void Verbs.SetAction(Action new_action);
+</code></pre>
+<p>Since the cursor modes are bypassed, this function defines the current action. Among other things, this function is called by clicking a verb button.</p>
+<hr />
+</section>
+<section id="verbssetalternativeaction" class="level3">
+<h3><a href="#verbssetalternativeaction"><code>Verbs.SetAlternativeAction</code></a></h3>
+<pre><code>void Verbs.SetAlternativeAction(char extension, Action alt_action);
+</code></pre>
+<p>This function makes the right-click shortcuts work. If you use extensions like "&gt;p" (e.g. pickup), this function makes sure, that the correct verb button is highlighted.</p>
+<p><em>See also:</em> <a href="Tumbleweed_actions.html#verbscheckdefaultaction">Verbs.CheckDefaultAction</a></p>
+<hr />
+</section>
+<section id="verbscheckdefaultaction" class="level3">
+<h3><a href="#verbscheckdefaultaction"><code>Verbs.CheckDefaultAction</code></a></h3>
+<pre><code>void CheckDefaultAction();
+</code></pre>
+<p>This function checks for a given extension in hotspots, objects and characters. If there isn't an extension, a default action is given, e.g. "Talk to" if the mouse is over a character. In case of a given extension, the default actions are being overridden. It is also defined here, which letters are causing what default action. See the chapter Extensions for more details.</p>
+<p><em>See also:</em> <a href="Tumbleweed_extensions.html#tumbleweed-extensions">Extensions</a></p>
+<hr />
+</section>
+<section id="verbsupdateactionbar" class="level3">
+<h3><a href="#verbsupdateactionbar"><code>Verbs.UpdateActionBar</code></a></h3>
+<pre><code>void UpdateActionBar();
+</code></pre>
+<p>This function is used to show and update the status bar. It checks for an extension, triggers the translation and renders the results on screen.</p>
+<p><em>See also:</em> <a href="Tumbleweed_translation.html#verbstranslateaction">Verbs.TranslateAction</a>, <a href="Tumbleweed_extensions.html#verbsremoveextension">Verbs.RemoveExtension</a></p>
+<hr />
+</section>
+<section id="verbstoogleguistyle" class="level3">
+<h3><a href="#verbstoogleguistyle"><code>Verbs.ToogleGuiStyle</code></a></h3>
+<pre><code>void ToogleGuiStyle(int enable_new);
+</code></pre>
+<p>Switches between classic SCUMM mode and new one.</p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>Build: 01/24/21 19:37:30</p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>
