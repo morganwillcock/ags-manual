@@ -29,5 +29,10 @@ include(`job.m4')dnl
           asset_path: ags-manual/htmlhelp/build/ags-help.chm
           asset_name: ags-help.chm
           asset_content_type: application/octet-stream
+      - name: Deploy on GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ags-manual/html/build
 divert(-1)dnl
 undivert(1)dnl
