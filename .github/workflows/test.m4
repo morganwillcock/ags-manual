@@ -1,6 +1,5 @@
-changequote(`<{', `}>')dnl
-changecom(<{##}>, <{
-}>)dnl
+include(`actions.m4')dnl
+define(`__DATETIME', `NOW')dnl
 # This file is templated. Do not edit!
 name: Build test
 
@@ -9,32 +8,23 @@ on:
   - pull_request
   - workflow_dispatch
 
-define(<{__PANDOC}>, <{2.9.1}>)dnl
-define(<{__DATETIME}>, <{NOW}>)dnl
 jobs:
-define(<{__OS}>, <{windows}>)dnl
-define(<{__SHELL}>, <{cmd}>)dnl
-include(<{job.m4}>)dnl
+defjob(`windows', `cmd', `2.9.1')dnl
+include(`job.m4')dnl
 
-define(<{__OS}>, <{windows}>)dnl
-define(<{__SHELL}>, <{bash}>)dnl
-include(<{job.m4}>)dnl
+defjob(`windows', `bash', `2.9.1')dnl
+include(`job.m4')dnl
 
-define(<{__OS}>, <{ubuntu}>)dnl
-define(<{__SHELL}>, <{bash}>)dnl
-include(<{job.m4}>)dnl
+defjob(`ubuntu', `bash', `2.9.1')dnl
+include(`job.m4')dnl
 
-define(<{__OS}>, <{macos}>)dnl
-define(<{__SHELL}>, <{bash}>)dnl
-include(<{job.m4}>)dnl
+defjob(`macos', `bash', `2.9.1')dnl
+include(`job.m4')dnl
 
   check:
     runs-on: ubuntu-latest
     needs:
-      - build-windows-cmd-2-9-1
-      - build-windows-bash-2-9-1
-      - build-ubuntu-bash-2-9-1
-      - build-macos-bash-2-9-1
+undivert(1)dnl
     steps:
       - run: |
           echo '${{ toJSON(needs.*.outputs.sha256) }}' | jq -e '.|unique|length == 1 and (.[0]|test("^[A-Fa-f0-9]{64}$"))'

@@ -1,4 +1,5 @@
-  translit(build-__OS-__SHELL-__PANDOC, <{.}>, <{-}>):
+changequote(`<{', `}>')dnl
+  __JOBNAME:
     outputs:
       sha256: ${{ steps.checksum.outputs.CONTENT_CHECKSUM }}
     runs-on: __OS-latest
@@ -124,3 +125,4 @@ ifelse(__OS, <{windows}>, <{dnl
 #          name: ags-help.chm (__OS-__SHELL-__PANDOC)
 #          path: ags-manual/htmlhelp/build/ags-help.chm
 #          if-no-files-found: error
+changequote(<{`}>, <{'}>)dnl
