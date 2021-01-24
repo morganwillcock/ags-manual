@@ -1,7 +1,7 @@
 .POSIX:
 .SUFFIXES:
 
-all: test.yml
+all: release.yml test.yml
 
 .SUFFIXES: .m4 .yml
 .m4.yml:
