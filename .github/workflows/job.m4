@@ -77,7 +77,6 @@ ifelse(__SHELL, <{bash}>, <{dnl
             curl -fLOJ https://downloads.sourceforge.net/project/ezwinports/make-4.3-without-guile-w32-bin.zip"
           tar -f make-4.3-without-guile-w32-bin.zip -xvC "${{ runner.temp }}\make"
           echo ${{ runner.temp }}\make\bin>> %GITHUB_PATH%
-          echo MAKEVARS=SHELL=%COMSPEC%>> %GITHUB_ENV%
 }>)dnl
       - name: Get Markdown files
         run: make ifelse(__SHELL, <{cmd}>, <{SHELL=%COMSPEC% }>)source
@@ -85,7 +84,7 @@ ifelse(__SHELL, <{bash}>, <{dnl
 ifelse(__SHELL, <{bash}>, <{dnl
         run: |
           set +e
-          (! make $MAKEVARS -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep ^ERROR)
+          (! make -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep ^ERROR)
 }>, <{dnl
         run: make SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS% metacheck 2>&1 >nul | findstr /b ERROR && exit 1 & exit 0
 }>)dnl
