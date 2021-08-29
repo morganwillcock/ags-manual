@@ -14,7 +14,12 @@
 
   <div class="container">
     <header>
-      <label for="search_input">Search:</label>
+      <label class="toggle-control" for="dark_mode_toggle">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <span class="control"></span>
+      </label>
+      <script src="js/darkmode.js"></script>
+      <label class="search_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
       <ul id="search_results"></ul>
     </header>
@@ -63,6 +68,7 @@
 <ul>
 <li><a href="#room-functions-and-properties"><span><code>Room</code> functions and properties</span></a>
 <ul>
+<li><a href="#roomexists"><span><code>Room.Exists</code></span></a></li>
 <li><a href="#roomgetdrawingsurfaceforbackground"><span><code>Room.GetDrawingSurfaceForBackground</code></span></a></li>
 <li><a href="#roomgetproperty"><span><code>Room.GetProperty</code></span></a></li>
 <li><a href="#roomgettextproperty"><span><code>Room.GetTextProperty</code></span></a></li>
@@ -86,6 +92,20 @@
   <main>
 <section id="room-functions-and-properties" class="level2">
 <h2><a href="#room-functions-and-properties"><code>Room</code> functions and properties</a></h2>
+<section id="roomexists" class="level3">
+<h3><a href="#roomexists"><code>Room.Exists</code></a></h3>
+<pre><code>static bool Room.Exists(int room)
+</code></pre>
+<p>Returns true if the specified room exists in the game.</p>
+<p>Example:</p>
+<pre><code>if(Room.Exists(10))
+{
+  player.ChangeRoom(10);
+}
+</code></pre>
+<p>If room 10 is valid, go to that room.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+</section>
 <section id="roomgetdrawingsurfaceforbackground" class="level3">
 <h3><a href="#roomgetdrawingsurfaceforbackground"><code>Room.GetDrawingSurfaceForBackground</code></a></h3>
 <pre><code>static DrawingSurface* Room.GetDrawingSurfaceForBackground(optional int backgroundNumber)
@@ -304,7 +324,7 @@ Display(&quot;Message 1 says: %s&quot;, message1);
 
 
   <footer>
-    <p>Build: 01/26/21 22:11:30</p>
+    <p>Build: acc49110b34c518532d67073712cec810efdd2c5</p>
   </footer>
 
   <script src="js/search.js"></script>

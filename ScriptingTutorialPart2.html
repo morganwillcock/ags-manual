@@ -14,7 +14,12 @@
 
   <div class="container">
     <header>
-      <label for="search_input">Search:</label>
+      <label class="toggle-control" for="dark_mode_toggle">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <span class="control"></span>
+      </label>
+      <script src="js/darkmode.js"></script>
+      <label class="search_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
       <ul id="search_results"></ul>
     </header>
@@ -259,13 +264,14 @@ function hSignHome_Look()
 <h3><a href="#conclusion">Conclusion</a></h3>
 <p>We've covered some of the more advanced topics of scripting. I'm sure there's a lot of stuff I've forgotten to mention, so feel free to comment on it on the forums.</p>
 <p>Enjoy AGS!</p>
+<p>Also there is a <a href="acintro3.html">Scripting Tutorial - Part 3</a> or go back to the <a href="ScriptingTutorialPart1.html">First Scripting Tutorial</a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 01/26/21 22:11:29</p>
+    <p>Build: acc49110b34c518532d67073712cec810efdd2c5</p>
   </footer>
 
   <script src="js/search.js"></script>

@@ -14,7 +14,12 @@
 
   <div class="container">
     <header>
-      <label for="search_input">Search:</label>
+      <label class="toggle-control" for="dark_mode_toggle">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <span class="control"></span>
+      </label>
+      <script src="js/darkmode.js"></script>
+      <label class="search_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
       <ul id="search_results"></ul>
     </header>
@@ -63,6 +68,8 @@
 <ul>
 <li><a href="#system-functions-and-properties"><span><code>System</code> functions and properties</span></a>
 <ul>
+<li><a href="#systemlog"><span><code>System.Log</code></span></a></li>
+<li><a href="#systemsaveconfigtofile"><span><code>System.SaveConfigToFile</code></span></a></li>
 <li><a href="#systemaudiochannelcount"><span><code>System.AudioChannelCount</code></span></a></li>
 <li><a href="#systemaudiochannels"><span><code>System.AudioChannels</code></span></a></li>
 <li><a href="#systemcapslock"><span><code>System.CapsLock</code></span></a></li>
@@ -91,6 +98,25 @@
   <main>
 <section id="system-functions-and-properties" class="level2">
 <h2><a href="#system-functions-and-properties"><code>System</code> functions and properties</a></h2>
+<section id="systemlog" class="level3">
+<h3><a href="#systemlog"><code>System.Log</code></a></h3>
+<pre><code>static void System.Log(LogLevel level, const string format, ...)
+</code></pre>
+<p>Prints the message string in <code>format</code> to the log, with the defined LogLevel, to the group <code>script</code>.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="RuntimeEngine.html">The run-time engine</a>, <a href="StandardEnums.html#loglevel">LogLevel Enum</a></p>
+<hr />
+</section>
+<section id="systemsaveconfigtofile" class="level3">
+<h3><a href="#systemsaveconfigtofile"><code>System.SaveConfigToFile</code></a></h3>
+<pre><code>static void System.SaveConfigToFile()
+</code></pre>
+<p>Writes current engine settings to the player's configuration file, so that they may be applied next time the game is launched.</p>
+<p>This saves only the options that may be changed at runtime, such as translation and fullscreen/windowed graphic mode.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.1</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="File.html#fileopen">File.Open</a></p>
+<hr />
+</section>
 <section id="systemaudiochannelcount" class="level3">
 <h3><a href="#systemaudiochannelcount"><code>System.AudioChannelCount</code></a></h3>
 <pre><code>readonly static int System.AudioChannelCount;
@@ -420,7 +446,7 @@ else {
 
 
   <footer>
-    <p>Build: 01/26/21 22:11:35</p>
+    <p>Build: acc49110b34c518532d67073712cec810efdd2c5</p>
   </footer>
 
   <script src="js/search.js"></script>

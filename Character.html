@@ -14,7 +14,12 @@
 
   <div class="container">
     <header>
-      <label for="search_input">Search:</label>
+      <label class="toggle-control" for="dark_mode_toggle">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <span class="control"></span>
+      </label>
+      <script src="js/darkmode.js"></script>
+      <label class="search_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
       <ul id="search_results"></ul>
     </header>
@@ -1020,7 +1025,7 @@ while (cEgo.Animating) Wait(1);
 <pre><code>int Character.Baseline
 </code></pre>
 <p>Gets/sets the character's baseline. This allows you to set a specific base line for the character, which works similarly to walk-behind area and object baselines.</p>
-<p>The baseline can be from 1 to the height of the room (normally 200), or set it to 0 to go back to using the character's feet as the baseline.</p>
+<p>The baseline can be from 1 to the height of the room. Setting it to 0 will make character go back to using its y coordinate as the baseline.</p>
 <p>Example:</p>
 <pre><code>cEgo.Baseline = 120;
 </code></pre>
@@ -1658,7 +1663,7 @@ while (trans &lt; 100) {
 
 
   <footer>
-    <p>Build: 01/26/21 22:11:39</p>
+    <p>Build: acc49110b34c518532d67073712cec810efdd2c5</p>
   </footer>
 
   <script src="js/search.js"></script>

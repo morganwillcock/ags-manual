@@ -14,7 +14,12 @@
 
   <div class="container">
     <header>
-      <label for="search_input">Search:</label>
+      <label class="toggle-control" for="dark_mode_toggle">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <span class="control"></span>
+      </label>
+      <script src="js/darkmode.js"></script>
+      <label class="search_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
       <ul id="search_results"></ul>
     </header>
@@ -366,6 +371,7 @@ object[1].RemoveTint();
 object[1].SetView(5, 2, 0);
 </code></pre>
 <p>will change object 3's view to view number 14, and change object 1 to view 5, loop 2, frame 0.</p>
+<p><em>Note:</em> Since <strong>AGS 3.6.0</strong> and later versions, this function will also resets loop and frame to 0 by default if you don't specify their values.</p>
 <p><em>See Also:</em> <a href="Object.html#objectanimate">Object.Animate</a></p>
 <hr />
 </section>
@@ -774,7 +780,7 @@ while (trans &lt; 100) {
 
 
   <footer>
-    <p>Build: 01/26/21 22:11:29</p>
+    <p>Build: acc49110b34c518532d67073712cec810efdd2c5</p>
   </footer>
 
   <script src="js/search.js"></script>

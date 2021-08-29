@@ -14,7 +14,12 @@
 
   <div class="container">
     <header>
-      <label for="search_input">Search:</label>
+      <label class="toggle-control" for="dark_mode_toggle">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <span class="control"></span>
+      </label>
+      <script src="js/darkmode.js"></script>
+      <label class="search_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
       <ul id="search_results"></ul>
     </header>
@@ -135,13 +140,14 @@ TwoClickHandler.PopupDistance = 50;             // 50 pixels
 <pre><code>TwoClickHandler.Close();
 </code></pre>
 <p>Hide the inventory GUI if it being shown. If the inventory GUI is already hidden then this function does nothing. This would typically only be called by higher level GUI management functions which require the inventory GUI to be replaced or suppressed.</p>
+<p><em>See also</em>: <a href="Templates.html">Templates</a>, <a href="Settingupthegame.html">Setting up the game</a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 01/26/21 22:11:31</p>
+    <p>Build: acc49110b34c518532d67073712cec810efdd2c5</p>
   </footer>
 
   <script src="js/search.js"></script>

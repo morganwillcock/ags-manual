@@ -14,7 +14,12 @@
 
   <div class="container">
     <header>
-      <label for="search_input">Search:</label>
+      <label class="toggle-control" for="dark_mode_toggle">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <span class="control"></span>
+      </label>
+      <script src="js/darkmode.js"></script>
+      <label class="search_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
       <ul id="search_results"></ul>
     </header>
@@ -72,7 +77,7 @@
 <section id="introduction" class="level2">
 <h2><a href="#introduction">Introduction</a></h2>
 <p>Adventure Game Studio</p>
-<p>Copyright 1999-2011 Chris Jones and 2011-2020 various contributors</p>
+<p>Copyright 1999-2011 Chris Jones and 2011-2021 various contributors</p>
 <hr />
 <p>Welcome to AGS!</p>
 <p>Adventure Game Studio allows you to create your own point-and-click adventure games like the old Sierra and LucasArts classics.</p>
@@ -94,7 +99,7 @@
 
 
   <footer>
-    <p>Build: 01/26/21 22:11:30</p>
+    <p>Build: acc49110b34c518532d67073712cec810efdd2c5</p>
   </footer>
 
   <script src="js/search.js"></script>

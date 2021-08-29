@@ -14,7 +14,12 @@
 
   <div class="container">
     <header>
-      <label for="search_input">Search:</label>
+      <label class="toggle-control" for="dark_mode_toggle">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <span class="control"></span>
+      </label>
+      <script src="js/darkmode.js"></script>
+      <label class="search_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
       <ul id="search_results"></ul>
     </header>
@@ -68,7 +73,7 @@
   <main>
 <section id="copyright-and-terms-of-use" class="level2">
 <h2><a href="#copyright-and-terms-of-use">Copyright and terms of use</a></h2>
-<p>Copyright (c) 1999-2011 Chris Jones and 2011-2020 various contributors.</p>
+<p>Copyright (c) 1999-2011 Chris Jones and 2011-2021 various contributors.</p>
 <p>Adventure Game Studio is an open source software, its source code is available at:<br> <a href="https://github.com/adventuregamestudio/ags">https://github.com/adventuregamestudio/ags</a></p>
 <p>The software is provided under <a href="https://opensource.org/licenses/artistic-license-2.0.php">Artistic License 2.0</a>.</p>
 <p>THE SOFTWARE IS PROVIDED 'AS-IS' AND WITHOUT WARRANTY OF ANY KIND, EXPRESS, IMPLIED OR OTHERWISE, INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.</p>
@@ -87,7 +92,7 @@
 
 
   <footer>
-    <p>Build: 01/26/21 22:11:34</p>
+    <p>Build: acc49110b34c518532d67073712cec810efdd2c5</p>
   </footer>
 
   <script src="js/search.js"></script>
