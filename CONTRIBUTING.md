@@ -460,10 +460,22 @@ Git.
 
 2. Create a GitHub release
 
-   Within the GitHub release web interface create a new tag that
-   represents the release version. **You must ensure that the tag name
-   begins with a "v"**. For example, if the package version is "1.2.3"
-   use the tag name "v1.2.3".
+   This can be done in two ways but whichever method is used **you
+   must ensure that the new tag name begins with a "v"**. For example,
+   if the package version is "1.2.3" use the tag name "v1.2.3".
+   
+   The first method is via the GitHub web interface. Create a release
+   based on a new tag which matches the format described above. The CI
+   system will build and upload the release assets to the release you
+   have just created.
 
-   Once the release is created the CI system should build and upload
-   the release assets.
+   Alternatively, create an annotated tag in git which matches the
+   format described above:
+   
+   ```sh
+   git tag -a v1.2.3 -m "Release version 1.2.3"
+   ```
+
+   When this tag is pushed back the CI system will build the release
+   assets, create a GitHub release referencing this new tag, and
+   upload the release assets to it.
